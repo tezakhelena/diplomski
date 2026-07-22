@@ -5,7 +5,7 @@
 -- Dumped from database version 17.0
 -- Dumped by pg_dump version 17.0
 
--- Started on 2026-07-22 11:45:16 CEST
+-- Started on 2026-07-22 12:48:29 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -832,10 +832,8 @@ ALTER TABLE ONLY public.business_profiles ALTER COLUMN business_id SET DEFAULT n
 -- Data for Name: adoption_requests; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.adoption_requests (adoption_id, pet_ad_id, user_id, experience, environment, reason, created_at, ad_owner_id, is_evaluated, household_members, schedule, allergies, address, status_id, is_open) FROM stdin;
-25	101	3	...	Kuća i dvorište	\N	2026-07-22 08:59:26.782582	71	t	Za člana obitelji	Nisam zauzet	Nemam	Adresa	70	t
-26	102	3	Volim ljubimce	Kuća s ograđenim dvorištem	\N	2026-07-22 10:32:45.512988	72	t	Za sebe	Nisam zauzet	Ne postoji	Pavlinska 2, 42000 Varaždin, Hrvatska	70	t
-\.
+INSERT INTO public.adoption_requests (adoption_id, pet_ad_id, user_id, experience, environment, reason, created_at, ad_owner_id, is_evaluated, household_members, schedule, allergies, address, status_id, is_open) VALUES (25, 101, 3, '...', 'Kuća i dvorište', NULL, '2026-07-22 08:59:26.782582', 71, true, 'Za člana obitelji', 'Nisam zauzet', 'Nemam', 'Adresa', 70, true);
+INSERT INTO public.adoption_requests (adoption_id, pet_ad_id, user_id, experience, environment, reason, created_at, ad_owner_id, is_evaluated, household_members, schedule, allergies, address, status_id, is_open) VALUES (26, 102, 3, 'Volim ljubimce', 'Kuća s ograđenim dvorištem', NULL, '2026-07-22 10:32:45.512988', 72, true, 'Za sebe', 'Nisam zauzet', 'Ne postoji', 'Pavlinska 2, 42000 Varaždin, Hrvatska', 70, true);
 
 
 --
@@ -844,19 +842,17 @@ COPY public.adoption_requests (adoption_id, pet_ad_id, user_id, experience, envi
 -- Data for Name: attribute_types; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.attribute_types (id, name) FROM stdin;
-1	user_status
-2	ad_status
-3	pet_status
-4	lost_found_status
-5	animal_type
-6	adoption_status
-7	volunteer_status
-8	business_type
-9	inquiry_type
-10	volunteer_type
-11	block_reason
-\.
+INSERT INTO public.attribute_types (id, name) VALUES (1, 'user_status');
+INSERT INTO public.attribute_types (id, name) VALUES (2, 'ad_status');
+INSERT INTO public.attribute_types (id, name) VALUES (3, 'pet_status');
+INSERT INTO public.attribute_types (id, name) VALUES (4, 'lost_found_status');
+INSERT INTO public.attribute_types (id, name) VALUES (5, 'animal_type');
+INSERT INTO public.attribute_types (id, name) VALUES (6, 'adoption_status');
+INSERT INTO public.attribute_types (id, name) VALUES (7, 'volunteer_status');
+INSERT INTO public.attribute_types (id, name) VALUES (8, 'business_type');
+INSERT INTO public.attribute_types (id, name) VALUES (9, 'inquiry_type');
+INSERT INTO public.attribute_types (id, name) VALUES (10, 'volunteer_type');
+INSERT INTO public.attribute_types (id, name) VALUES (11, 'block_reason');
 
 
 --
@@ -865,55 +861,53 @@ COPY public.attribute_types (id, name) FROM stdin;
 -- Data for Name: attributes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.attributes (attribute_id, value, attribute_type, description) FROM stdin;
-11	Aktivan	1	Korisnički račun je aktivan
-12	U provjeri	1	Korisnički račun u provjeri
-13	Obustavljen	1	Korisnički račun je obustavljen
-21	Aktivan	2	Oglas je aktivan
-22	Blokiran	2	Oglas je blokiran
-23	Uspješno rješeno	2	Ljubimac je pronašao vlasnika
-31	Još luta	3	Ljubimac još luta
-32	U mojoj prisutnosti	3	Ljubimac je u prisutnosti oglasivača
-33	U skloništu	3	Ljubimac je u skloništu
-42	Pronađen	4	Pronađen ljubimac
-53	Ptica	5	Vrsta životinje
-24	U provjeri	2	Oglas je u provjeri
-43	Napušten	4	Napušten ljubimac
-25	U procesu udomljavanja	2	Oglas je u statusu udomljavanja
-61	Zahtjev zaprimljen	6	Oglašivač je zaprimio zahtjev
-62	U razmatranju	6	Oglašivač razmatra zahtjev
-63	Zahtjev odobren	6	Oglašivač je odobrio zahtjev
-64	Zahtjev otkazan	6	Podnositelj zahtjeva je otkazao zahtjev
-65	Zahtjev odbijen	6	Oglašivač je odbio zahtjev
-91	Tehnička podrška	9	Tip upita
-92	Pitanje o procesu udomljavanja	9	Tip upita
-67	Udomljavanje odobreno	6	Oglašivač odobrio udomljavanje
-93	Savjet o zdravlju ljubimca	9	Tip upita
-66	Rezultat procjene u tijeku	6	Rezultat procjene u tijeku
-94	Savjet o njezi ljubimca	9	Tip upita
-101	Briga u ljubimcima	10	Tip volontiranja
-102	Šetanje pasa	10	Tip volontiranja
-69	Potpisivanje ugovora	6	Sudionici potpisuju ugovor
-68	Udomljavanje odbijeno	6	Oglašivač odbio udomljavanje
-70	Proces završen	6	Proces uspješno završen
-41	Traži se	4	Izgubljen ljubimac
-71	Prijava poslana	7	Prijava za volontiranje poslana
-72	Prijava prihvaćena	7	Prijava za volontiranje prihvaćena
-73	Prijava odbijena	7	Prijava za volontiranje odbijena
-81	Veterinarska stanica	8	Tip poslovnog subjekta
-82	Udruga/Azil za ljubimce	8	Tip poslovnog subjekta
-83	Pet shopovi	8	Tip poslovnog subjekta
-84	Saloni za njegu životinja	8	Tip poslovnog subjekta
-85	Škole za trening i dresuru pasa	8	Tip poslovnog subjekta
-103	Spašavanje ljubimaca	10	Tip volontiranja
-111	Kršenja pravila platforme	11	Razlog blokiranja oglasa
-112	Zabrinutost za dobrobit životinje	11	Razlog blokiranja oglasa
-113	Sigurnosni problemi	11	Razlog blokiranja oglasa
-114	Nekoliko prijava od strane korisnika	11	Razlog blokiranja oglasa
-51	Pas	5	Vrsta životinje - Pas
-52	Mačka	5	Vrsta životinje - Mačka
-54	Ostalo	5	Vrsta životinje - Ostalo
-\.
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (11, 'Aktivan', 1, 'Korisnički račun je aktivan');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (12, 'U provjeri', 1, 'Korisnički račun u provjeri');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (13, 'Obustavljen', 1, 'Korisnički račun je obustavljen');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (21, 'Aktivan', 2, 'Oglas je aktivan');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (22, 'Blokiran', 2, 'Oglas je blokiran');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (23, 'Uspješno rješeno', 2, 'Ljubimac je pronašao vlasnika');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (31, 'Još luta', 3, 'Ljubimac još luta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (32, 'U mojoj prisutnosti', 3, 'Ljubimac je u prisutnosti oglasivača');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (33, 'U skloništu', 3, 'Ljubimac je u skloništu');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (42, 'Pronađen', 4, 'Pronađen ljubimac');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (53, 'Ptica', 5, 'Vrsta životinje');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (24, 'U provjeri', 2, 'Oglas je u provjeri');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (43, 'Napušten', 4, 'Napušten ljubimac');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (25, 'U procesu udomljavanja', 2, 'Oglas je u statusu udomljavanja');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (61, 'Zahtjev zaprimljen', 6, 'Oglašivač je zaprimio zahtjev');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (62, 'U razmatranju', 6, 'Oglašivač razmatra zahtjev');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (63, 'Zahtjev odobren', 6, 'Oglašivač je odobrio zahtjev');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (64, 'Zahtjev otkazan', 6, 'Podnositelj zahtjeva je otkazao zahtjev');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (65, 'Zahtjev odbijen', 6, 'Oglašivač je odbio zahtjev');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (91, 'Tehnička podrška', 9, 'Tip upita');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (92, 'Pitanje o procesu udomljavanja', 9, 'Tip upita');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (67, 'Udomljavanje odobreno', 6, 'Oglašivač odobrio udomljavanje');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (93, 'Savjet o zdravlju ljubimca', 9, 'Tip upita');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (66, 'Rezultat procjene u tijeku', 6, 'Rezultat procjene u tijeku');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (94, 'Savjet o njezi ljubimca', 9, 'Tip upita');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (101, 'Briga u ljubimcima', 10, 'Tip volontiranja');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (102, 'Šetanje pasa', 10, 'Tip volontiranja');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (69, 'Potpisivanje ugovora', 6, 'Sudionici potpisuju ugovor');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (68, 'Udomljavanje odbijeno', 6, 'Oglašivač odbio udomljavanje');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (70, 'Proces završen', 6, 'Proces uspješno završen');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (41, 'Traži se', 4, 'Izgubljen ljubimac');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (71, 'Prijava poslana', 7, 'Prijava za volontiranje poslana');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (72, 'Prijava prihvaćena', 7, 'Prijava za volontiranje prihvaćena');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (73, 'Prijava odbijena', 7, 'Prijava za volontiranje odbijena');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (81, 'Veterinarska stanica', 8, 'Tip poslovnog subjekta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (82, 'Udruga/Azil za ljubimce', 8, 'Tip poslovnog subjekta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (83, 'Pet shopovi', 8, 'Tip poslovnog subjekta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (84, 'Saloni za njegu životinja', 8, 'Tip poslovnog subjekta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (85, 'Škole za trening i dresuru pasa', 8, 'Tip poslovnog subjekta');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (103, 'Spašavanje ljubimaca', 10, 'Tip volontiranja');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (111, 'Kršenja pravila platforme', 11, 'Razlog blokiranja oglasa');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (112, 'Zabrinutost za dobrobit životinje', 11, 'Razlog blokiranja oglasa');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (113, 'Sigurnosni problemi', 11, 'Razlog blokiranja oglasa');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (114, 'Nekoliko prijava od strane korisnika', 11, 'Razlog blokiranja oglasa');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (51, 'Pas', 5, 'Vrsta životinje - Pas');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (52, 'Mačka', 5, 'Vrsta životinje - Mačka');
+INSERT INTO public.attributes (attribute_id, value, attribute_type, description) VALUES (54, 'Ostalo', 5, 'Vrsta životinje - Ostalo');
 
 
 --
@@ -922,50 +916,48 @@ COPY public.attributes (attribute_id, value, attribute_type, description) FROM s
 -- Data for Name: breeds; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.breeds (breed_id, name, species_id) FROM stdin;
-1	Labrador retriver	51
-2	Golden retriver	51
-3	Njemački ovčar	51
-4	Francuski bulldog	51
-5	Aljaški haski	51
-6	Aljaški malamut	51
-7	Boxer	51
-8	Doberman	51
-9	Bigl	51
-10	Border collie	51
-11	Rottweiler	51
-12	Akita Inu	51
-13	Američki bulldog	51
-14	Američki bully	51
-40	Pitbull terijer	51
-15	Stafordski terijer	51
-16	Australski ovčar	51
-17	Bernardinac	51
-18	Belgijski ovčar	51
-19	Bernski planinski pas	51
-20	Dalmatinac	51
-21	Chihuahua	51
-22	Bengalska mačka	52
-23	Birmanska mačka	52
-24	Britanska dugodlaka mačka	52
-25	Britanska kratkodlaka mačka	52
-26	Europska kratkodlaka mačka	52
-27	Himalajska mačka	52
-28	Japanski bobtail	52
-29	Mačka bez dlake	52
-30	Maine Coon	52
-31	Perzijska mačka	52
-32	Papiga tigrica	53
-33	Papiga Nimfa	53
-34	Zebice	53
-35	Kanarinci	53
-36	Papiga Rozela	53
-37	Papiga Žako	53
-42	Nema	54
-38	Zamorac	54
-39	Hrčak	54
-41	Nema	54
-\.
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (1, 'Labrador retriver', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (2, 'Golden retriver', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (3, 'Njemački ovčar', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (4, 'Francuski bulldog', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (5, 'Aljaški haski', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (6, 'Aljaški malamut', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (7, 'Boxer', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (8, 'Doberman', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (9, 'Bigl', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (10, 'Border collie', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (11, 'Rottweiler', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (12, 'Akita Inu', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (13, 'Američki bulldog', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (14, 'Američki bully', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (40, 'Pitbull terijer', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (15, 'Stafordski terijer', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (16, 'Australski ovčar', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (17, 'Bernardinac', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (18, 'Belgijski ovčar', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (19, 'Bernski planinski pas', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (20, 'Dalmatinac', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (21, 'Chihuahua', 51);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (22, 'Bengalska mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (23, 'Birmanska mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (24, 'Britanska dugodlaka mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (25, 'Britanska kratkodlaka mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (26, 'Europska kratkodlaka mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (27, 'Himalajska mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (28, 'Japanski bobtail', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (29, 'Mačka bez dlake', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (30, 'Maine Coon', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (31, 'Perzijska mačka', 52);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (32, 'Papiga tigrica', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (33, 'Papiga Nimfa', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (34, 'Zebice', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (35, 'Kanarinci', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (36, 'Papiga Rozela', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (37, 'Papiga Žako', 53);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (42, 'Nema', 54);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (38, 'Zamorac', 54);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (39, 'Hrčak', 54);
+INSERT INTO public.breeds (breed_id, name, species_id) VALUES (41, 'Nema', 54);
 
 
 --
@@ -974,10 +966,8 @@ COPY public.breeds (breed_id, name, species_id) FROM stdin;
 -- Data for Name: business_profiles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.business_profiles (user_id, oib, website, business_type_id, business_id) FROM stdin;
-71	85072986774	https://www.vetnoah.hr	81	4
-72	55548669267	https://sapica.com	82	5
-\.
+INSERT INTO public.business_profiles (user_id, oib, website, business_type_id, business_id) VALUES (71, '85072986774', 'https://www.vetnoah.hr', 81, 4);
+INSERT INTO public.business_profiles (user_id, oib, website, business_type_id, business_id) VALUES (72, '55548669267', 'https://sapica.com', 82, 5);
 
 
 --
@@ -986,9 +976,7 @@ COPY public.business_profiles (user_id, oib, website, business_type_id, business
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.comments (comment_id, pet_ad_id, user_id, content, created_at) FROM stdin;
-65	101	71	boook	2026-07-21 22:05:34.957726
-\.
+INSERT INTO public.comments (comment_id, pet_ad_id, user_id, content, created_at) VALUES (65, 101, 71, 'boook', '2026-07-21 22:05:34.957726');
 
 
 --
@@ -997,10 +985,8 @@ COPY public.comments (comment_id, pet_ad_id, user_id, content, created_at) FROM 
 -- Data for Name: contracts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.contracts (contract_id, adoption_id, file_name, uploaded_at, new_file_name, user_id, signed_status) FROM stdin;
-18	25	Ugovor-o-udomljenju.pdf	2026-07-22 09:02:44.639588	contract_25.pdf	71	2
-19	26	Ugovor-o-udomljenju.pdf	2026-07-22 10:33:41.843121	contract_26.pdf	72	2
-\.
+INSERT INTO public.contracts (contract_id, adoption_id, file_name, uploaded_at, new_file_name, user_id, signed_status) VALUES (18, 25, 'Ugovor-o-udomljenju.pdf', '2026-07-22 09:02:44.639588', 'contract_25.pdf', 71, 2);
+INSERT INTO public.contracts (contract_id, adoption_id, file_name, uploaded_at, new_file_name, user_id, signed_status) VALUES (19, 26, 'Ugovor-o-udomljenju.pdf', '2026-07-22 10:33:41.843121', 'contract_26.pdf', 72, 2);
 
 
 --
@@ -1009,29 +995,27 @@ COPY public.contracts (contract_id, adoption_id, file_name, uploaded_at, new_fil
 -- Data for Name: counties; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.counties (county_id, name) FROM stdin;
-1	Zagrebačka
-2	Krapinsko-zagorska
-3	Sisačko-moslavačka
-4	Karlovačka
-5	Varaždinska
-6	Koprivničko-križevačka
-7	Bjelovarsko-bilogorska
-8	Primorsko-goranska
-9	Ličko-senjska
-10	Virovitičko-podravska
-11	Požeško-slavonska
-12	Brodsko-posavska
-13	Zadarska
-14	Osječko-baranjska
-15	Šibensko-kninska
-16	Vukovarsko-srijemska
-17	Splitsko-dalmatinska
-18	Istarska
-19	Dubrovačko-neretvanska
-20	Međimurska
-21	Grad Zagreb
-\.
+INSERT INTO public.counties (county_id, name) VALUES (1, 'Zagrebačka');
+INSERT INTO public.counties (county_id, name) VALUES (2, 'Krapinsko-zagorska');
+INSERT INTO public.counties (county_id, name) VALUES (3, 'Sisačko-moslavačka');
+INSERT INTO public.counties (county_id, name) VALUES (4, 'Karlovačka');
+INSERT INTO public.counties (county_id, name) VALUES (5, 'Varaždinska');
+INSERT INTO public.counties (county_id, name) VALUES (6, 'Koprivničko-križevačka');
+INSERT INTO public.counties (county_id, name) VALUES (7, 'Bjelovarsko-bilogorska');
+INSERT INTO public.counties (county_id, name) VALUES (8, 'Primorsko-goranska');
+INSERT INTO public.counties (county_id, name) VALUES (9, 'Ličko-senjska');
+INSERT INTO public.counties (county_id, name) VALUES (10, 'Virovitičko-podravska');
+INSERT INTO public.counties (county_id, name) VALUES (11, 'Požeško-slavonska');
+INSERT INTO public.counties (county_id, name) VALUES (12, 'Brodsko-posavska');
+INSERT INTO public.counties (county_id, name) VALUES (13, 'Zadarska');
+INSERT INTO public.counties (county_id, name) VALUES (14, 'Osječko-baranjska');
+INSERT INTO public.counties (county_id, name) VALUES (15, 'Šibensko-kninska');
+INSERT INTO public.counties (county_id, name) VALUES (16, 'Vukovarsko-srijemska');
+INSERT INTO public.counties (county_id, name) VALUES (17, 'Splitsko-dalmatinska');
+INSERT INTO public.counties (county_id, name) VALUES (18, 'Istarska');
+INSERT INTO public.counties (county_id, name) VALUES (19, 'Dubrovačko-neretvanska');
+INSERT INTO public.counties (county_id, name) VALUES (20, 'Međimurska');
+INSERT INTO public.counties (county_id, name) VALUES (21, 'Grad Zagreb');
 
 
 --
@@ -1040,8 +1024,6 @@ COPY public.counties (county_id, name) FROM stdin;
 -- Data for Name: inquiries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.inquiries (inquiry_id, question, user_id, answer, responder_id, type, created_at, replied_at) FROM stdin;
-\.
 
 
 --
@@ -1050,9 +1032,7 @@ COPY public.inquiries (inquiry_id, question, user_id, answer, responder_id, type
 -- Data for Name: pet_ad_contact; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pet_ad_contact (contact_id, pet_ad_id, sender_id, receiver_id, subject, message, created_at, is_read, answer, replied_at) FROM stdin;
-5	102	3	72	Jel dostupan	Pozdrav, jel pas dostupan	2026-07-22 10:31:56.299998	f	\N	\N
-\.
+INSERT INTO public.pet_ad_contact (contact_id, pet_ad_id, sender_id, receiver_id, subject, message, created_at, is_read, answer, replied_at) VALUES (5, 102, 3, 72, 'Jel dostupan', 'Pozdrav, jel pas dostupan', '2026-07-22 10:31:56.299998', false, NULL, NULL);
 
 
 --
@@ -1061,8 +1041,6 @@ COPY public.pet_ad_contact (contact_id, pet_ad_id, sender_id, receiver_id, subje
 -- Data for Name: pet_ad_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pet_ad_history (history_id, pet_ad_id, changed_at, status_id, user_id, comment, rate, reason) FROM stdin;
-\.
 
 
 --
@@ -1071,12 +1049,10 @@ COPY public.pet_ad_history (history_id, pet_ad_id, changed_at, status_id, user_i
 -- Data for Name: pet_ad_pictures; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) FROM stdin;
-150	101	101_1.webp	t
-151	101	101_2.webp	f
-152	102	102_1.webp	t
-153	102	102_2.webp	f
-\.
+INSERT INTO public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) VALUES (150, 101, '101_1.webp', true);
+INSERT INTO public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) VALUES (151, 101, '101_2.webp', false);
+INSERT INTO public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) VALUES (152, 102, '102_1.webp', true);
+INSERT INTO public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) VALUES (153, 102, '102_2.webp', false);
 
 
 --
@@ -1085,10 +1061,8 @@ COPY public.pet_ad_pictures (picture_id, pet_ad_id, url, is_first) FROM stdin;
 -- Data for Name: pet_ads; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pet_ads (pet_ad_id, notes, created_at, expiration_date, category_id, status_id, user_id, county_id, pet_id, naslov, views, city, reward, generated_name) FROM stdin;
-101	U skloništu, ostavljen pred veterinarskom stanicom	2026-07-21	2026-08-20	43	23	71	1	73	\N	28	Zagreb	\N	101-43-12
-102	Nalazi se u skloništu	2026-07-22	2026-08-21	43	23	72	5	74	\N	18	Varaždin	\N	102-43-53
-\.
+INSERT INTO public.pet_ads (pet_ad_id, notes, created_at, expiration_date, category_id, status_id, user_id, county_id, pet_id, naslov, views, city, reward, generated_name) VALUES (101, 'U skloništu, ostavljen pred veterinarskom stanicom', '2026-07-21', '2026-08-20', 43, 23, 71, 1, 73, NULL, 28, 'Zagreb', NULL, '101-43-12');
+INSERT INTO public.pet_ads (pet_ad_id, notes, created_at, expiration_date, category_id, status_id, user_id, county_id, pet_id, naslov, views, city, reward, generated_name) VALUES (102, 'Nalazi se u skloništu', '2026-07-22', '2026-08-21', 43, 23, 72, 5, 74, NULL, 18, 'Varaždin', NULL, '102-43-53');
 
 
 --
@@ -1097,29 +1071,27 @@ COPY public.pet_ads (pet_ad_id, notes, created_at, expiration_date, category_id,
 -- Data for Name: pets; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) FROM stdin;
-71	2026-07-21	32	52	\N	\N	\N	\N	\N
-62	2026-07-12	31	52	M	M	22	\N	ddd
-72	2026-07-21	33	51	M	O	2	\N	Zlatna
-73	2026-07-20	33	51	M	O	2	\N	Zlatna
-74	2026-07-22	33	51	M	O	3	\N	Crna i smeđa
-63	2026-07-12	31	52	M	M	22	\N	aaaa
-64	2026-07-12	31	52	M	M	22	\N	aaaaaaa
-65	2026-07-13	31	53	Ž	M	33	\N	asdasd
-70	2026-07-20	31	51	\N	\N	\N	\N	\N
-69	2026-07-15	32	52	\N	\N	\N	\N	\N
-68	2026-07-15	33	53	\N	\N	\N	\N	\N
-67	2026-07-14	31	53	\N	\N	\N	\N	\N
-66	2026-07-14	31	52	\N	\N	\N	\N	\N
-54	2026-07-01	31	52	M	M	24	\N	plava
-55	2026-07-06	31	52	M	M	23	\N	bijela
-56	2026-07-07	32	51	M	M	13	\N	Boja
-57	2026-07-07	31	53	Ž	M	36	\N	Bijela
-58	2026-07-07	31	51	M	M	5	\N	Bijela
-59	2026-07-07	31	51	M	M	6	\N	Bijela
-60	2026-07-12	31	52	M	M	24	\N	sss
-61	2026-07-12	31	51	Ž	O	5	\N	ddd
-\.
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (71, '2026-07-21', 32, 52, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (62, '2026-07-12', 31, 52, 'M', 'M', 22, NULL, 'ddd');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (72, '2026-07-21', 33, 51, 'M', 'O', 2, NULL, 'Zlatna');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (73, '2026-07-20', 33, 51, 'M', 'O', 2, NULL, 'Zlatna');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (74, '2026-07-22', 33, 51, 'M', 'O', 3, NULL, 'Crna i smeđa');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (63, '2026-07-12', 31, 52, 'M', 'M', 22, NULL, 'aaaa');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (64, '2026-07-12', 31, 52, 'M', 'M', 22, NULL, 'aaaaaaa');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (65, '2026-07-13', 31, 53, 'Ž', 'M', 33, NULL, 'asdasd');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (70, '2026-07-20', 31, 51, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (69, '2026-07-15', 32, 52, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (68, '2026-07-15', 33, 53, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (67, '2026-07-14', 31, 53, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (66, '2026-07-14', 31, 52, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (54, '2026-07-01', 31, 52, 'M', 'M', 24, NULL, 'plava');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (55, '2026-07-06', 31, 52, 'M', 'M', 23, NULL, 'bijela');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (56, '2026-07-07', 32, 51, 'M', 'M', 13, NULL, 'Boja');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (57, '2026-07-07', 31, 53, 'Ž', 'M', 36, NULL, 'Bijela');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (58, '2026-07-07', 31, 51, 'M', 'M', 5, NULL, 'Bijela');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (59, '2026-07-07', 31, 51, 'M', 'M', 6, NULL, 'Bijela');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (60, '2026-07-12', 31, 52, 'M', 'M', 24, NULL, 'sss');
+INSERT INTO public.pets (pet_id, missing_date, status_id, species_id, gender, maturity, breed_id, name, fur_color) VALUES (61, '2026-07-12', 31, 51, 'Ž', 'O', 5, NULL, 'ddd');
 
 
 --
@@ -1128,13 +1100,11 @@ COPY public.pets (pet_id, missing_date, status_id, species_id, gender, maturity,
 -- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.reviews (review_id, rate, comment, user_id) FROM stdin;
-4	3	jdnjnwkjdnkwn d	\N
-5	5	wsSAAs	3
-6	2	\N	3
-7	\N	\N	3
-8	4	ssasas	3
-\.
+INSERT INTO public.reviews (review_id, rate, comment, user_id) VALUES (4, 3, 'jdnjnwkjdnkwn d', NULL);
+INSERT INTO public.reviews (review_id, rate, comment, user_id) VALUES (5, 5, 'wsSAAs', 3);
+INSERT INTO public.reviews (review_id, rate, comment, user_id) VALUES (6, 2, NULL, 3);
+INSERT INTO public.reviews (review_id, rate, comment, user_id) VALUES (7, NULL, NULL, 3);
+INSERT INTO public.reviews (review_id, rate, comment, user_id) VALUES (8, 4, 'ssasas', 3);
 
 
 --
@@ -1143,11 +1113,9 @@ COPY public.reviews (review_id, rate, comment, user_id) FROM stdin;
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.roles (role_id, name) FROM stdin;
-1	Administrator
-2	Korisnik
-3	Nepotpuni profil
-\.
+INSERT INTO public.roles (role_id, name) VALUES (1, 'Administrator');
+INSERT INTO public.roles (role_id, name) VALUES (2, 'Korisnik');
+INSERT INTO public.roles (role_id, name) VALUES (3, 'Nepotpuni profil');
 
 
 --
@@ -1156,73 +1124,71 @@ COPY public.roles (role_id, name) FROM stdin;
 -- Data for Name: user_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) FROM stdin;
-324	3	\N	2026-07-21 20:42:03.373963	3	Vaš oglas '83-42-323' je blokiran zbog mogućeg kršenja pravila platforme, kao što su dezinformacije o ljubimcu, iskorištavanje oglasa, etička kršenja.	1	114	\N
-328	71	Dodan komentar na oglasu '101-43-12'	2026-07-21 22:05:35.002543	71	\N	3	1	\N
-332	72	Izvršena verifikacija e-maila	2026-07-21 22:59:14.557828	72	Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.	1	10	\N
-337	3	Udomljavanje odobreno	2026-07-22 09:00:18.349136	3	Oglašivač je odobrio udomljavanje. Nakon što oglašivač pripremi svu dokumentaciju, slijedi potpisivanje ugovora.	1	22	101
-341	3	Zahtjev u razmatranju	2026-07-22 10:33:14.694897	3	Oglašivač je otvorio vaš zahtjev za udomljavanjem i trenutno ga razmatra. Molimo pričekajte daljnje obavijesti.	1	16	102
-212	3	Dodan komentar na oglasu '83-42-323'	2026-07-06 22:58:36.251041	3	\N	3	1	\N
-233	3	Dodan komentar na oglasu '86-41-25'	2026-07-09 17:38:06.514551	3	\N	3	1	\N
-211	3	Dodan oglas '83-42-323'	2026-07-06 22:17:44.275325	3	Vaš oglas '83-42-323' je uspješno objavljen!	1	3	\N
-213	3	Dodan oglas '84-42-313'	2026-07-07 11:24:06.482418	3	Vaš oglas '84-42-313' je uspješno objavljen!	1	3	\N
-214	3	Dodan oglas '85-41-336'	2026-07-07 14:07:24.237254	3	Vaš oglas '85-41-336' je uspješno objavljen!	1	3	\N
-215	3	Dodan oglas '86-41-25'	2026-07-07 15:09:12.177866	3	Vaš oglas '86-41-25' je uspješno objavljen!	1	3	\N
-216	3	Dodan oglas '87-41-26'	2026-07-07 15:14:22.814573	3	Vaš oglas '87-41-26' je uspješno objavljen!	1	3	\N
-234	3	Dosegnuto 100 pregleda na oglasu '84-42-313'	2026-07-10 22:40:09.66019	\N	Vaš oglas '84-42-313' je dosegao 100 pregleda!	1	2	\N
-235	3	Dosegnuto 100 pregleda na oglasu '85-41-336'	2026-07-10 23:54:00.020211	\N	Vaš oglas '85-41-336' je dosegao 100 pregleda!	1	2	\N
-325	71	Registracija izvršena '21.07.2026'	2026-07-21 21:02:34.123099	71	Uspješno ste se registrirali	1	9	\N
-329	72	Registracija izvršena '21.07.2026'	2026-07-21 22:22:58.21778	72	Uspješno ste se registrirali	1	9	\N
-333	71	Zahtjev za udomljavanjem.	2026-07-22 08:59:26.783397	71	Zaprimili ste zahtjev za udomljavanjem za napuštenog ljubimca kojeg ste objavili. Oglas je stavljen u status 'U procesu udomljavanja', a zahtjev možete vidjeti pod opcijom 'Zaprimljeni zahtjevi'.	1	15	101
-236	3	Dodan oglas '88-41-324'	2026-07-12 13:29:13.967925	3	Vaš oglas '88-41-324' je uspješno objavljen!	1	3	\N
-237	3	Dodan oglas '89-42-25'	2026-07-12 13:34:09.025961	3	Vaš oglas '89-42-25' je uspješno objavljen!	1	3	\N
-238	3	Dodan oglas '90-41-222'	2026-07-12 13:34:37.442773	3	Vaš oglas '90-41-222' je uspješno objavljen!	1	3	\N
-239	3	Dodan oglas '91-41-222'	2026-07-12 13:54:03.798384	3	Vaš oglas '91-41-222' je uspješno objavljen!	1	3	\N
-240	3	Dodan oglas '92-42-222'	2026-07-12 13:54:50.552867	3	Vaš oglas '92-42-222' je uspješno objavljen!	1	3	\N
-241	3	\N	2026-07-12 15:14:18.795227	3	Vaš oglas '90-41-222' je blokiran zbog mogućeg kršenja pravila platforme, kao što su neprikladan sadržaj, spam ili komercijalna upotreba.	1	5	\N
-338	3	Potpisivanje ugovora	2026-07-22 09:02:44.720661	3	Oglašivač je dodao ugovor za udomljavanje šapice, kojeg možete vidjeti na detaljima Vašeg zahtjeva za udomljavanje. Molimo potpišite ugovor kako bi završili proces. 	1	24	101
-342	3	Zahtjev odobren	2026-07-22 10:33:18.191783	3	Vaš zahtjev za udomljavanjem je odobren. Sljedeći koraci uključuju daljnju provjeru i dogovore za završetak procesa. 	1	18	102
-345	3	Potpisivanje ugovora	2026-07-22 10:33:41.859764	3	Oglašivač je dodao ugovor za udomljavanje šapice, kojeg možete vidjeti na detaljima Vašeg zahtjeva za udomljavanje. Molimo potpišite ugovor kako bi završili proces. 	1	24	102
-259	3	Dodan komentar na oglasu '92-42-222'	2026-07-12 22:43:35.236435	3	\N	3	1	\N
-263	3	Dodan komentar na oglasu '92-42-222'	2026-07-13 14:45:02.607581	3	\N	3	1	\N
-264	3	Dodan komentar na oglasu '87-41-26'	2026-07-13 14:45:14.459479	3	\N	3	1	\N
-266	3	Dodan oglas '93-41-333'	2026-07-13 15:46:15.190527	3	Vaš oglas '93-41-333' je uspješno objavljen!	1	3	\N
-326	71	Izvršena verifikacija e-maila	2026-07-21 21:02:47.832989	71	Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.	1	10	\N
-330	72	Izvršena verifikacija e-maila	2026-07-21 22:48:54.209355	72	Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.	1	10	\N
-334	3	Zahtjev u razmatranju	2026-07-22 09:00:07.843281	3	Oglašivač je otvorio vaš zahtjev za udomljavanjem i trenutno ga razmatra. Molimo pričekajte daljnje obavijesti.	1	16	101
-269	3	Dodan komentar na oglasu '92-42-222'	2026-07-13 20:31:39.967994	3	\N	3	1	\N
-270	3	Dodan komentar na oglasu '92-42-222'	2026-07-13 20:31:42.79456	3	\N	3	1	\N
-271	3	Dodan komentar na oglasu '93-41-333'	2026-07-13 21:15:48.127827	3	\N	3	1	\N
-336	3	Rezultat procjene u tijeku	2026-07-22 09:00:16.121543	3	Vaš razgovor i procjena s oglašivačem je obavljen. Sada čekamo konačnu potvrdu o mogućnosti udomljavanja. Bit ćete obaviješteni čim dobijemo odgovor.	1	17	101
-274	3	Dodan oglas '94-41-222'	2026-07-14 14:57:05.911405	3	Vaš oglas '94-41-222' je uspješno objavljen!	1	3	\N
-275	3	Dodan komentar na oglasu '94-41-222'	2026-07-15 08:41:30.206028	3	\N	3	1	\N
-339	72	Dodan oglas '102-43-53'	2026-07-22 10:30:45.896115	72	Vaš oglas '102-43-53' je uspješno objavljen!	1	3	\N
-343	3	Rezultat procjene u tijeku	2026-07-22 10:33:21.557096	3	Vaš razgovor i procjena s oglašivačem je obavljen. Sada čekamo konačnu potvrdu o mogućnosti udomljavanja. Bit ćete obaviješteni čim dobijemo odgovor.	1	17	102
-344	3	Udomljavanje odobreno	2026-07-22 10:33:25.161315	3	Oglašivač je odobrio udomljavanje. Nakon što oglašivač pripremi svu dokumentaciju, slijedi potpisivanje ugovora.	1	22	102
-280	3	Dodan oglas '95-42-636'	2026-07-15 12:33:10.053816	3	Vaš oglas '95-42-636' je uspješno objavljen!	1	3	\N
-281	3	Dodan oglas '96-43-236'	2026-07-15 12:35:47.743207	3	Vaš oglas '96-43-236' je uspješno objavljen!	1	3	\N
-282	3	Dodan oglas '97-43-223'	2026-07-15 12:52:12.181416	3	Vaš oglas '97-43-223' je uspješno objavljen!	1	3	\N
-283	3	Dodan komentar na oglasu '96-43-236'	2026-07-15 18:17:58.78216	3	\N	3	1	\N
-284	3	Dodan komentar na oglasu '96-43-236'	2026-07-15 18:18:17.701468	3	\N	3	1	\N
-285	3	Dosegnuto 100 pregleda na oglasu '88-41-324'	2026-07-15 19:37:34.76865	\N	Vaš oglas '88-41-324' je dosegao 100 pregleda!	1	2	\N
-287	3	Dosegnuto 100 pregleda na oglasu '92-42-222'	2026-07-15 21:47:16.364811	\N	Vaš oglas '92-42-222' je dosegao 100 pregleda!	1	2	\N
-291	3	Dosegnuto 100 pregleda na oglasu '87-41-26'	2026-07-15 23:38:34.621277	\N	Vaš oglas '87-41-26' je dosegao 100 pregleda!	1	2	\N
-292	3	Pitanja i odgovori	2026-07-16 10:53:00.275168	3	Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.	1	27	\N
-293	3	Pitanja i odgovori	2026-07-19 14:30:27.090694	3	Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.	1	27	\N
-297	3	Pitanja i odgovori	2026-07-19 15:30:26.497747	3	Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.	1	27	\N
-298	3	\N	2026-07-19 18:03:57.053364	3	Vaš oglas '94-41-222' je blokiran zbog nekoliko prijava od strane više korisnika	1	114	\N
-299	3	Dodan komentar na oglasu '96-43-236'	2026-07-19 23:54:04.686074	3	\N	3	1	\N
-300	3	Dodan komentar na oglasu '97-43-223'	2026-07-20 22:36:25.60335	3	\N	3	1	\N
-301	3	Dodan oglas '98-41-212'	2026-07-21 09:34:23.700794	3	Vaš oglas '98-41-212' je uspješno objavljen!	1	3	\N
-323	3	\N	2026-07-21 19:46:03.066044	3	Vaš oglas '93-41-333' je blokiran zbog mogućeg kršenja pravila platforme, kao što su neprikladan sadržaj, spam ili komercijalna upotreba.	1	114	\N
-327	71	Dodan oglas '101-43-12'	2026-07-21 22:01:19.249702	71	Vaš oglas '101-43-12' je uspješno objavljen!	1	3	\N
-331	72	Izvršena verifikacija e-maila	2026-07-21 22:49:12.066082	72	Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.	1	10	\N
-309	3	Dodan oglas '99-43-323'	2026-07-21 13:12:27.8089	3	Vaš oglas '99-43-323' je uspješno objavljen!	1	3	\N
-335	3	Zahtjev odobren	2026-07-22 09:00:13.968087	3	Vaš zahtjev za udomljavanjem je odobren. Sljedeći koraci uključuju daljnju provjeru i dogovore za završetak procesa. 	1	18	101
-312	3	\N	2026-07-21 13:50:49.696012	3	Vaš oglas '88-41-324' je blokiran zbog mogućeg kršenja pravila platforme, kao što su dezinformacije o ljubimcu, iskorištavanje oglasa, etička kršenja.	1	114	\N
-340	72	Zahtjev za udomljavanjem.	2026-07-22 10:32:45.513229	72	Zaprimili ste zahtjev za udomljavanjem za napuštenog ljubimca kojeg ste objavili. Oglas je stavljen u status 'U procesu udomljavanja', a zahtjev možete vidjeti pod opcijom 'Zaprimljeni zahtjevi'.	1	15	102
-346	3	Potpisivanje ugovora	2026-07-22 10:45:00.466856	3	Podnositelj zahtjeva je uspješno potpisao ugovor te Vam je ugovor vraćen radi Vašeg potpisa. Molimo da potpišete ugovor, nakon čega će proces udomljavanja bit završen.	1	29	102
-\.
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (324, 3, NULL, '2026-07-21 20:42:03.373963', 3, 'Vaš oglas ''83-42-323'' je blokiran zbog mogućeg kršenja pravila platforme, kao što su dezinformacije o ljubimcu, iskorištavanje oglasa, etička kršenja.', 1, 114, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (328, 71, 'Dodan komentar na oglasu ''101-43-12''', '2026-07-21 22:05:35.002543', 71, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (332, 72, 'Izvršena verifikacija e-maila', '2026-07-21 22:59:14.557828', 72, 'Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.', 1, 10, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (337, 3, 'Udomljavanje odobreno', '2026-07-22 09:00:18.349136', 3, 'Oglašivač je odobrio udomljavanje. Nakon što oglašivač pripremi svu dokumentaciju, slijedi potpisivanje ugovora.', 1, 22, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (341, 3, 'Zahtjev u razmatranju', '2026-07-22 10:33:14.694897', 3, 'Oglašivač je otvorio vaš zahtjev za udomljavanjem i trenutno ga razmatra. Molimo pričekajte daljnje obavijesti.', 1, 16, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (212, 3, 'Dodan komentar na oglasu ''83-42-323''', '2026-07-06 22:58:36.251041', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (233, 3, 'Dodan komentar na oglasu ''86-41-25''', '2026-07-09 17:38:06.514551', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (211, 3, 'Dodan oglas ''83-42-323''', '2026-07-06 22:17:44.275325', 3, 'Vaš oglas ''83-42-323'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (213, 3, 'Dodan oglas ''84-42-313''', '2026-07-07 11:24:06.482418', 3, 'Vaš oglas ''84-42-313'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (214, 3, 'Dodan oglas ''85-41-336''', '2026-07-07 14:07:24.237254', 3, 'Vaš oglas ''85-41-336'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (215, 3, 'Dodan oglas ''86-41-25''', '2026-07-07 15:09:12.177866', 3, 'Vaš oglas ''86-41-25'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (216, 3, 'Dodan oglas ''87-41-26''', '2026-07-07 15:14:22.814573', 3, 'Vaš oglas ''87-41-26'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (234, 3, 'Dosegnuto 100 pregleda na oglasu ''84-42-313''', '2026-07-10 22:40:09.66019', NULL, 'Vaš oglas ''84-42-313'' je dosegao 100 pregleda!', 1, 2, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (235, 3, 'Dosegnuto 100 pregleda na oglasu ''85-41-336''', '2026-07-10 23:54:00.020211', NULL, 'Vaš oglas ''85-41-336'' je dosegao 100 pregleda!', 1, 2, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (325, 71, 'Registracija izvršena ''21.07.2026''', '2026-07-21 21:02:34.123099', 71, 'Uspješno ste se registrirali', 1, 9, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (329, 72, 'Registracija izvršena ''21.07.2026''', '2026-07-21 22:22:58.21778', 72, 'Uspješno ste se registrirali', 1, 9, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (333, 71, 'Zahtjev za udomljavanjem.', '2026-07-22 08:59:26.783397', 71, 'Zaprimili ste zahtjev za udomljavanjem za napuštenog ljubimca kojeg ste objavili. Oglas je stavljen u status ''U procesu udomljavanja'', a zahtjev možete vidjeti pod opcijom ''Zaprimljeni zahtjevi''.', 1, 15, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (236, 3, 'Dodan oglas ''88-41-324''', '2026-07-12 13:29:13.967925', 3, 'Vaš oglas ''88-41-324'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (237, 3, 'Dodan oglas ''89-42-25''', '2026-07-12 13:34:09.025961', 3, 'Vaš oglas ''89-42-25'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (238, 3, 'Dodan oglas ''90-41-222''', '2026-07-12 13:34:37.442773', 3, 'Vaš oglas ''90-41-222'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (239, 3, 'Dodan oglas ''91-41-222''', '2026-07-12 13:54:03.798384', 3, 'Vaš oglas ''91-41-222'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (240, 3, 'Dodan oglas ''92-42-222''', '2026-07-12 13:54:50.552867', 3, 'Vaš oglas ''92-42-222'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (241, 3, NULL, '2026-07-12 15:14:18.795227', 3, 'Vaš oglas ''90-41-222'' je blokiran zbog mogućeg kršenja pravila platforme, kao što su neprikladan sadržaj, spam ili komercijalna upotreba.', 1, 5, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (338, 3, 'Potpisivanje ugovora', '2026-07-22 09:02:44.720661', 3, 'Oglašivač je dodao ugovor za udomljavanje šapice, kojeg možete vidjeti na detaljima Vašeg zahtjeva za udomljavanje. Molimo potpišite ugovor kako bi završili proces. ', 1, 24, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (342, 3, 'Zahtjev odobren', '2026-07-22 10:33:18.191783', 3, 'Vaš zahtjev za udomljavanjem je odobren. Sljedeći koraci uključuju daljnju provjeru i dogovore za završetak procesa. ', 1, 18, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (345, 3, 'Potpisivanje ugovora', '2026-07-22 10:33:41.859764', 3, 'Oglašivač je dodao ugovor za udomljavanje šapice, kojeg možete vidjeti na detaljima Vašeg zahtjeva za udomljavanje. Molimo potpišite ugovor kako bi završili proces. ', 1, 24, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (259, 3, 'Dodan komentar na oglasu ''92-42-222''', '2026-07-12 22:43:35.236435', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (263, 3, 'Dodan komentar na oglasu ''92-42-222''', '2026-07-13 14:45:02.607581', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (264, 3, 'Dodan komentar na oglasu ''87-41-26''', '2026-07-13 14:45:14.459479', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (266, 3, 'Dodan oglas ''93-41-333''', '2026-07-13 15:46:15.190527', 3, 'Vaš oglas ''93-41-333'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (326, 71, 'Izvršena verifikacija e-maila', '2026-07-21 21:02:47.832989', 71, 'Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.', 1, 10, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (330, 72, 'Izvršena verifikacija e-maila', '2026-07-21 22:48:54.209355', 72, 'Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.', 1, 10, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (334, 3, 'Zahtjev u razmatranju', '2026-07-22 09:00:07.843281', 3, 'Oglašivač je otvorio vaš zahtjev za udomljavanjem i trenutno ga razmatra. Molimo pričekajte daljnje obavijesti.', 1, 16, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (269, 3, 'Dodan komentar na oglasu ''92-42-222''', '2026-07-13 20:31:39.967994', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (270, 3, 'Dodan komentar na oglasu ''92-42-222''', '2026-07-13 20:31:42.79456', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (271, 3, 'Dodan komentar na oglasu ''93-41-333''', '2026-07-13 21:15:48.127827', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (336, 3, 'Rezultat procjene u tijeku', '2026-07-22 09:00:16.121543', 3, 'Vaš razgovor i procjena s oglašivačem je obavljen. Sada čekamo konačnu potvrdu o mogućnosti udomljavanja. Bit ćete obaviješteni čim dobijemo odgovor.', 1, 17, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (274, 3, 'Dodan oglas ''94-41-222''', '2026-07-14 14:57:05.911405', 3, 'Vaš oglas ''94-41-222'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (275, 3, 'Dodan komentar na oglasu ''94-41-222''', '2026-07-15 08:41:30.206028', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (339, 72, 'Dodan oglas ''102-43-53''', '2026-07-22 10:30:45.896115', 72, 'Vaš oglas ''102-43-53'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (343, 3, 'Rezultat procjene u tijeku', '2026-07-22 10:33:21.557096', 3, 'Vaš razgovor i procjena s oglašivačem je obavljen. Sada čekamo konačnu potvrdu o mogućnosti udomljavanja. Bit ćete obaviješteni čim dobijemo odgovor.', 1, 17, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (344, 3, 'Udomljavanje odobreno', '2026-07-22 10:33:25.161315', 3, 'Oglašivač je odobrio udomljavanje. Nakon što oglašivač pripremi svu dokumentaciju, slijedi potpisivanje ugovora.', 1, 22, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (280, 3, 'Dodan oglas ''95-42-636''', '2026-07-15 12:33:10.053816', 3, 'Vaš oglas ''95-42-636'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (281, 3, 'Dodan oglas ''96-43-236''', '2026-07-15 12:35:47.743207', 3, 'Vaš oglas ''96-43-236'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (282, 3, 'Dodan oglas ''97-43-223''', '2026-07-15 12:52:12.181416', 3, 'Vaš oglas ''97-43-223'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (283, 3, 'Dodan komentar na oglasu ''96-43-236''', '2026-07-15 18:17:58.78216', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (284, 3, 'Dodan komentar na oglasu ''96-43-236''', '2026-07-15 18:18:17.701468', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (285, 3, 'Dosegnuto 100 pregleda na oglasu ''88-41-324''', '2026-07-15 19:37:34.76865', NULL, 'Vaš oglas ''88-41-324'' je dosegao 100 pregleda!', 1, 2, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (287, 3, 'Dosegnuto 100 pregleda na oglasu ''92-42-222''', '2026-07-15 21:47:16.364811', NULL, 'Vaš oglas ''92-42-222'' je dosegao 100 pregleda!', 1, 2, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (291, 3, 'Dosegnuto 100 pregleda na oglasu ''87-41-26''', '2026-07-15 23:38:34.621277', NULL, 'Vaš oglas ''87-41-26'' je dosegao 100 pregleda!', 1, 2, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (292, 3, 'Pitanja i odgovori', '2026-07-16 10:53:00.275168', 3, 'Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.', 1, 27, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (293, 3, 'Pitanja i odgovori', '2026-07-19 14:30:27.090694', 3, 'Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.', 1, 27, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (297, 3, 'Pitanja i odgovori', '2026-07-19 15:30:26.497747', 3, 'Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori.', 1, 27, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (298, 3, NULL, '2026-07-19 18:03:57.053364', 3, 'Vaš oglas ''94-41-222'' je blokiran zbog nekoliko prijava od strane više korisnika', 1, 114, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (299, 3, 'Dodan komentar na oglasu ''96-43-236''', '2026-07-19 23:54:04.686074', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (300, 3, 'Dodan komentar na oglasu ''97-43-223''', '2026-07-20 22:36:25.60335', 3, NULL, 3, 1, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (301, 3, 'Dodan oglas ''98-41-212''', '2026-07-21 09:34:23.700794', 3, 'Vaš oglas ''98-41-212'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (323, 3, NULL, '2026-07-21 19:46:03.066044', 3, 'Vaš oglas ''93-41-333'' je blokiran zbog mogućeg kršenja pravila platforme, kao što su neprikladan sadržaj, spam ili komercijalna upotreba.', 1, 114, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (327, 71, 'Dodan oglas ''101-43-12''', '2026-07-21 22:01:19.249702', 71, 'Vaš oglas ''101-43-12'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (331, 72, 'Izvršena verifikacija e-maila', '2026-07-21 22:49:12.066082', 72, 'Uspješno ste verificirali svoju e-mail adresu. Sada možete dovršiti svoj profil u postavkama i kreirati oglase za izgubljene ili pronađene životinje, pregledavati oglase drugih korisnika i kontaktirati ih putem platforme.', 1, 10, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (309, 3, 'Dodan oglas ''99-43-323''', '2026-07-21 13:12:27.8089', 3, 'Vaš oglas ''99-43-323'' je uspješno objavljen!', 1, 3, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (335, 3, 'Zahtjev odobren', '2026-07-22 09:00:13.968087', 3, 'Vaš zahtjev za udomljavanjem je odobren. Sljedeći koraci uključuju daljnju provjeru i dogovore za završetak procesa. ', 1, 18, 101);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (312, 3, NULL, '2026-07-21 13:50:49.696012', 3, 'Vaš oglas ''88-41-324'' je blokiran zbog mogućeg kršenja pravila platforme, kao što su dezinformacije o ljubimcu, iskorištavanje oglasa, etička kršenja.', 1, 114, NULL);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (340, 72, 'Zahtjev za udomljavanjem.', '2026-07-22 10:32:45.513229', 72, 'Zaprimili ste zahtjev za udomljavanjem za napuštenog ljubimca kojeg ste objavili. Oglas je stavljen u status ''U procesu udomljavanja'', a zahtjev možete vidjeti pod opcijom ''Zaprimljeni zahtjevi''.', 1, 15, 102);
+INSERT INTO public.user_history (history_id, user_id, content, created_at, created_by, notification, is_read, type, pet_ad_id) VALUES (346, 3, 'Potpisivanje ugovora', '2026-07-22 10:45:00.466856', 3, 'Podnositelj zahtjeva je uspješno potpisao ugovor te Vam je ugovor vraćen radi Vašeg potpisa. Molimo da potpišete ugovor, nakon čega će proces udomljavanja bit završen.', 1, 29, 102);
 
 
 --
@@ -1231,19 +1197,17 @@ COPY public.user_history (history_id, user_id, content, created_at, created_by, 
 -- Data for Name: user_notification_preferences; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.user_notification_preferences (preference_id, user_id, type, receive_notification) FROM stdin;
-52	71	1	t
-53	71	11	t
-54	71	12	t
-55	72	1	t
-56	72	11	t
-57	72	12	t
-2	3	11	t
-3	3	12	t
-1	3	1	t
-47	3	\N	t
-51	3	2	f
-\.
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (52, 71, 1, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (53, 71, 11, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (54, 71, 12, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (55, 72, 1, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (56, 72, 11, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (57, 72, 12, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (2, 3, 11, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (3, 3, 12, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (1, 3, 1, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (47, 3, NULL, true);
+INSERT INTO public.user_notification_preferences (preference_id, user_id, type, receive_notification) VALUES (51, 3, 2, false);
 
 
 --
@@ -1252,11 +1216,9 @@ COPY public.user_notification_preferences (preference_id, user_id, type, receive
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users (user_id, password, username, status_id, registration_date, subject, last_login, first_name, last_name, profile_picture_url, county_id, city, role_id, email, phone_number, is_email_verified, is_contact_visible, private_user) FROM stdin;
-71	$2a$10$mX4ReaqqZ33sDjB//4yYPuBsS6KayCK/8Q85E7uQEKMirY8Jp6F1K	VetNoah	11	2026-07-21	\N	2026-07-22 09:35:10.006699	VetNoah	\N	user_71_1.jpg	1	Zagreb	2	xelaso4173@gicont.com	0987654321	t	f	f
-3	$2a$10$gqCtwxgjUC4OPJfbE1A5heUaMjpEnwnkksp2iUesgJB0YFgPoSrkS	helenatezak	11	2024-11-19	Fizička osoba	2026-07-22 10:39:29.630357	Helena	Težak	user_3_1.jpeg	4	Varaždin	1	tezak.helena@gmail.com	0998887777	t	f	t
-72	$2a$10$g8G0JGN6KvbxWT7DVwjJ9OM6R5YV1xGLpeYVlPO6EUGE5mvKofvyi	Šapica	11	2026-07-21	\N	2026-07-22 10:45:42.12329	Šapica	\N	user_72_1.jpg	5	Varaždin	2	xafohi9397@luckfeed.com	098766544	t	t	f
-\.
+INSERT INTO public.users (user_id, password, username, status_id, registration_date, subject, last_login, first_name, last_name, profile_picture_url, county_id, city, role_id, email, phone_number, is_email_verified, is_contact_visible, private_user) VALUES (71, '$2a$10$mX4ReaqqZ33sDjB//4yYPuBsS6KayCK/8Q85E7uQEKMirY8Jp6F1K', 'VetNoah', 11, '2026-07-21', NULL, '2026-07-22 09:35:10.006699', 'VetNoah', NULL, 'user_71_1.jpg', 1, 'Zagreb', 2, 'xelaso4173@gicont.com', '0987654321', true, false, false);
+INSERT INTO public.users (user_id, password, username, status_id, registration_date, subject, last_login, first_name, last_name, profile_picture_url, county_id, city, role_id, email, phone_number, is_email_verified, is_contact_visible, private_user) VALUES (3, '$2a$10$gqCtwxgjUC4OPJfbE1A5heUaMjpEnwnkksp2iUesgJB0YFgPoSrkS', 'helenatezak', 11, '2024-11-19', 'Fizička osoba', '2026-07-22 11:49:40.213873', 'Helena', 'Težak', 'user_3_1.jpeg', 4, 'Varaždin', 1, 'tezak.helena@gmail.com', '0998887777', true, false, true);
+INSERT INTO public.users (user_id, password, username, status_id, registration_date, subject, last_login, first_name, last_name, profile_picture_url, county_id, city, role_id, email, phone_number, is_email_verified, is_contact_visible, private_user) VALUES (72, '$2a$10$g8G0JGN6KvbxWT7DVwjJ9OM6R5YV1xGLpeYVlPO6EUGE5mvKofvyi', 'Šapica', 11, '2026-07-21', NULL, '2026-07-22 11:49:57.530681', 'Šapica', NULL, 'user_72_1.jpg', 5, 'Varaždin', 2, 'xafohi9397@luckfeed.com', '098766544', true, true, false);
 
 
 --
@@ -1265,8 +1227,6 @@ COPY public.users (user_id, password, username, status_id, registration_date, su
 -- Data for Name: volunteering; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.volunteering (volunteer_id, applicant_id, organization_id, volunteer_type, availability, motivation, applied_at, status_id, experience) FROM stdin;
-\.
 
 
 --
@@ -2061,7 +2021,7 @@ ALTER TABLE ONLY public.volunteering
     ADD CONSTRAINT volunteer_status_fk FOREIGN KEY (status_id) REFERENCES public.attributes(attribute_id);
 
 
--- Completed on 2026-07-22 11:45:16 CEST
+-- Completed on 2026-07-22 12:48:30 CEST
 
 --
 -- PostgreSQL database dump complete
