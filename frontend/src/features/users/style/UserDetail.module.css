@@ -1,0 +1,902 @@
+.full {
+    width: 100%;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 26px 0 46px;
+}
+
+.topRow {
+    margin-bottom: 22px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #667085;
+    font-size: 15px;
+}
+
+.breadcrumb svg,
+.breadcrumb strong {
+    color: #172033;
+}
+
+.heroCard,
+.tabsCard,
+.sectionCard {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid #ece8f8;
+}
+
+.heroCard {
+    margin-bottom: 22px;
+}
+
+.heroCard :global(.ant-card-body) {
+    padding: 34px 38px;
+}
+
+.userHeroLeft {
+    width: 100%;
+}
+
+.avatarWrap {
+    position: relative;
+    width: 118px;
+    height: 118px;
+    flex-shrink: 0;
+}
+
+.avatar {
+    box-shadow: 0 14px 32px rgba(24, 31, 56, 0.12);
+}
+
+.cameraButton {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 34px;
+    height: 34px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: #6c5cff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.userName {
+    margin: 0 !important;
+    color: #0b1026 !important;
+    font-size: 34px !important;
+    font-weight: 850 !important;
+    line-height: 1.15 !important;
+}
+
+.userEmail {
+    color: #475467;
+    font-size: 17px;
+}
+
+.statusTag,
+.roleTag {
+    border: none;
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-weight: 750;
+}
+
+.statusTag {
+    color: #16a34a;
+    background: #ecfdf3;
+}
+
+.statusTag span {
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.roleTag {
+    color: #5b4dff;
+    background: #f0edff;
+}
+
+.registeredText {
+    color: #667085;
+}
+
+.heroInfoBox {
+    width: 100%;
+    border: 1px solid #e7e3f4;
+    border-radius: 18px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.heroInfoItem {
+    padding: 22px 20px;
+    border-right: 1px solid #edf0f7;
+}
+
+.heroInfoItem:last-child {
+    border-right: none;
+}
+
+.heroInfoItem svg {
+    color: #5b4dff;
+    margin-bottom: 8px;
+}
+
+.heroInfoItem span {
+    display: block;
+    color: #667085;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.heroInfoItem strong {
+    display: block;
+    color: #172033;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.tabsCard {
+    margin-bottom: 22px;
+}
+
+.tabsCard :global(.ant-card-body) {
+    padding: 0;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.tabButton {
+    min-width: 180px;
+    height: 72px;
+    padding: 0 28px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: #344054;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.tabButton svg {
+    color: #42526b;
+}
+
+.tabButtonActive {
+    color: #5b4dff;
+    border-bottom-color: #5b4dff;
+    background: linear-gradient(180deg, rgba(108, 92, 255, 0.06), transparent);
+}
+
+.tabButtonActive svg {
+    color: #5b4dff;
+}
+
+.sectionCard {
+    margin-bottom: 22px;
+}
+
+.sectionCard :global(.ant-card-body) {
+    padding: 28px;
+}
+
+.summaryCard {
+    height: 100%;
+}
+
+.sectionHeader,
+.sectionHeaderSimple {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.sectionHeader {
+    justify-content: space-between;
+}
+
+.sectionTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sectionHeader h4,
+.sectionHeaderSimple h4 {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.sectionIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.linkButton {
+    color: #5b4dff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.infoRow {
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.infoRow:last-child {
+    border-bottom: none;
+}
+
+.infoIcon {
+    color: #42526b;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 3px;
+}
+
+.infoLabel {
+    display: block;
+    color: #667085;
+    margin-bottom: 5px;
+}
+
+.infoValue {
+    color: #0b1026;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.verifiedDot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.rightInfoCol {
+    border-left: 1px solid #edf0f7;
+    padding-left: 36px !important;
+}
+
+.summaryTile {
+    min-height: 112px;
+    padding: 20px;
+    border-radius: 17px;
+    border: 1px solid #e7e3f4;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.summaryIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.summaryGreen {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.summaryBlue {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.summaryOrange {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.summaryTile strong {
+    display: block;
+    color: #172033;
+    margin-bottom: 5px;
+}
+
+.summaryTile span {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.summaryTile p {
+    margin: 0;
+    color: #667085;
+}
+
+.greenText {
+    color: #16a34a;
+}
+
+.blueText {
+    color: #2563eb;
+}
+
+.redText {
+    color: #e11d48;
+}
+
+@media (max-width: 1000px) {
+    .heroInfoItem:nth-child(2) {
+        border-right: none;
+    }
+
+    .heroInfoItem:nth-child(1),
+    .heroInfoItem:nth-child(2) {
+        border-bottom: 1px solid #edf0f7;
+    }
+
+    .rightInfoCol {
+        border-left: none;
+        padding-left: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .topRow {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .topRow> :global(.ant-col:last-child) {
+        width: 100%;
+    }
+
+    .topRow :global(.ant-space) {
+        width: 100%;
+    }
+
+    .userHeroLeft {
+        align-items: flex-start !important;
+    }
+
+    .heroCard :global(.ant-card-body),
+    .sectionCard :global(.ant-card-body) {
+        padding: 22px;
+    }
+
+    .userName {
+        font-size: 28px !important;
+    }
+
+    .tabButton {
+        min-width: 155px;
+        height: 64px;
+        padding: 0 20px;
+    }
+
+    .sectionHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .userHeroLeft {
+        flex-direction: column;
+    }
+
+    .avatarWrap {
+        width: 104px;
+        height: 104px;
+    }
+
+    .avatar {
+        width: 104px !important;
+        height: 104px !important;
+    }
+
+    .heroInfoItem {
+        border-right: none;
+        border-bottom: 1px solid #edf0f7;
+    }
+
+    .heroInfoItem:last-child {
+        border-bottom: none;
+    }
+}
+
+.modalBody {
+    width: 100%;
+    padding: 26px 34px 0;
+    box-sizing: border-box;
+}
+
+.modernModal :global(.ant-modal-content) {
+    border-radius: 26px;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(24, 31, 56, 0.18);
+}
+
+.modalHeader {
+    position: relative;
+    padding: 30px 34px 22px;
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.modalHeader h3 {
+    margin: 0 0 6px !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.modalIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modalCloseButton:hover {
+    color: #5b4dff;
+    background: #f0edff;
+}
+
+.activityScroll {
+    max-height: 520px;
+    overflow-y: auto;
+    padding: 30px 34px;
+}
+
+.activityTimeline :global(.ant-timeline-item-tail) {
+    border-inline-start-color: #e7e3f4 !important;
+}
+
+.activityTimeline :global(.ant-timeline-item-head) {
+    background: #f0edff !important;
+    color: #5b4dff !important;
+}
+
+.activityItem {
+    padding: 0 0 18px;
+}
+
+.activityDate {
+    display: block;
+    color: #98a2b3;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.activityContent {
+    display: block;
+    color: #172033;
+    font-weight: 650;
+    line-height: 1.6;
+}
+
+.loadMoreWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.accountCard,
+.accountContentCard {
+    border-radius: 22px;
+    background: #ffffff !important;
+    border: 1px solid #ece8f8;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.06);
+}
+
+.accountContentCard :global(.ant-card-body),
+.accountCard :global(.ant-card-body) {
+    padding: 22px;
+}
+
+.accountMenuItem {
+    width: 100%;
+    min-height: 82px;
+    padding: 16px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.accountMenuItem:hover,
+.accountMenuItemActive {
+    border-color: #dcd7ff;
+    background: linear-gradient(135deg, #fbfaff, #f3f0ff);
+}
+
+.accountMenuItemActive {
+    box-shadow: inset 4px 0 0 #6c5cff;
+}
+
+.accountTabIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.accountMenuItem strong,
+.mobileAccountTab strong {
+    display: block;
+    color: #172033;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.accountMenuItem small,
+.mobileAccountTab small {
+    display: block;
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.accountContentHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.accountContentHeader h4 {
+    margin: 0 0 4px !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.accountContentCard :global(.ant-form-item-label > label),
+.accountCard :global(.ant-form-item-label > label) {
+    color: #172033;
+    font-weight: 700;
+}
+
+.accountContentCard :global(.ant-input),
+.accountContentCard :global(.ant-input-affix-wrapper),
+.accountContentCard :global(.ant-input-number),
+.accountContentCard :global(.ant-picker),
+.accountContentCard :global(.ant-select-selector),
+.accountCard :global(.ant-input),
+.accountCard :global(.ant-input-affix-wrapper),
+.accountCard :global(.ant-input-number),
+.accountCard :global(.ant-picker),
+.accountCard :global(.ant-select-selector) {
+    border-radius: 12px !important;
+    border-color: #d8d2ec !important;
+    background: #ffffff !important;
+}
+
+.accountContentCard :global(.ant-input:hover),
+.accountContentCard :global(.ant-input-affix-wrapper:hover),
+.accountContentCard :global(.ant-select-selector:hover),
+.accountCard :global(.ant-input:hover),
+.accountCard :global(.ant-input-affix-wrapper:hover),
+.accountCard :global(.ant-select-selector:hover) {
+    border-color: #a99cff !important;
+}
+
+.accountContentCard :global(.ant-input:focus),
+.accountContentCard :global(.ant-input-focused),
+.accountContentCard :global(.ant-select-focused .ant-select-selector),
+.accountCard :global(.ant-input:focus),
+.accountCard :global(.ant-input-focused),
+.accountCard :global(.ant-select-focused .ant-select-selector) {
+    border-color: #6c5cff !important;
+    box-shadow: 0 0 0 3px rgba(108, 92, 255, 0.12) !important;
+}
+
+.mobileAccountTab {
+    height: auto;
+    min-height: 82px;
+    padding: 16px !important;
+    border-radius: 18px;
+    border-color: #e7e3f4;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobileAccountTabContent {
+    text-align: left;
+}
+
+.modernModal :global(.ant-modal-content) {
+    border-radius: 26px;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(24, 31, 56, 0.18);
+}
+
+.modalHeader {
+    position: relative;
+    padding: 30px 34px 22px;
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.modalTitleBlock {
+    padding-right: 44px;
+}
+
+.modalHeader h3 {
+    margin: 0 0 6px !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.modalIcon,
+.modalDangerIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modalIcon {
+    background: #f0edff;
+    color: #5b4dff;
+}
+
+.modalDangerIcon {
+    background: #fff1f2;
+    color: #e11d48;
+}
+
+.modalCloseButton {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    background: #f7f8fc;
+    color: #667085;
+}
+
+.modalCloseButton:hover {
+    color: #5b4dff !important;
+    background: #f0edff !important;
+}
+
+.modalForm {
+    width: 100%;
+}
+
+.modalFormPadding {
+    padding: 26px 34px 0;
+}
+
+.modalForm :global(.ant-form-item-label > label) {
+    color: #172033;
+    font-weight: 700;
+}
+
+.modalForm :global(.ant-input),
+.modalForm :global(.ant-input-password),
+.modalForm :global(.ant-input-affix-wrapper),
+.modalForm :global(.ant-select-selector) {
+    border-radius: 13px !important;
+    border-color: #d8d2ec !important;
+    background: #ffffff !important;
+}
+
+.modalForm :global(.ant-input:hover),
+.modalForm :global(.ant-input-affix-wrapper:hover),
+.modalForm :global(.ant-select-selector:hover) {
+    border-color: #a99cff !important;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 22px 34px 30px;
+    box-sizing: border-box;
+}
+
+.modalActions :global(.ant-space-item) {
+    display: flex;
+}
+
+.modalCancelButton,
+.modalPrimaryButton,
+.modalDangerButton {
+    height: 46px;
+    border-radius: 14px;
+    font-weight: 750;
+    padding: 0 22px;
+}
+
+.modalCancelButton {
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    background: #fff;
+}
+
+.modalPrimaryButton {
+    border: none !important;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+    box-shadow: 0 14px 30px rgba(92, 77, 255, 0.22);
+}
+
+.modalDangerButton {
+    border: none !important;
+    background: linear-gradient(135deg, #e11d48, #fb7185) !important;
+    box-shadow: 0 14px 30px rgba(225, 29, 72, 0.2);
+}
+
+.warningBox {
+    width: 100%;
+    border-radius: 18px !important;
+    background: #fff7ed !important;
+    border: 1px solid #fed7aa !important;
+}
+
+.warningBox :global(.ant-card-body) {
+    padding: 18px !important;
+}
+
+.accountDangerZone {
+    margin-top: 26px;
+    padding: 22px;
+    border-radius: 20px;
+    background: #fff7f7;
+    border: 1px solid #ffe4e6;
+}
+
+.accountDangerZone h5 {
+    margin-top: 0 !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.accountDangerActions {
+    margin-top: 18px;
+}
+
+.dangerOutlineButton,
+.dangerSolidButton {
+    height: 46px;
+    border-radius: 14px;
+    font-weight: 750;
+}
+
+.dangerOutlineButton {
+    color: #e11d48;
+    border-color: #fecdd3;
+    background: #fff;
+}
+
+.dangerOutlineButton:hover {
+    color: #be123c !important;
+    border-color: #fb7185 !important;
+    background: #fff1f2 !important;
+}
+
+.dangerSolidButton {
+    border: none !important;
+    background: linear-gradient(135deg, #e11d48, #fb7185) !important;
+    box-shadow: 0 14px 30px rgba(225, 29, 72, 0.18);
+}
+
+@media (max-width: 600px) {
+    .modalHeader {
+        padding: 26px 24px 20px;
+    }
+
+    .modalForm {
+        padding: 22px 24px 0;
+    }
+
+    .warningBox {
+        margin: 22px 24px 0;
+    }
+
+    .modalActions {
+        padding: 22px 24px 26px;
+        flex-direction: column-reverse;
+    }
+
+    .modalActions :global(.ant-btn) {
+        width: 100%;
+    }
+}
+
+.accountSettings {
+    width: 50%;
+    padding: 20px;
+}
+
+@media (max-width: 1000px) {
+    .accountSettings {
+        width: 100%;
+    }
+}
+
+
+.accountMenuCard :global(.ant-menu-item) {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 8px !important;
+    margin: 4px 0 !important;
+    border-radius: 18px !important;
+}
+
+.accountMenuCard :global(.ant-menu-item-selected) {
+    background: linear-gradient(135deg, #fbfaff, #f3f0ff) !important;
+    box-shadow: inset 4px 0 0 #6c5cff !important;
+}

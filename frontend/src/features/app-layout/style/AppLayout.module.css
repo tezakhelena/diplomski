@@ -1,0 +1,165 @@
+.layout {
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+    background:
+        radial-gradient(circle at top left,
+            rgba(126, 87, 255, 0.1),
+            transparent 32%),
+        radial-gradient(circle at top right,
+            rgba(52, 211, 153, 0.08),
+            transparent 34%),
+        linear-gradient(135deg,
+            #fbfcff 0%,
+            #f6f8ff 45%,
+            #ffffff 100%);
+}
+
+.content {
+    min-height: calc(100vh - 78px);
+    flex: 1;
+    background: transparent;
+    padding: 28px 0 48px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+    align-items: center;
+
+    height: 78px;
+    padding: 0 46px;
+
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+    box-shadow: 0 10px 30px rgba(24, 31, 56, 0.04);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #4b2418;
+    font-size: 22px;
+    font-weight: 850;
+}
+
+.logo svg {
+    color: #6c5cff;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sider {
+    flex: 1;
+    min-width: 0;
+
+    border-bottom: none !important;
+    background: transparent !important;
+}
+
+.sider :global(.ant-menu-item) {
+    height: 78px;
+    padding-inline: 22px !important;
+
+    color: #111827;
+    font-weight: 600;
+    line-height: 78px;
+}
+
+.sider :global(.ant-menu-item::after) {
+    border-bottom: none !important;
+}
+
+.sider :global(.ant-menu-item:hover::after),
+.sider :global(.ant-menu-item-selected::after) {
+    border-bottom: 2px solid #6c5cff !important;
+}
+
+.sider :global(.ant-menu-item:hover),
+.sider :global(.ant-menu-item-selected) {
+    color: #5b4dff !important;
+}
+
+.sider :global(.ant-menu-title-content a) {
+    color: inherit;
+}
+
+.authMenuItem {
+    margin-left: 10px !important;
+}
+
+.loginButton {
+    height: 44px;
+    padding: 0 22px;
+
+    color: #5b4dff;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dcd7ff;
+    border-radius: 14px;
+
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(24, 31, 56, 0.06);
+}
+
+.loginButton:hover {
+    color: #ffffff !important;
+    background:
+        linear-gradient(135deg,
+            #5b4dff,
+            #7c65ff) !important;
+    border-color: transparent !important;
+}
+
+.userButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 44px;
+    color: #111827;
+}
+
+.mobileNavigation {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.mobileMenuButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileDrawer :global(.ant-drawer-header) {
+    border-bottom: 1px solid #eef0f6;
+}
+
+.drawerMenu {
+    width: 100%;
+    border-inline-end: none !important;
+}
+
+@media (max-width: 950px) {
+    .header {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+
+        height: 68px;
+        padding: 0 16px;
+    }
+
+    .content {
+        min-height: calc(100vh - 68px);
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+}

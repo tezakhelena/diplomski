@@ -1,0 +1,45 @@
+.tableCard {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 20px;
+}
+
+.tableCard :global(.ant-card-body) {
+    padding: 0;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.emailText {
+    font-size: 12px;
+}
+
+.roleAdmin,
+.roleModerator,
+.roleUser {
+    border-radius: 999px;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+}
+
+.roleAdmin {
+    color: #6c3cff;
+    background: #f0edff;
+}
+
+.roleModerator {
+    color: #2563eb;
+    background: #eef4ff;
+}
+
+.roleUser {
+    color: #475467;
+    background: #f2f4f7;
+}

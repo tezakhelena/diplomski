@@ -1,0 +1,31 @@
+
+export enum NotificationType {
+    Komentar = 1,
+    Pregledi = 2,
+    Obavijest = 3,
+    PrijavljenOglas = 4,
+    BlokiranOglas = 114,
+    KrsenjePravilaPlatforme = 111,
+    ZabrinutostZaDobrobitZivotinja = 112,
+    SigurnosniProblemi = 113,
+    
+    Registracija = 9,
+    VerifikacijaMaila = 10,
+    SlicniOglas = 11,
+    KorisnikZupanija = 12,
+    ObustavljenRacun = 13,
+    PonovnoAktiviranRacun = 14,
+    ZahtjevZaUdomljavanjem = 15,
+    ZahtjevURazmatranju = 16,
+    ObavljenaProcjena = 17,
+    ZahtjevOdobren = 18,
+    ZahtjevOdbijen = 19,
+    ZahtjevOtkazan = 20,
+    UdomljavanjeOdobreno = 22,
+    UdomljavanjeOdbijeno = 23,
+    PotpisivanjeUgovora = 24,
+    ZavrsenProces = 25,
+    PotpisivanjeUzivo = 26,
+    OdgovorNaUpit = 27,
+    PoslanUpit = 28
+}

@@ -1,0 +1,394 @@
+{
+    "list": {
+        "page": {
+            "title": "Svi oglasi",
+            "description": "Pronađi izgubljene, pronađene i ljubimce koji traže dom."
+        },
+        "resultLabel": "oglasa",
+        "searchPlaceholder": "Pretraži oglase...",
+        "filters": {
+            "species": "Vrsta životinje",
+            "category": "Kategorija",
+            "location": "Lokacija",
+            "county": "Županija",
+            "countyPlaceholder": "Odaberite županiju",
+            "breed": "Pasmina",
+            "breedPlaceholder": "Odaberite pasminu",
+            "gender": "Spol",
+            "maturity": "Starost",
+            "genderOptions": {
+                "male": "Mužjak",
+                "female": "Ženka",
+                "unknown": "Nepoznato"
+            },
+            "maturityOptions": {
+                "young": "Mladunče",
+                "adult": "Odrasli ljubimac"
+            }
+        },
+        "card": {
+            "imageAlt": "Ljubimac",
+            "unknownBreed": "Nepoznata pasmina",
+            "locationUnavailable": "Lokacija nije navedena"
+        }
+    },
+    "newAd": {
+        "page": {
+            "title": "Dodaj novi oglas",
+            "description": "Ispunite korake kako biste objavili oglas što brže i lakše."
+        },
+        "validation": {
+            "imageRequired": "Dodajte barem jednu sliku."
+        },
+        "steps": {
+            "speciesAndCategory": "Vrsta i kategorija",
+            "locationAndBasicData": "Lokacija i osnovni podaci",
+            "imagesAndDescription": "Slike i opis"
+        },
+        "firstStep": {
+            "speciesTitle": "1. Odaberi vrstu ljubimca",
+            "categoryTitle": "2. Odaberi kategoriju oglasa",
+            "nextButton": "Sljedeće",
+            "validation": {
+                "title": "Kreiranje oglasa",
+                "description": "Odabir vrste i kategorije je obavezan."
+            }
+        },
+        "secondStep": {
+            "title": "2. Lokacija i osnovni podaci",
+            "backButton": "Natrag",
+            "nextButton": "Sljedeće"
+        },
+        "thirdStep": {
+            "title": "3. Slike i opis",
+            "backButton": "Natrag",
+            "publishButton": "Objavi oglas"
+        },
+        "form": {
+            "title": "Osnovni podaci"
+        },
+        "location": {
+            "title": "Lokacija",
+            "countyLabel": "Županija",
+            "countyPlaceholder": "Odaberite županiju",
+            "cityLabel": "Grad",
+            "cityPlaceholder": "Unesite grad",
+            "petStatusLabel": "Status ljubimca",
+            "petStatusPlaceholder": "Gdje se ljubimac nalazi?"
+        },
+        "details": {
+            "title": "Dodatne informacije",
+            "description": "Napišite sve što bi moglo pomoći u pronalasku vašeg ljubimca.",
+            "placeholder": "Imate li dodatne napomene koje bi mogle pomoći? Na primjer omiljena mjesta, posebne navike ili znakovi prepoznavanja..."
+        },
+        "upload": {
+            "title": "Dodaj slike",
+            "description": "Dodajte barem jednu sliku kako bi drugi lakše prepoznali ljubimca.",
+            "action": "Kliknite ili povucite slike ovdje",
+            "formats": "JPG, PNG, WEBP ili HEIC do 10 MB po slici"
+        },
+        "similarAdsModal": {
+            "title": "Je li ovo vaš ljubimac?",
+            "description": "Pronašli smo slične oglase pod drugom kategorijom koji bi mogli odgovarati vašem ljubimcu.",
+            "confirmButton": "Svejedno objavi",
+            "cancelButton": "Odustani",
+            "info": "Ako vaš ljubimac nije među navedenim oglasima, možete nastaviti s objavom vašeg oglasa."
+        }
+    },
+    "editAd": {
+        "page": {
+            "title": "Uredi oglas",
+            "description": "Izmijenite detalje o vašem ljubimcu."
+        },
+        "menu": {
+            "basic": {
+                "title": "Osnovni podaci",
+                "description": "Uredite osnovne podatke oglasa."
+            },
+            "additional": {
+                "title": "Dodatni podaci",
+                "description": "Uredite dodatne podatke o oglasu."
+            }
+        },
+        "basicInformation": {
+            "title": "Osnovne informacije o oglasu",
+            "countyLabel": "Županija",
+            "countyPlaceholder": "Odaberite",
+            "cityLabel": "Grad"
+        },
+        "petDetails": {
+            "title": "Detalji ljubimca"
+        },
+        "additionalInformation": {
+            "title": "Dodatni podaci",
+            "notesLabel": "Opis / Napomene",
+            "notesPlaceholder": "Imate li dodatne napomene?"
+        },
+        "saveButton": "Spremi promjene",
+        "modal": {
+            "title": "Spremanje promjena",
+            "description": "Jeste li sigurni da želite spremiti izmjene na ovom oglasu?",
+            "confirmButton": "Spremi promjene",
+            "cancelButton": "Odustani"
+        }
+    },
+    "details": {
+        "header": {
+            "locationUnavailable": "Lokacija nije navedena",
+            "published": "Objavljeno {{date}}",
+            "reward": "Nagrada: {{reward}}"
+        },
+        "ownerCardTitle": "Vlasnik oglasa",
+        "actions": {
+            "sectionTitle": "Brze akcije",
+            "buttons": {
+                "edit": {
+                    "title": "Uredi oglas",
+                    "description": "Promijeni podatke"
+                },
+                "reunited": {
+                    "title": "Oglas riješen",
+                    "description": "Označi kao riješen"
+                },
+                "delete": {
+                    "title": "Izbriši oglas",
+                    "description": "Trajno ukloni oglas"
+                },
+                "adopt": {
+                    "title": "Želim udomiti",
+                    "description": "Pošalji zahtjev"
+                },
+                "contact": {
+                    "title": "Kontaktiraj",
+                    "description": "Pošalji poruku"
+                },
+                "report": {
+                    "title": "Prijavi oglas",
+                    "description": "Prijavi nepravilnost"
+                },
+                "block": {
+                    "title": "Blokiraj oglas",
+                    "description": "Admin akcija"
+                }
+            },
+            "tooltips": {
+                "edit": {
+                    "blocked": "Ovaj oglas se ne može uređivati jer je blokiran.",
+                    "resolved": "Ovaj oglas se ne može uređivati jer je već označen kao riješen."
+                },
+                "reunited": {
+                    "blocked": "Ova akcija nije moguća jer je oglas blokiran.",
+                    "resolved": "Ovaj oglas je već označen kao riješen."
+                },
+                "delete": {
+                    "inProgress": "Ovaj oglas se ne može izbrisati jer je trenutno u procesu udomljavanja."
+                },
+                "adopt": {
+                    "notAuthenticated": "Morate biti prijavljeni da biste poslali zahtjev za udomljavanje.",
+                    "blocked": "Zahtjev nije moguć jer je oglas blokiran.",
+                    "resolved": "Zahtjev nije moguć jer je oglas već riješen.",
+                    "inProgress": "Zahtjev nije moguć jer je oglas već u procesu udomljavanja."
+                },
+                "contact": {
+                    "notAuthenticated": "Morate biti prijavljeni da biste kontaktirali korisnika.",
+                    "blocked": "Kontaktiranje nije dostupno za blokirane oglase.",
+                    "resolved": "Kontaktiranje nije dostupno za riješene oglase."
+                },
+                "report": {
+                    "notAuthenticated": "Morate biti prijavljeni da biste prijavili oglas.",
+                    "resolved": "Ovaj oglas se ne može prijaviti jer je riješen.",
+                    "inProgress": "Ovaj oglas se ne može prijaviti jer je u procesu udomljavanja."
+                },
+                "block": {
+                    "notAuthenticated": "Morate biti prijavljeni.",
+                    "resolved": "Ovaj oglas se ne može blokirati jer je već riješen.",
+                    "inProgress": "Ovaj oglas se ne može blokirati jer je u procesu udomljavanja.",
+                    "blocked": "Ovaj oglas je već blokiran."
+                }
+            },
+            "modals": {
+                "report": {
+                    "title": "Prijaviti oglas?",
+                    "description": "Odaberite razlog prijave i po potrebi dodajte kratko objašnjenje.",
+                    "confirmButton": "Prijavi oglas"
+                },
+                "block": {
+                    "title": "Blokirati oglas?",
+                    "description": "Oglas više neće biti vidljiv korisnicima. Odaberite razlog blokiranja.",
+                    "confirmButton": "Blokiraj oglas"
+                },
+                "reunited": {
+                    "title": "Ljubimac je pronađen?",
+                    "description": "Označite oglas kao riješen i podijelite kratko iskustvo s aplikacijom.",
+                    "confirmButton": "Spremi"
+                },
+                "contact": {
+                    "title": "Kontaktiraj objavitelja",
+                    "description": "Pošaljite poruku objavitelju u vezi ovog oglasa.",
+                    "confirmButton": "Pošalji poruku"
+                },
+                "delete": {
+                    "title": "Obrisati oglas?",
+                    "description": "Ova radnja je trajna i oglas više neće biti dostupan u aplikaciji.",
+                    "confirmButton": "Obriši oglas",
+                    "cancelButton": "Odustani"
+                }
+            }
+        },
+        "adInfo": {
+            "title": "Osnovne informacije o oglasu",
+            "code": "Šifra oglasa",
+            "published": "Objavljeno",
+            "views": "Pregledi",
+            "viewsValue": "{{count}} puta"
+        },
+        "description": {
+            "title": "Opis oglasa",
+            "empty": "Nema opisa oglasa."
+        },
+        "missingInfo": {
+            "lostTitle": "Informacije o nestanku",
+            "foundTitle": "Informacije o pronalasku",
+            "location": "Lokacija",
+            "petStatus": "Status ljubimca",
+            "lostDate": "Datum nestanka",
+            "foundDate": "Datum pronalaska"
+        },
+        "petInfo": {
+            "title": "Informacije o ljubimcu",
+            "species": "Vrsta",
+            "breed": "Pasmina",
+            "gender": "Spol",
+            "maturity": "Starost",
+            "furColor": "Boja krzna",
+            "status": "Status",
+            "maturityValues": {
+                "adult": "Odrasli",
+                "young": "Mladunče"
+            }
+        },
+        "similarAds": {
+            "title": "Slični oglasi",
+            "viewAll": "Pogledaj sve oglase",
+            "empty": "Nema sličnih oglasa."
+        }
+    },
+    "forms": {
+        "basicData": {
+            "breed": {
+                "label": "Pasmina",
+                "placeholder": "Odaberite pasminu"
+            },
+            "date": {
+                "label": "Datum",
+                "placeholder": "Datum",
+                "validationLabel": "Datum nestanka"
+            },
+            "furColor": {
+                "label": "Boja krzna",
+                "placeholder": "Boja krzna",
+                "validationLabel": "Boja krzna"
+            },
+            "maturity": {
+                "label": "Zrelost ljubimca",
+                "placeholder": "Odaberite zrelost",
+                "validationLabel": "Zrelost",
+                "options": {
+                    "young": "Mladunče",
+                    "adult": "Odrasli ljubimac"
+                }
+            },
+            "gender": {
+                "label": "Spol",
+                "placeholder": "Odaberite spol",
+                "validationLabel": "Spol",
+                "options": {
+                    "male": "Mužjak",
+                    "female": "Ženka",
+                    "unknown": "Nepoznato"
+                }
+            },
+            "reward": {
+                "label": "Nagrada",
+                "placeholder": "Unesite nagradu"
+            }
+        },
+        "contactOwner": {
+            "subject": {
+                "label": "Naslov",
+                "placeholder": "Naslov poruke",
+                "validationLabel": "Naslov"
+            },
+            "message": {
+                "label": "Poruka",
+                "placeholder": "Vaša poruka...",
+                "validationRequiredLabel": "Poruka",
+                "validationMaxLengthLabel": "Poruka"
+            }
+        },
+        "blockAd": {
+            "reasonLabel": "Razlog blokiranja",
+            "reasonPlaceholder": "Odaberite razlog blokiranja"
+        },
+        "reportAd": {
+            "reasonLabel": "Razlog prijave",
+            "reasonPlaceholder": "Odaberite razlog prijave",
+            "comment": {
+                "label": "Komentar",
+                "validationLabel": "Komentar"
+            }
+        },
+        "reunited": {
+            "ratingLabel": "Kako biste ocijenili aplikaciju?",
+            "commentLabel": "Podijelite svoje iskustvo"
+        }
+    },
+    "adminTable": {
+        "columns": {
+            "ad": "Oglas",
+            "lastReceivedReport": "Zadnja zaprimljena prijava",
+            "lastBlock": "Zadnja blokada",
+            "reportCount": "Broj prijava",
+            "adAuthor": "Autor oglasa",
+            "blockReason": "Razlog blokiranja",
+            "activate": "Aktiviraj"
+        },
+        "reportCount_one": "{{count}} prijava",
+        "reportCount_few": "{{count}} prijave",
+        "reportCount_other": "{{count}} prijava",
+        "activateButton": "Ponovno aktiviraj",
+        "detailsButton": "Detalji",
+        "suspendedAccountTooltip": "Oglas se ne može aktivirati dok je korisnički račun obustavljen.",
+        "suspendedAccountReason": "Obustavljen korisnički račun"
+    },
+    "notifications": {
+        "create": {
+            "title": "Objava oglasa",
+            "success": "Oglas je uspješno objavljen.",
+            "error": "Došlo je do pogreške prilikom objave oglasa."
+        },
+        "update": {
+            "title": "Ažuriranje oglasa",
+            "success": "Oglas je uspješno ažuriran.",
+            "error": "Došlo je do pogreške prilikom ažuriranja oglasa."
+        },
+        "delete": {
+            "title": "Brisanje oglasa",
+            "success": "Oglas je uspješno obrisan.",
+            "error": "Došlo je do pogreške prilikom brisanja oglasa."
+        },
+        "statusChange": {
+            "title": "Promjena statusa oglasa",
+            "success": "Uspješno ste promijenili status oglasa.",
+            "error": "Došlo je do pogreške prilikom promjene statusa oglasa."
+        },
+        "fetch": {
+            "adsTitle": "Neuspješan dohvat oglasa",
+            "adsError": "Došlo je do pogreške prilikom dohvata oglasa.",
+            "detailsTitle": "Neuspješan dohvat detalja",
+            "detailsError": "Došlo je do pogreške prilikom dohvata detalja oglasa.",
+            "latestAdsError": "Došlo je do pogreške prilikom dohvata najnovijih oglasa."
+        }
+    },
+    "searchInfoTooltip": "Možete pretraživati po: nazivu županije, kategorije, pasmine, gradu, šifri ili vrsti životinje."
+}

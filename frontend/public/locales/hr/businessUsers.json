@@ -1,0 +1,30 @@
+{
+  "title": "Organizacije",
+  "description": "Pronađite udruge, azile, veterinarske stanice i druge pravne osobe.",
+  "stats": {
+    "all": {
+      "title": "Sve organizacije",
+      "desc": "Ukupno registriranih"
+    },
+    "shelter": {
+      "title": "Udruge i azili",
+      "desc": "Briga o životinjama"
+    },
+    "vet": {
+      "title": "Veterinarske stanice",
+      "desc": "Veterinarske usluge"
+    },
+    "salon": {
+      "title": "Saloni za njegu",
+      "desc": "Njega ljubimaca"
+    }
+  },
+  "header": {
+    "title": "Pregled organizacija",
+    "subtitle": "Pregledajte sve organizacije i pravne osobe na platformi."
+  },
+  "searchPlaceholder": "Pretraži organizacije...",
+  "filterPlaceholder": "Sve vrste",
+  "empty": "Nema organizacija za prikaz.",
+  "searchInfoTooltip": "Možete pretraživati po: imenu, prezimenu, korisničkom imenu, emailu, tipu subjekta ili OIB-u."
+}

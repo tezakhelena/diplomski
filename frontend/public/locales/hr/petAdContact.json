@@ -1,0 +1,61 @@
+{
+    "container": {
+        "title": "Kontaktni upit",
+        "description": "Pregled poruke vezane uz oglas.",
+        "sender": "Pošiljatelj",
+        "receiver": "Primatelj"
+    },
+    "card": {
+        "status": {
+            "answered": "Odgovoreno",
+            "pendingYourAnswer": "Čeka vaš odgovor",
+            "pending": "Čeka odgovor"
+        },
+        "new": "Novo"
+    },
+    "detailContent": {
+        "sentDate": "Poslano: {{date}}",
+        "replyTitle": "Odgovor",
+        "replyStatus": "Odgovoreno",
+        "repliedAt": "Odgovoreno: {{date}}",
+        "sendReplyTitle": "Pošalji odgovor",
+        "sendReplyButton": "Pošalji odgovor",
+        "replyPlaceholder": "Napišite odgovor...",
+        "awaitingResponse": "Čeka se odgovor objavitelja"
+    },
+    "list": {
+        "title": "Kontaktni upiti",
+        "description": "Pregled poruka vezanih uz vaše oglase.",
+        "stats": {
+            "received": "Zaprimljeno",
+            "receivedDesc": "Poruke koje su vam poslali korisnici",
+            "sent": "Poslano",
+            "sentDesc": "Poruke koje ste poslali objaviteljima"
+        },
+        "tabs": {
+            "received": "Zaprimljeno",
+            "sent": "Poslano"
+        },
+        "filterPlaceholder": "Pretraži kontaktne upite...",
+        "empty": "Nema kontaktnih upita za prikaz."
+    },
+    "notifications": {
+        "success": {
+            "sent": "Poruka poslana",
+            "sentDesc": "Uspješno ste kontaktirali objavitelja oglasa. Poruku možete vidjeti u pretincu 'Razgovori'.",
+            "replied": "Odgovor poslan",
+            "repliedDesc": "Uspješno ste odgovorili na kontaktni upit."
+        },
+        "error": {
+            "send": "Slanje poruke",
+            "sendDesc": "Došlo je do pogreške prilikom slanja poruke.",
+            "reply": "Slanje odgovora",
+            "replyDesc": "Došlo je do pogreške prilikom slanja odgovora.",
+            "fetchMessage": "Neuspješan dohvat poruke",
+            "fetchMessageDesc": "Došlo je do pogreške prilikom dohvata poruka.",
+            "fetchDetail": "Neuspješan dohvat detalja",
+            "fetchDetailDesc": "Došlo je do pogreške prilikom dohvata detalja poruka."
+        }
+    },
+    "searchInfoTooltip": "Možete pretraživati po: naslovu, poruci, korisničkim imenima i šifri oglasa."
+}

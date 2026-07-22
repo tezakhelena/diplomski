@@ -1,0 +1,166 @@
+.page {
+    min-height: 100vh;
+    padding: 34px 0 46px;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.headerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(92, 77, 255, 0.22);
+}
+
+.title {
+    margin: 0 !important;
+    color: #0b1026 !important;
+    font-size: 38px !important;
+}
+
+.subtitle {
+    color: #667085;
+    font-size: 16px;
+}
+
+.cardHeader {
+    color: #172033;
+}
+
+.cardHeader svg,
+.activeFiltersHeader svg {
+    color: #5b4dff;
+}
+
+.filterForm :global(.ant-form-item) {
+    margin-bottom: 16px;
+}
+
+.filterForm :global(.ant-form-item-label) {
+    padding-bottom: 6px;
+}
+
+.filterForm :global(.ant-form-item-label > label) {
+    color: #172033;
+}
+
+.resultBox {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 66px;
+    padding: 18px;
+    color: #5b4dff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f4f1ff, #fbfaff);
+    border-radius: 16px;
+}
+
+.activeFiltersHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.activeFiltersHeader>span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #6c5cff;
+    font-weight: 700;
+    background: #f0edff;
+    border-radius: 50%;
+}
+
+.activeFilterBox {
+    padding: 14px;
+    background: #f8f9ff;
+    border: 1px solid #edf0f7;
+    border-radius: 16px;
+}
+
+.activeFilterTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.removeFilterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #667085;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.removeFilterButton:hover {
+    color: #5b4dff;
+}
+
+.activeFilterTag {
+    padding: 5px 10px;
+    color: #5b4dff;
+    background: #edeaff;
+    border: none;
+    border-radius: 999px;
+}
+
+.infoBox {
+    padding: 16px;
+    color: #667085;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f4f1ff, #fbfaff);
+    border-radius: 14px;
+}
+
+.toolbar {
+    width: 100%;
+}
+
+.searchInput {
+    flex: 1;
+}
+.sortSelect {
+    min-width: 190px;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding: 24px 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .title {
+        font-size: 32px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .toolbar {
+        flex-direction: column;
+    }
+
+    .sortSelect {
+        width: 100%;
+    }
+}

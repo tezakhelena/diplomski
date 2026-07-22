@@ -1,0 +1,45 @@
+{
+    "description": {
+        "detailsLink": "Provjeri detalje oglasa",
+        "moreInfo": "Saznaj više",
+        "appFooter": "Hvala što koristite našu platformu i pomažete zajednici ljubitelja životinja!",
+        "team": "Vaš tim aplikacije LostPaw."
+    },
+    "page": {
+        "title": "Notifikacije",
+        "description": "Pratite važne obavijesti na jednom mjestu.",
+        "stats": {
+            "allTitle": "Sve notifikacije",
+            "allDesc": "Sve dobivene obavijesti",
+            "unreadTitle": "Nepročitano",
+            "unreadDesc": "Obavijesti koje čekaju"
+        },
+        "tabs": {
+            "all": "Sve",
+            "unread": "Nepročitano"
+        },
+        "deleteButton": "Obriši sve",
+        "empty": "Nema notifikacija za prikaz."
+    },
+    "modal": {
+        "title": "Obrisati sve notifikacije?",
+        "description": "Sve notifikacije bit će trajno uklonjene.",
+        "confirm": "Obriši sve"
+    },
+    "notifications": {
+        "success": {
+            "read": "Obavijesti pročitane",
+            "readDesc": "Sve obavijesti označene su kao pročitane.",
+            "deleted": "Obavijesti obrisane",
+            "deletedDesc": "Sve obavijesti uspješno su obrisane."
+        },
+        "error": {
+            "markRead": "Označavanje obavijesti",
+            "markReadDesc": "Došlo je do pogreške prilikom označavanja obavijesti.",
+            "delete": "Brisanje obavijesti",
+            "deleteDesc": "Došlo je do pogreške prilikom brisanja obavijesti.",
+            "fetch": "Neuspješan dohvat obavijesti",
+            "fetchDesc": "Došlo je do pogreške prilikom dohvata obavijesti."
+        }
+    }
+}

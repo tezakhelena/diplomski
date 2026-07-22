@@ -1,0 +1,270 @@
+.full {
+    width: 100%;
+}
+
+.adsPage {
+    min-height: 100vh;
+    padding: 34px 46px 46px;
+}
+
+.adsHeader {
+    margin-bottom: 34px;
+}
+
+.adsTitle {
+    margin: 0 !important;
+    font-size: 38px !important;
+    font-weight: 850 !important;
+    color: #0b1026 !important;
+}
+
+.headerHeart {
+    color: rgba(108, 92, 255, 0.25);
+}
+
+.adsSubtitle {
+    display: block;
+    font-size: 16px;
+    color: #667085;
+}
+
+.adsLayout {
+    align-items: flex-start;
+}
+
+.rightColumn > :global(.ant-space) {
+    width: 100%;
+}
+
+.rightColumn {
+    position: sticky;
+    top: 24px;
+}
+
+/* Filter panel */
+
+.filterPanel {
+    width: 100%;
+    border-radius: 24px;
+    background: rgb(255, 255, 255) !important;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.filterPanel :global(.ant-card-body) {
+    padding: 22px;
+}
+
+.filterPanelMobile {
+    width: 100%;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none;
+}
+
+.filterPanelMobile :global(.ant-card-body) {
+    padding: 0;
+}
+
+.filterHeader {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #eef0f6;
+}
+
+.filterHeader svg {
+    color: #5b4dff;
+}
+
+.resetButton {
+    padding: 0;
+    color: #5b4dff;
+    font-weight: 600;
+}
+
+.filterForm {
+    width: 100%;
+}
+
+.modernFormItem {
+    margin-bottom: 0 !important;
+}
+
+.modernFormItem :global(.ant-form-item-label) {
+    padding-bottom: 8px;
+}
+
+.modernFormItem :global(.ant-form-item-label > label) {
+    font-weight: 700;
+    color: #172033;
+}
+
+.modernFormItem :global(.ant-select-selector) {
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: #e6e9f2 !important;
+    display: flex;
+    align-items: center;
+}
+
+.modernFormItem :global(.ant-select-selection-placeholder) {
+    color: #98a2b3;
+}
+
+.modernFormItem :global(.ant-select-selection-item) {
+    font-weight: 500;
+}
+
+/* Filter buttons */
+
+.petTypeButtonGroup {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.filterButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filterButton {
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #e6e9f2;
+    background: #fff;
+    color: #475467;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.filterButton:hover {
+    color: #5b4dff !important;
+    border-color: #dcd7ff !important;
+    background: #faf9ff !important;
+}
+
+.petTypeButtonGroup .filterButton {
+    height: 58px;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.petTypeButtonGroup .filterButton svg {
+    margin-inline-end: 0 !important;
+}
+
+.filterButtonSelected {
+    background: #f0edff !important;
+    border-color: #6c5cff !important;
+    color: #5b4dff !important;
+}
+
+.filterButtonSelected svg {
+    color: #5b4dff !important;
+}
+
+.resultCount {
+    display: block;
+    text-align: center;
+}
+
+/* Mobile filter */
+
+.mobileFilterButton {
+    height: 44px;
+    border-radius: 14px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.mobileFilterButton:hover {
+    color: #5b4dff !important;
+    border-color: #6c5cff !important;
+}
+
+/* CTA */
+
+.publishCta {
+    min-height: 230px;
+    padding: 28px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at bottom right, rgba(108, 92, 255, 0.18), transparent 45%),
+        linear-gradient(135deg, #f1eeff, #eef7ff);
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+}
+
+.publishCta h4 {
+    margin-top: 0 !important;
+    color: #172033 !important;
+    font-weight: 800 !important;
+}
+
+.publishCta :global(.ant-typography) {
+    color: #667085;
+    line-height: 1.7;
+}
+
+.publishButton {
+    margin-top: 24px;
+    height: 50px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+    border: none !important;
+    box-shadow: 0 14px 30px rgba(92, 77, 255, 0.22);
+    color: white !important;
+}
+
+@media (max-width: 1200px) {
+    .filterPanel {
+        max-width: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .adsPage {
+        padding: 24px 16px;
+    }
+
+    .adsHeader {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    
+    .adsTitle {
+        font-size: 32px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .adsPage {
+        padding: 20px 12px;
+    }
+
+    .adsTitle {
+        font-size: 30px !important;
+    }
+
+    .adsSubtitle {
+        font-size: 14px;
+    }
+}
+
+.petTypeContent :global(.ant-typography),
+.categoryContent :global(.ant-typography) {
+    margin: 0;
+}
+
+.petTypeContent :global(.ant-typography-secondary),
+.categoryContent :global(.ant-typography-secondary) {
+    color: #667085;
+    font-size: 13px;
+}

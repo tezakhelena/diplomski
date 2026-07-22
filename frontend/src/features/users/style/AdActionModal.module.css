@@ -1,0 +1,14 @@
+.form {
+    padding: 0 34px;
+}
+
+.form :global(.ant-form-item-label > label) {
+    font-weight: 700;
+    color: #172033;
+}
+
+.form :global(.ant-select-selector) {
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    border-color: #d8d2ec !important;
+}

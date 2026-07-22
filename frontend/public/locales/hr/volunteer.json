@@ -1,0 +1,94 @@
+{
+    "application": {
+        "page": {
+            "title": "Volontiraj",
+            "description": "Ispunite obrazac kako biste poslali zahtjev za volontiranje."
+        },
+        "recipientCardTitle": "Zaprimatelj prijave za volontiranje",
+        "applicantCardTitle": "Podnositelj prijave za volontiranje",
+        "submittedAt": "Podnositelj je poslao zahtjev:",
+        "submitButton": "Pošalji prijavu",
+        "form": {
+            "motivation": {
+                "label": "Što Vas je motiviralo da volontirate?",
+                "validationLabel": "Motivacija",
+                "placeholder": "Zašto želite volontirati?"
+            },
+            "experience": {
+                "label": "Koje iskustvo imate?",
+                "validationLabel": "Iskustvo",
+                "placeholder": "Npr. veterinarsko iskustvo, vozačka dozvola ili iskustvo s agresivnim psima"
+            },
+            "availability": {
+                "label": "Kada ste dostupni?",
+                "validationLabel": "Dostupnost",
+                "placeholder": "Npr. vikendom, radnim danima, ujutro ili popodne"
+            },
+            "volunteerType": {
+                "label": "Molimo odaberite tip volontiranja",
+                "placeholder": "Odaberite tip volontiranja"
+            }
+        }
+    },
+    "actions": {
+        "approveButton": "Odobri prijavu",
+        "rejectButton": "Odbij prijavu",
+        "acceptedMessage": "Prijava prihvaćena. Za daljnje korake se dogovorite putem mobilnog telefona ili nekog drugog oblika komunikacije.",
+        "rejectedTag": "Prijava odbijena",
+        "modal": {
+            "title": "Promjena statusa prijave",
+            "description": "Potvrdite promjenu statusa prijave za volontiranje.",
+            "confirmButton": "Potvrdi",
+            "cancelButton": "Odustani",
+            "confirmTitle": "Jeste li sigurni da želite nastaviti?"
+        }
+    },
+    "overview": {
+        "page": {
+            "title": "Prijave za volontiranje",
+            "description": "Pregledajte sve zaprimljene i poslane prijave za volontiranje."
+        },
+        "statistics": {
+            "received": {
+                "title": "Zaprimljene prijave",
+                "description": "Prijave koje ste zaprimili"
+            },
+            "sent": {
+                "title": "Poslane prijave",
+                "description": "Prijave koje ste poslali"
+            }
+        },
+        "tabs": {
+            "received": "Zaprimljene prijave",
+            "sent": "Poslane prijave"
+        },
+        "filters": {
+            "searchPlaceholder": "Pretraži prijave...",
+            "allStatuses": "Svi statusi",
+            "volunteerType": "Tip volontiranja"
+        },
+        "empty": "Nema prijava za prikaz."
+    },
+    "notifications": {
+        "sendApplication": {
+            "successTitle": "Prijava poslana",
+            "successDescription": "Prijava za volontiranje uspješno je poslana.",
+            "errorTitle": "Slanje prijave",
+            "errorDescription": "Došlo je do pogreške prilikom slanja prijave za volontiranje."
+        },
+        "changeStatus": {
+            "title": "Promjena statusa prijave",
+            "successDescription": "Uspješno ste promijenili status prijave za volontiranje. Drugi sudionik je obaviješten.",
+            "errorDescription": "Došlo je do pogreške prilikom promjene statusa prijave."
+        },
+        "fetchApplications": {
+            "title": "Neuspješan dohvat prijava",
+            "description": "Došlo je do pogreške prilikom dohvata prijava za volontiranje."
+        },
+        "fetchDetails": {
+            "title": "Neuspješan dohvat detalja",
+            "description": "Došlo je do pogreške prilikom dohvata detalja prijave za volontiranje."
+        }
+    },
+    "searchInfoTooltip": "Možete pretraživati po: korisničkom imenu organizacije ili podnositelja prijave."
+}

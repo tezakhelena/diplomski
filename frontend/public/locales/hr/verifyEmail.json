@@ -1,0 +1,15 @@
+{
+    "loadingTitle": "Verificiranje emaila",
+    "loadingSubTitle": "Molimo pričekajte dok provjeravamo vaš email.",
+    "spinTip": "Verificiranje emaila...",
+    "notifications": {
+        "success": {
+            "title": "Verifikacija emaila",
+            "message": "Email je uspješno verificiran."
+        },
+        "error": {
+            "title": "Verifikacija emaila",
+            "message": "Neuspješna verifikacija emaila."
+        }
+    }
+}

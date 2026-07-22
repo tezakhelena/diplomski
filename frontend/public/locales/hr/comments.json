@@ -1,0 +1,15 @@
+{
+  "title": "Komentari",
+  "writePlaceholder": "Napiši komentar...",
+  "loginPlaceholder": "Prijavi se za komentar",
+  "notifications": {
+    "fetchError": {
+      "title": "Neuspješan dohvat komentara",
+      "message": "Došlo je do pogreške pri dohvatu komentara."
+    },
+    "postError": {
+      "title": "Slanje komentara",
+      "message": "Došlo je do pogreške pri slanju komentara."
+    }
+  }
+}

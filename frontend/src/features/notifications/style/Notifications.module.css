@@ -1,0 +1,236 @@
+.full {
+    width: 100%;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 28px 0 46px;
+}
+
+.sideCard,
+.listCard,
+.overviewCard,
+.notificationCard {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid #ece8f8;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+}
+
+.sideCard :global(.ant-card-body) {
+    padding: 24px;
+}
+
+.listCard :global(.ant-card-body) {
+    padding: 24px;
+}
+
+.mainIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f1eeff, #e8e2ff);
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sideTitle {
+    margin: 0 !important;
+    color: #0b1026 !important;
+    font-size: 28px !important;
+    font-weight: 850 !important;
+}
+
+.sideText {
+    line-height: 1.7;
+    color: #667085 !important;
+}
+
+.sideDivider {
+    height: 1px;
+    background: #edf0f7;
+    margin: 2px -24px 0;
+}
+
+.sectionTitle {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.overviewCard {
+    box-shadow: none;
+    border-radius: 16px;
+    border: 1px solid #e8e4f4;
+}
+
+.overviewCard :global(.ant-card-body) {
+    padding: 16px;
+}
+
+.overviewIcon,
+.helpIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helpIcon {
+    background: #eef4ff;
+    color: #2563eb;
+}
+
+.overviewValue {
+    color: #5b4dff;
+    font-size: 26px;
+    font-weight: 850;
+}
+
+.tabs {
+    border-bottom: 1px solid #edf0f7;
+}
+
+.tabButton {
+    min-height: 56px;
+    padding: 0 16px;
+    border: none;
+    background: transparent;
+    color: #667085;
+    font-weight: 800;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.tabButton span {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 850;
+}
+
+.tabButtonActive {
+    color: #5b4dff;
+    border-bottom-color: #5b4dff;
+}
+
+.tabButtonActive svg {
+    color: #5b4dff;
+}
+
+.markReadButton {
+    height: 44px;
+    border-radius: 14px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    background: #fff;
+    font-weight: 750;
+}
+
+.notificationList {
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.notificationCard {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.notificationCard:last-child {
+    border-bottom: none;
+}
+
+.notificationCardUnread {
+    background: linear-gradient(135deg, #fbfaff, #f7f4ff) !important;
+}
+
+.notificationCard :global(.ant-card-body) {
+    padding: 20px;
+}
+
+.notificationIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notificationTitle {
+    color: #172033;
+    font-size: 16px;
+}
+
+.descriptionText {
+    color: #667085 !important;
+    line-height: 1.5;
+}
+
+.notificationLink {
+    color: #5b4dff;
+    font-weight: 750;
+}
+
+.notificationLink:hover {
+    color: #4d3fff;
+}
+
+.teamText {
+    color: #5b4dff;
+}
+
+.dateText {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.unreadDot,
+.readDot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.unreadDot {
+    background: #5b4dff;
+}
+
+.readDot {
+    background: #d0d5dd;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding: 20px 0;
+    }
+
+    .tabButton {
+        padding: 0 10px;
+    }
+
+    .markReadButton {
+        width: 100%;
+    }
+}

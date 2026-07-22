@@ -1,0 +1,56 @@
+{
+    "businessUsers": {
+        "title": "Partneri i prijatelji",
+        "viewAll": "Pogledaj sve"
+    },
+    "hero": {
+        "tag": "Zajednica koja spaja ljubav i odgovornost",
+        "title": {
+            "main": "Pomozimo svakoj šapici pronaći",
+            "highlight": "put kući."
+        },
+        "description": "Izgubljeni, pronađeni i oni koji traže dom — zajedno gradimo sigurnu zajednicu za sve ljubimce.",
+        "btnSearch": "Pregledaj oglase",
+        "btnAdd": "Objavi oglas"
+    },
+    "statistics": {
+        "loading": "Pričekajte...",
+        "activeUsers": "Aktivnih korisnika",
+        "successAds": "Sretnih povrataka kući",
+        "safeCommunity": "Sigurna i provjerena zajednica",
+        "rating": "Prosječna ocjena korisnika"
+    },
+    "howItWorks": {
+        "title": "Kako funkcionira LostPaw?",
+        "steps": {
+            "publish": {
+                "title": "1. Objavi oglas",
+                "description": "Jednostavno kreiraj oglas o izgubljenom ili pronađenom ljubimcu."
+            },
+            "community": {
+                "title": "2. Zajednica pomaže",
+                "description": "Naša zajednica dijeli oglase i pomaže u pronalasku ljubimca."
+            },
+            "success": {
+                "title": "3. Sretan završetak",
+                "description": "Spajamo ljubimce s vlasnicima i stvaramo sretne priče."
+            }
+        }
+    },
+    "latestAds": {
+        "title": "Zadnji izgubljeni ljubimci",
+        "viewAll": "Pogledaj sve"
+    },
+    "reviews": {
+        "loading": "Pričekajte...",
+        "title": "Što kažu naši korisnici",
+        "description": "Prave priče ljudi koji su pronašli svoje ljubimce ili pomogli drugima.",
+        "userRole": "Korisnik LostPaw"
+    },
+    "errors": {
+        "reviewsFetch": "Došlo je do pogreške prilikom dohvata recenzija.",
+        "reviewsFetchTitle": "Neuspješan dohvat recenzija",
+        "statsFetch": "Došlo je do pogreške prilikom dohvata statistike početne stranice.",
+        "statsFetchTitle": "Neuspješan dohvat statistike"
+    }
+}

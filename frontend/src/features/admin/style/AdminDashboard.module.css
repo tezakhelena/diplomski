@@ -1,0 +1,13 @@
+.statIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #f3efff;
+    color: #5b35d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chartTitle {
+    margin-bottom: 16px !important;
+}

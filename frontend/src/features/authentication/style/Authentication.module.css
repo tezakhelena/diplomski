@@ -1,0 +1,258 @@
+.page {
+    min-height: calc(100vh - 72px);
+    padding: 32px;
+}
+
+.authCard :global(.ant-card-body) {
+    padding: 0;
+}
+
+.authLayout {
+    width: 100%;
+    min-height: 720px;
+}
+
+.leftPanel {
+    flex: 0.9;
+    padding: 48px;
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(255, 255, 255, 0.78) 47%,
+            rgba(255, 255, 255, 0.1) 100%),
+        url("../../../assets/background1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.rightPanel {
+    flex: 0.85;
+    min-width: 460px;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.brand {
+    color: #6c5cff;
+    font-size: 24px;
+}
+
+.brand :global(.ant-typography) {
+    font-family: 'Nunito-Bold', sans-serif;
+    font-weight: 700;
+}
+
+.heroText {
+    max-width: 420px;
+    margin-top: 70px;
+}
+
+.title {
+    margin: 0 !important;
+    color: #111827 !important;
+    font-size: 48px !important;
+    line-height: 1.15 !important;
+}
+
+.subtitle {
+    margin-top: 24px;
+    color: #667085;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.features {
+    max-width: 430px;
+    margin-top: 56px;
+}
+
+.featureIcon {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    color: #6c5cff;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(41, 31, 24, 0.08);
+}
+
+.featureText {
+    margin: 0 !important;
+    color: #667085;
+    line-height: 1.6;
+}
+
+.actionContent {
+    width: 100%;
+    max-width: 520px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+.actionTitle {
+    margin-bottom: 8px !important;
+    color: #172033 !important;
+    font-size: 34px !important;
+    font-weight: 800 !important;
+}
+
+.actionSubtitle {
+    color: #667085;
+    font-size: 17px;
+}
+
+.optionList {
+    width: 100%;
+    margin-top: 46px;
+}
+
+.optionCard {
+    width: 100%;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 14px 36px rgba(31, 41, 55, 0.08) !important;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.optionCard :global(.ant-card-body) {
+    padding: 26px 28px;
+}
+
+.optionCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 46px rgba(31, 41, 55, 0.13) !important;
+}
+
+.optionIcon {
+    flex-shrink: 0;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+}
+
+.optionText {
+    flex: 1;
+    text-align: left;
+}
+
+.optionText p {
+    margin: 0 !important;
+    color: #667085;
+}
+
+.optionTitle {
+    margin: 0 !important;
+}
+
+.chevron {
+    flex-shrink: 0;
+    color: #667085;
+}
+
+.loginCard {
+    border-left: 3px solid #6f8cff !important;
+}
+
+.registerCard {
+    border-left: 3px solid #7bd69b !important;
+}
+
+.privateUserCard {
+    background: linear-gradient(135deg, #fff 0%, #f4f1ff 100%) !important;
+}
+
+.businessUserCard {
+    background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%) !important;
+}
+
+.loginIcon {
+    color: #5c78ff;
+    background: #eef1ff;
+}
+
+.registerIcon {
+    color: #38a85c;
+    background: #eaf9ef;
+}
+
+.privateUserIcon {
+    color: #5b35d5;
+    background: #eee7ff;
+}
+
+.businessUserIcon {
+    color: #1677ff;
+    background: #e6f2ff;
+}
+
+.cleanLink {
+    display: block;
+    color: inherit;
+}
+
+.cleanLink:hover {
+    color: inherit;
+}
+
+.formContent {
+    width: 100%;
+    max-width: 480px;
+}
+
+.footer {
+    margin-top: 32px;
+    color: #8c8c8c;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .authLayout {
+        flex-direction: column;
+    }
+
+    .leftPanel,
+    .rightPanel {
+        flex: unset;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .leftPanel {
+        min-height: 420px;
+    }
+
+    .rightPanel {
+        padding: 36px 24px;
+    }
+
+    .actionContent {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .leftPanel {
+        padding: 32px 24px;
+    }
+
+    .title {
+        font-size: 36px !important;
+    }
+
+    .features {
+        display: none;
+    }
+
+    .optionIcon {
+        width: 58px;
+        height: 58px;
+    }
+}

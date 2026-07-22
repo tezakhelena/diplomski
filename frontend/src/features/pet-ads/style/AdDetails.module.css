@@ -1,0 +1,522 @@
+.page {
+    min-height: 100vh;
+    padding: 28px 0 46px;
+}
+
+.full {
+    width: 100%;
+}
+
+.breadcrumb {
+    margin-bottom: 22px;
+    color: #98a2b3;
+    font-size: 14px;
+}
+
+.breadcrumb span {
+    margin: 0 10px;
+    color: #c3c7d3;
+}
+
+.heroHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.title {
+    margin: 0 0 12px !important;
+    font-size: 38px !important;
+    font-weight: 850 !important;
+    color: #0b1026 !important;
+}
+
+.metaLine {
+    color: #667085;
+}
+
+.metaLine span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.statusTag {
+    border: none;
+    border-radius: 999px;
+    background: #d3caff;
+    color: #4a3afa;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.saveButton {
+    height: 44px;
+    border-radius: 14px;
+    color: #172033;
+    border-color: #edf0f7;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.galleryCard,
+.infoCard {
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.galleryCard {
+    overflow: hidden;
+    padding: 8px;
+}
+
+.infoCard {
+    padding: 24px;
+}
+
+.cardTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    font-size: 18px;
+    font-weight: 850;
+    color: #172033;
+}
+
+.titleIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoItem {
+    min-height: 58px;
+    padding-right: 18px;
+    border-right: 1px solid #edf0f7;
+}
+
+.infoItem span,
+.petInfoItem span {
+    display: block;
+    color: #667085;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.infoItem strong,
+.petInfoItem strong {
+    color: #172033;
+    font-size: 15px;
+}
+
+.descriptionText {
+    color: #4f5b76;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.petInfoItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.petInfoIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+
+    .heroHeader {
+        flex-direction: column;
+    }
+
+    .saveButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        padding-top: 16px;
+    }
+
+    .title {
+        font-size: 30px !important;
+    }
+
+    .infoItem {
+        border-right: none;
+    }
+
+    .infoCard {
+        padding: 20px;
+    }
+}
+
+.sideCard {
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.965) !important;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.sideCard :global(.ant-card-body) {
+    padding: 22px;
+}
+
+.sideTitle {
+    margin: 0 0 20px !important;
+    font-size: 18px !important;
+    font-weight: 850 !important;
+    color: #172033 !important;
+}
+
+.ownerName {
+    display: block;
+    font-size: 17px;
+    color: #172033;
+    margin-bottom: 6px;
+}
+
+.ownerTag {
+    border: none;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+    font-weight: 600;
+}
+
+.ownerInfo span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #172033;
+    font-size: 14px;
+}
+
+.ownerInfo svg {
+    color: #4f46e5;
+}
+
+.profileButton {
+    height: 44px;
+    border-radius: 14px;
+    background: #f0edff;
+    border-color: #dcd7ff;
+    color: #5b4dff;
+    font-weight: 700;
+}
+
+.profileButton:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+}
+
+.actionDivider {
+    height: 1px;
+    background: #edf0f7;
+    margin: 2px 0;
+}
+
+.shareButton {
+    height: 44px;
+    border-radius: 14px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    font-weight: 700;
+}
+
+.commentsList {
+    max-height: 300px;
+    overflow: auto;
+    padding-right: 6px;
+}
+
+.commentItem {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.commentBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.commentHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.commentHeader strong {
+    color: #172033;
+}
+
+.commentHeader span {
+    color: #98a2b3;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.commentBody p {
+    margin: 0;
+    color: #4f5b76;
+    line-height: 1.55;
+    font-size: 14px;
+}
+
+.commentForm {
+    padding: 16px 18px;
+    border-top: 1px solid #edf0f7;
+    display: flex;
+    gap: 10px;
+}
+
+.commentInputItem {
+    flex: 1;
+    margin-bottom: 0 !important;
+}
+
+.sendButton {
+    background: linear-gradient(135deg, #5b4dff, #7c65ff);
+    border: none;
+}
+
+.similarSection {
+    margin-top: 8px;
+    padding: 24px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.similarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.similarHeader h4 {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.viewAllButton {
+    height: 40px;
+    border-radius: 13px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.similarCard {
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(24, 31, 56, 0.08);
+}
+
+.similarCard :global(.ant-card-body) {
+    padding: 14px;
+}
+
+.similarImageWrap {
+    position: relative;
+}
+
+.similarImage {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+}
+
+.similarStatus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.similarHeart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.similarTitle {
+    display: block;
+    font-size: 16px;
+    color: #172033;
+    margin-bottom: 8px;
+}
+
+.similarLocation {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #667085;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.infoPill {
+    border: none;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+    font-size: 12px;
+}
+
+.actionButton {
+    height: auto;
+    min-height: 64px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #edf0f7;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.actionButton :global(.ant-btn-icon) {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionButton :global(.ant-space) {
+    line-height: 1.2;
+}
+
+.actionButton :global(.ant-typography-secondary) {
+    font-size: 13px;
+}
+
+.dangerAction :global(.ant-btn-icon) {
+    background: #fff0f0;
+    color: #ef4444;
+}
+
+
+
+
+.mainImageWrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.mainImageWrap :global(.ant-image) {
+    width: 100%;
+}
+
+.mainImage {
+    width: 100%;
+    height: 390px !important;
+    object-fit: cover;
+}
+
+.thumbnailRow {
+    width: 100%;
+}
+
+.thumbnailButton {
+    width: calc((100% - 40px) / 5);
+    height: 82px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 12px;
+}
+
+.thumbnailButtonActive {
+    border-color: #6c5cff;
+    box-shadow: 0 10px 22px rgba(92, 77, 255, 0.2);
+}
+
+.thumbnailButton :global(.ant-image) {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.emptyGallery {
+    height: 280px;
+    border-radius: 18px;
+    background: #f8f9ff;
+}
+
+@media (max-width: 768px) {
+    .mainImage {
+        height: 300px !important;
+    }
+
+    .thumbnailButton {
+        width: calc((100% - 30px) / 4);
+        height: 70px;
+    }
+}
+
+@media (max-width: 520px) {
+    .mainImage {
+        height: 250px !important;
+    }
+
+    .galleryArrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .thumbnailButton {
+        width: calc((100% - 20px) / 3);
+    }
+}

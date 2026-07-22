@@ -1,0 +1,434 @@
+.page {
+    min-height: 100vh;
+    padding: 28px 0 48px;
+}
+
+.breadcrumb {
+    margin-bottom: 22px;
+    color: #98a2b3;
+    font-size: 14px;
+}
+
+.breadcrumb span {
+    margin: 0 10px;
+    color: #c3c7d3;
+}
+
+.header {
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 850;
+    color: #0b1026;
+}
+
+.header p {
+    margin: 8px 0 0;
+    color: #667085;
+    font-size: 16px;
+}
+
+.stepsLine {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.stepItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepNumber {
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #6c5cff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 850;
+    font-size: 18px;
+}
+
+.stepNumberActive {
+    background: linear-gradient(135deg, #5b4dff, #7c65ff);
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(92, 77, 255, 0.25);
+}
+
+.stepConnector {
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #ded8ff;
+}
+
+.stepConnectorActive {
+    background: linear-gradient(90deg, #5b4dff, #b9aaff);
+}
+
+.stepLabels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.stepLabel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.stepIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stepLabel strong {
+    display: block;
+    color: #172033;
+}
+
+.stepLabel span {
+    display: block;
+    margin-top: 4px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.stepContent {
+    width: 100%;
+}
+
+.sectionBlock {
+    width: 100%;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.sectionTitle span {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionTitle h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 22px;
+    font-weight: 850;
+}
+
+.divider {
+    height: 1px;
+    background: #edf0f7;
+    margin: 28px 0;
+}
+
+.footerActions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.form :global(.ant-input),
+.form :global(.ant-input-number),
+.form :global(.ant-picker),
+.form :global(.ant-select-selector) {
+    border-radius: 12px !important;
+    border-color: #d9d6ea !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+}
+
+.upload {
+    width: 100%;
+}
+
+.upload :global(.ant-upload-wrapper) {
+    width: 100%;
+}
+
+.upload :global(.ant-upload-list) {
+    width: 100%;
+}
+
+.upload :global(.ant-upload-list-picture-card) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.upload :global(.ant-upload.ant-upload-select-picture-card) {
+    width: 100% !important;
+    height: 180px !important;
+    border-radius: 22px !important;
+    border: 1.5px dashed #8b75ff !important;
+    background: linear-gradient(135deg, #fbfaff, #f4f1ff) !important;
+    margin: 0 !important;
+}
+
+.upload :global(.ant-upload-list-item-container) {
+    width: 108px !important;
+    height: 120px !important;
+}
+
+.upload :global(.ant-upload-list-item) {
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+.upload :global(.ant-upload) {
+    width: 100% !important;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding-top: 18px;
+    }
+
+    .stepsLine {
+        margin-bottom: 18px;
+    }
+
+    .stepLabels {
+        grid-template-columns: 1fr;
+    }
+
+    .stepLabel {
+        display: none;
+    }
+
+    .formCard :global(.ant-card-body),
+    .stepsCard :global(.ant-card-body) {
+        padding: 22px;
+    }
+
+    .footerActions {
+        flex-direction: column-reverse;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.formCard {
+    border-radius: 22px;
+    background: #ffffff !important;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid #e7e3f4;
+}
+
+.formCard :global(.ant-card-body) {
+    padding: 30px;
+}
+
+.newAdPetTypeGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+}
+
+.newAdCategoryGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.newAdChoiceButton {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    height: auto;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #e2deef;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(24, 31, 56, 0.04);
+    transition: 0.22s ease;
+}
+
+.newAdChoiceButton:hover {
+    border-color: #8b75ff !important;
+    background: #fbfaff !important;
+    transform: translateY(-2px);
+}
+
+.newAdChoiceButtonSelected {
+    border-color: #6c5cff !important;
+    background: linear-gradient(135deg, #fbfaff, #f5f1ff) !important;
+    box-shadow: 0 12px 28px rgba(92, 77, 255, 0.14);
+}
+
+.choiceCheck {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #5b4dff;
+}
+
+.petTypeContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.petTypeIcon {
+    color: #6c5cff;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.petTypeIcon svg {
+    width: 36px;
+    height: 36px;
+    color: #6c5cff !important;
+}
+
+.petTypeContent strong {
+    color: #172033;
+    font-size: 16px;
+}
+
+.petTypeContent span {
+    color: #667085;
+    font-size: 13px;
+}
+
+.categoryContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+}
+
+.categoryIcon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: #f0edff;
+    color: #5b4dff;
+    font-size: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.categoryContent strong {
+    display: block;
+    color: #172033;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.categoryContent span {
+    display: block;
+    color: #667085;
+    font-size: 14px;
+}
+
+.firstStepActions {
+    margin-top: 28px;
+}
+
+/* polja na ostalim stepovima */
+.subSection {
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e7e3f4;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.newAdFilterButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stepsCard {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(31, 28, 79, 0.06);
+}
+
+.stepsInner {
+    padding: 24px 40px 12px;
+}
+
+.stepIconCircle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #f5f3ff;
+    border: 1px solid #ded6ff;
+    color: #5b35d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepIconCircleActive {
+    background: #5b35d5;
+    border-color: #5b35d5;
+    color: #ffffff;
+}
+
+.stepContent {
+    margin-top: 24px;
+}
+
+
+.uploadButton {
+    width: 100%;
+    height: 100%;
+    color: #5b4dff;
+    padding: 20px;
+    text-align: center;
+}
+
+.uploadButton :global(.ant-typography) {
+    margin: 0;
+}
+
+.uploadButton :global(.ant-typography-secondary) {
+    font-size: 13px;
+}

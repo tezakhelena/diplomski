@@ -1,0 +1,46 @@
+{
+    "postNewInquiry": {
+        "title": "Postavi novi upit",
+        "description": "Pošaljite pitanje vezano uz platformu, oglase ili udomljavanje.",
+        "button": "Pošaljite upit",
+        "fields": {
+            "type": "Vrsta upita",
+            "typePlaceholder": "Odaberite vrstu upita",
+            "question": "Pitanje",
+            "questionPlaceholder": "Unesite svoje pitanje..."
+        }
+    },
+    "tabs": {
+        "all": "Svi upiti",
+        "mine": "Moji upiti"
+    },
+    "filters": {
+        "searchPlaceholder": "Pretraži upite...",
+        "typeAll": "Sve vrste"
+    },
+    "card": {
+        "answered": "Odgovoreno",
+        "pending": "Na čekanju",
+        "repliedAt": "Odgovoreno: ",
+        "answerButton": "Odgovori",
+        "submitAnswer": "Objavi odgovor",
+        "cancel": "Odustani",
+        "answerPlaceholder": "Unesite odgovor..."
+    },
+    "notifications": {
+        "success": {
+            "inquirySent": "Upit poslan",
+            "inquirySentDesc": "Uspješno ste dodali novi upit.",
+            "replySent": "Odgovor poslan",
+            "replySentDesc": "Uspješno ste odgovorili na upit."
+        },
+        "error": {
+            "fetchInquiries": "Došlo je do pogreške prilikom dohvata upita.",
+            "fetchInquiriesTitle": "Neuspješan dohvat upita",
+            "sendInquiry": "Došlo je do pogreške prilikom slanja upita.",
+            "sendReply": "Došlo je do pogreške prilikom slanja odgovora."
+        }
+    },
+    "empty": "Nema upita za prikaz.",
+    "searchInfoTooltip": "Možete pretraživati po: upitu, odgovoru i korisničkim imenima."
+}

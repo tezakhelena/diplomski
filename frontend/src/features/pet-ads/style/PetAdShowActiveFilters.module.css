@@ -1,0 +1,86 @@
+.activeFiltersCard {
+    border-radius: 24px;
+    background-color: #fff !important; 
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.activeFiltersCard :global(.ant-card-body) {
+    padding: 22px;
+}
+
+.activeFiltersHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activeFiltersHeader svg {
+    color: #5b4dff;
+}
+
+.activeFiltersHeader > span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #6c5cff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.activeFilterBox {
+    padding: 14px;
+    border-radius: 16px;
+    background: #f8f9ff;
+}
+
+.activeFilterTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.removeFilterButton {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: #667085;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.removeFilterButton:hover {
+    color: #5b4dff;
+}
+
+.activeFilterTag {
+    border: none;
+    border-radius: 999px;
+    background: #edeaff;
+    color: #5b4dff;
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.clearFiltersButton {
+    margin-top: 4px;
+    height: 46px;
+    border-radius: 14px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.clearFiltersButton:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+}

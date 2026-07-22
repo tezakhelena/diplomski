@@ -1,0 +1,65 @@
+{
+  "chooseSubject": {
+    "title": "Odaberite vrstu računa",
+    "subtitle": "Odaberite način registracije koji najbolje odgovara vašem profilu.",
+    "private": {
+      "title": "Privatni korisnik",
+      "description": "Za osobe koje žele objaviti oglas, pronaći ljubimca ili poslati zahtjev za udomljavanje."
+    },
+    "business": {
+      "title": "Poslovni korisnik",
+      "description": "Za udruge, skloništa, veterinarske stanice i druge pravne osobe."
+    }
+  },
+  "registration": {
+    "title": "Registracija",
+    "subtitle": "Izradite račun i postanite dio LostPaw zajednice.",
+    "button": "Registracija",
+    "hasAccount": "Već imate račun?",
+    "loginLink": "Prijavite se",
+    "loading": "Pričekajte...",
+    "fields": {
+      "username": "Korisničko ime",
+      "usernamePlaceholder": "Unesite korisničko ime",
+      "email": "E-mail",
+      "emailPlaceholder": "Unesite e-mail",
+      "password": "Lozinka",
+      "passwordPlaceholder": "Unesite lozinku",
+      "confirmPassword": "Potvrda lozinke",
+      "confirmPasswordPlaceholder": "Potvrdite lozinku",
+      "terms": "Registracijom računa prihvaćam ",
+      "termsLink": "Uvjete korištenja platforme"
+    }
+  },
+  "login": {
+    "title": "Prijava",
+    "subtitle": "Prijavite se na svoj LostPaw račun.",
+    "button": "Prijava",
+    "noAccount": "Nemate račun?",
+    "registerLink": "Registrirajte se",
+    "fields": {
+      "username": "Korisničko ime",
+      "usernamePlaceholder": "Unesite korisničko ime",
+      "password": "Lozinka",
+      "passwordPlaceholder": "Unesite lozinku"
+    }
+  },
+  "main": {
+    "title": "Što želite učiniti?",
+    "subtitle": "Odaberite opciju za nastavak",
+    "login": "Prijava",
+    "loginDesc": "Prijavite se na svoj račun i nastavite tamo gdje ste stali.",
+    "register": "Registracija",
+    "registerDesc": "Izradite novi račun i postanite dio naše zajednice."
+  },
+  "notifications": {
+    "regSuccess": "Uspješna registracija",
+    "regSuccessMsg": "Na Vaš mail je poslan link za verifikaciju.",
+    "regError": "Neuspješna registracija",
+    "regErrorMsg": "Došlo je do pogreške pri registraciji.",
+    "loginError": "Prijava nije uspjela",
+    "loginErrorMsg": "Pogrešno korisničko ime ili lozinka.",
+    "profileError": "Neuspješno dovršavanje profila",
+    "profileErrorMsg": "Došlo je do pogreške."
+  }
+}

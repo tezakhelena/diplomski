@@ -1,0 +1,49 @@
+{
+  "manager": {
+    "title": "Dodaj novi atribut",
+    "editTitle": "Uredi atribut",
+    "searchPlaceholder": "Pretraži atribute...",
+    "allTypes": "Svi tipovi",
+    "columns": {
+      "code": "Šifra",
+      "value": "Vrijednost",
+      "type": "Tip",
+      "description": "Opis",
+      "actions": "Akcije",
+      "unknown": "Nepoznato"
+    },
+    "buttons": {
+      "add": "Dodaj novi atribut",
+      "edit": "Uredi",
+      "delete": "Briši",
+      "save": "Spremi"
+    },
+    "modal": {
+      "deleteTitle": "Brisanje atributa",
+      "deleteDescription": "Jeste li sigurni da želite obrisati ovaj atribut? Ova radnja se ne može poništiti.",
+      "deleteConfirm": "Obriši"
+    },
+    "form": {
+      "valueLabel": "Vrijednost",
+      "valuePlaceholder": "Unesite vrijednost",
+      "typeLabel": "Tip (Kod)",
+      "typePlaceholder": "Odaberite tip",
+      "descriptionLabel": "Opis",
+      "descriptionPlaceholder": "Dodaj opis atributa"
+    }
+  },
+  "notifications": {
+    "fetchError": "Neuspješan dohvat atributa",
+    "fetchErrorMessage": "Došlo je do pogreške prilikom dohvata atributa.",
+    "addSuccess": "Novi atribut uspješno dodan.",
+    "addTitle": "Dodavanje atributa",
+    "addError": "Dodavanje atributa nije uspjelo.",
+    "updateSuccess": "Atribut uspješno ažuriran.",
+    "updateTitle": "Ažuriranje atributa",
+    "updateError": "Ažuriranje atributa nije uspjelo.",
+    "deleteSuccess": "Atribut uspješno obrisan.",
+    "deleteTitle": "Brisanje atributa",
+    "deleteError": "Brisanje nije uspjelo.",
+    "searchInfoTooltip": "Možete pretraživati po: nazivu i opisu atributa."
+  }
+}

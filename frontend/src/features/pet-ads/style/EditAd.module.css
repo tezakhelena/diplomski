@@ -1,0 +1,266 @@
+.page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 28px 0 48px;
+}
+
+.full {
+    width: 100%;
+}
+
+.breadcrumb {
+    color: #667085;
+}
+
+.breadcrumb :global(.ant-breadcrumb-link),
+.breadcrumb :global(.ant-breadcrumb-separator) {
+    color: #667085;
+    font-size: 15px;
+}
+
+.breadcrumb :global(.ant-breadcrumb-link:last-child) {
+    color: #5b4dff;
+    font-weight: 700;
+}
+
+.header {
+    width: 100%;
+}
+
+.title {
+    margin: 0 !important;
+    font-size: 40px !important;
+    line-height: 1.15 !important;
+    font-weight: 850 !important;
+    color: #0b1026 !important;
+}
+
+.subtitle {
+    display: block;
+    margin-top: 6px;
+    color: #667085;
+    font-size: 17px;
+}
+
+.backButton {
+    height: 50px;
+    padding: 0 24px;
+    border-radius: 14px;
+    color: #5b4dff;
+    border: 1px solid #dcd7ff;
+    background: rgba(255, 255, 255, 0.88);
+    font-weight: 700;
+    box-shadow: 0 12px 30px rgba(24, 31, 56, 0.08);
+}
+
+.backButton:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+}
+
+.editCard {
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 18px 50px rgba(24, 31, 56, 0.08);
+    border: 1px solid #e7e3f4;
+}
+
+.editCard :global(.ant-card-body) {
+    padding: 0;
+}
+
+.form {
+    width: 100%;
+}
+
+.editTabs {
+    min-height: 620px;
+    background: linear-gradient(180deg, #ffffff, #fbfaff);
+    border-right: 1px solid #e7e3f4;
+}
+
+.editTabs :global(.ant-tabs-nav) {
+    width: 280px;
+    padding: 26px 16px;
+    margin: 0 !important;
+    background: linear-gradient(180deg, #ffffff, #fbfaff);
+    border-right: 1px solid #edf0f7;
+}
+
+.editTabs :global(.ant-tabs-nav) {
+    background: linear-gradient(180deg, #ffffff, #fbfaff);
+    border-right: 1px solid #e7e3f4;
+}
+
+.editTabs :global(.ant-tabs-nav-list) {
+    gap: 10px;
+}
+
+.editTabs :global(.ant-tabs-tab) {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 16px;
+}
+
+.editTabs :global(.ant-tabs-tab-btn) {
+    width: 100%;
+}
+
+.editTabs :global(.ant-tabs-tab-active) {
+    background: #f0edff;
+    box-shadow: inset 4px 0 0 #6c5cff;
+}
+
+.editTabs :global(.ant-tabs-ink-bar) {
+    display: none;
+}
+
+.tabLabel {
+    min-height: 96px;
+    width: 230px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #667085;
+    font-size: 17px;
+    font-weight: 750;
+    white-space: normal;
+}
+
+.tabLabel svg {
+    color: #667085;
+    flex-shrink: 0;
+}
+
+.editTabs :global(.ant-tabs-tab-active) .tabLabel {
+    color: #5b4dff;
+}
+
+.editTabs :global(.ant-tabs-tab-active) .tabLabel svg {
+    color: #5b4dff;
+}
+
+.editTabs :global(.ant-tabs-content-holder) {
+    padding: 34px 38px;
+}
+
+.section {
+    width: 100%;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.sectionHeader {
+    margin-bottom: 24px;
+}
+
+.sectionHeader h4 {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-size: 20px !important;
+    font-weight: 850 !important;
+}
+
+.sectionHeader span {
+    color: #667085;
+}
+
+.sectionIcon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.form :global(.ant-form-item-label > label) {
+    color: #172033;
+    font-weight: 750;
+}
+
+.form :global(.ant-input:hover),
+.form :global(.ant-input-number:hover),
+.form :global(.ant-picker:hover),
+.form :global(.ant-select-selector:hover) {
+    border-color: #a99cff !important;
+}
+
+.form :global(.ant-input:focus),
+.form :global(.ant-input-focused),
+.form :global(.ant-picker-focused),
+.form :global(.ant-select-focused .ant-select-selector),
+.form :global(.ant-input-number-focused) {
+    border-color: #6c5cff !important;
+    box-shadow: 0 0 0 3px rgba(108, 92, 255, 0.12) !important;
+}
+
+.form :global(.ant-input),
+.form :global(.ant-input-number),
+.form :global(.ant-picker),
+.form :global(.ant-select-selector) {
+    border-radius: 12px !important;
+    border: 1px solid #d8d2ec !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 0 rgba(24, 31, 56, 0.03);
+}
+
+.textArea {
+    min-height: 120px !important;
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding-top: 18px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .backButton {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 32px !important;
+    }
+
+    .editTabs :global(.ant-tabs-nav) {
+        width: 100%;
+        padding: 14px;
+        border-right: none;
+        border-bottom: 1px solid #edf0f7;
+    }
+
+    .editTabs :global(.ant-tabs-nav-list) {
+        width: 100%;
+    }
+
+    .editTabs :global(.ant-tabs-tab) {
+        flex: 1;
+    }
+
+    .tabLabel {
+        width: 100%;
+        min-height: 64px;
+        justify-content: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .editTabs :global(.ant-tabs-tab-active) {
+        box-shadow: inset 0 -3px 0 #6c5cff;
+    }
+
+    .editTabs :global(.ant-tabs-content-holder) {
+        padding: 24px;
+    }
+}

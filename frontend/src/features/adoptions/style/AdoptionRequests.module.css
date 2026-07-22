@@ -1,0 +1,79 @@
+.questionCard {
+    height: 100%;
+}
+
+.questionCard :global(.ant-card-body) {
+    padding: 18px;
+}
+
+.questionCard :global(.ant-form-item) {
+    margin-bottom: 0;
+}
+
+.questionCard :global(.ant-form-item-label > label) {
+    color: #11143a;
+    font-weight: 600;
+}
+
+.questionCard :global(.ant-form-item-label > label::after) {
+    display: none;
+}
+/* Kartica zahtjeva */
+
+.petImage {
+    width: 116px !important;
+    height: 116px !important;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.requestContent {
+    width: 100%;
+}
+
+.username {
+    color: #172033;
+    font-size: 17px;
+}
+
+.dateText {
+    color: #667085;
+}
+
+.dateText svg {
+    color: #667085;
+}
+
+.chevron {
+    color: #98a2b3;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding: 20px 0;
+    }
+
+    .petImage {
+        width: 100% !important;
+        height: 180px !important;
+    }
+
+    .requestContent {
+        align-items: flex-start;
+    }
+}
+
+.infoRow {
+    width: 100%;
+    min-width: 0;
+    color: #667085;
+}
+
+.infoRow svg {
+    flex-shrink: 0;
+    color: #5b4dff;
+}
+
+.infoRow :global(.ant-typography) {
+    min-width: 0;
+}

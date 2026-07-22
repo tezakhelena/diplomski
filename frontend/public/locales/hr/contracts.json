@@ -1,0 +1,44 @@
+{
+    "modal": {
+      "title": "Potpisivanje ugovora",
+      "description": "Odaberite način potpisivanja ugovora za udomljavanje.",
+      "addBtn": "Dodavanje ugovora u aplikaciju",
+      "liveBtn": "Potpisivanje uživo",
+      "uploadBtn": "Dodaj PDF ugovor",
+      "uploadHelp": "Molimo provjerite jeste li dodali ispravan ugovor za udomljavanje — kasnije ga ne možete brisati.",
+      "confirm": "Objavi ugovor",
+      "errorFile": "Molimo odaberite dokument za upload.",
+      "errorData": "Nedostaju podaci potrebni za dodavanje ugovora.",
+      "invalidFormat": "Nevažeći format datoteke",
+      "invalidFormatDesc": "Možete dodati samo PDF datoteku."
+    },
+    "table": {
+      "empty": "Ugovor još nije učitan",
+      "uploaded": "Učitano",
+      "by": "od",
+      "download": "Preuzmi",
+      "statusTitle": "Status potpisa",
+      "statusDesc": {
+        "pending": "Molimo preuzmite ugovor, pregledajte ga i potpišite.",
+        "completed": "Ugovor su potpisale obje strane."
+      },
+      "signBtn": "Potpiši ugovor"
+    },
+    "pdfSign": {
+      "errorInit": "PDF preglednik nije moguće pokrenuti.",
+      "errorLoad": "PDF dokument još nije učitan.",
+      "errorMissing": "Nedostaju podaci za potpisivanje.",
+      "errorSignature": "Molimo dodajte potpis na dokument.",
+      "submitBtn": "Pošalji potpisani ugovor"
+    },
+    "notifications": {
+      "addSuccess": "Ugovor je poslan udomitelju. Ugovor će Vama biti dostupan za potpis kada ga potpiše udomitelj.",
+      "addContractTitle": "Dodavanje ugovora",
+      "addError": "Došlo je do pogreške prilikom spremanja ugovora. Pokušajte ponovno.",
+      "signSuccess": "Ugovor je uspješno potpisan i poslan.",
+      "signTitle": "Potpisivanje ugovora",
+      "signError": "Došlo je do pogreške prilikom slanja potpisanog ugovora.",
+      "downloadError": "Došlo je do pogreške prilikom preuzimanja ugovora.",
+      "downloadTitle": "Preuzimanje ugovora"
+    }
+  }

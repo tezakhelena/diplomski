@@ -1,0 +1,40 @@
+{
+  "admin": {
+    "dashboard": {
+      "title": "Admin nadzorna ploča",
+      "description": "Pregled korisnika, oglasa, aktivnosti i administrativnih stavki.",
+      "tabOverview": "Pregled sustava",
+      "tabAttributes": "Upravljanje atributima",
+      "userStats": "Statistika o korisnicima",
+      "adStats": "Statistika o oglasima",
+      "stats": {
+        "activeUsers": "Aktivni korisnici",
+        "pendingUsers": "Računi u provjeri",
+        "suspendedUsers": "Obustavljeni računi",
+        "activeAds": "Aktivni oglasi",
+        "reportedAds": "Prijavljeni oglasi",
+        "blockedAds": "Blokirani oglasi",
+        "successAds": "Riješeni oglasi"
+      },
+      "charts": {
+        "usersByCounty": "Broj korisnika prema županiji",
+        "usersByProfile": "Broj korisnika prema vrsti profila",
+        "adsByCounty": "Broj oglasa prema županiji",
+        "adsByCategory": "Broj oglasa prema kategoriji",
+        "noData": "Nema podataka"
+      },
+      "tables": {
+        "suspendedTitle": "Obustavljeni korisnički računi",
+        "blockedTitle": "Blokirani oglasi",
+        "reportedTitle": "Prijavljeni oglasi"
+      }
+    },
+    "modal": {
+      "reportTitle": "Prijave oglasa",
+      "blockedUserAdsTitle": "Oglasi obustavljenog korisnika",
+      "noReports": "Nema prijava",
+      "noAds": "Korisnik nema oglasa",
+      "lastChange": "Zadnje promjene: "
+    }
+  }
+}

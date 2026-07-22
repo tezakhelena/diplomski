@@ -1,0 +1,84 @@
+.modal :global(.ant-modal-content) {
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(24, 31, 56, 0.18);
+}
+
+.header {
+    position: relative;
+    padding: 30px 34px 22px;
+    border-bottom: 1px solid #edf0f7;
+}
+
+.titleBlock {
+    flex: 1;
+    padding-right: 44px;
+}
+
+.header h3 {
+    margin: 0 0 6px !important;
+    color: #172033 !important;
+}
+
+.icon,
+.dangerIcon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+}
+
+.icon {
+    color: #5b4dff;
+    background: #f0edff;
+}
+
+.dangerIcon {
+    color: #e11d48;
+    background: #fff1f2;
+}
+
+.closeButton {
+    position: absolute !important;
+    top: 22px;
+    right: 24px;
+    color: #667085;
+    background: #f7f8fc;
+}
+
+.closeButton:hover {
+    color: #5b4dff !important;
+    background: #f0edff !important;
+}
+
+.body {
+    width: 100%;
+    max-height: 70vh;
+    padding: 26px 34px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.actions {
+    padding: 22px 34px 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 26px 24px 20px;
+    }
+
+    .body {
+        padding: 22px 24px;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+        padding: 22px 24px 26px;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}

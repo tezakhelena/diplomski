@@ -1,0 +1,18 @@
+.commentItem {
+    width: 100%;
+}
+
+.commentBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.commentHeader {
+    width: 100%;
+}
+
+.commentContent {
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

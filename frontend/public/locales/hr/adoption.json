@@ -1,0 +1,96 @@
+{
+  "adoption": {
+    "form": {
+      "title": "Obrazac prijave",
+      "subtitle": "Molimo ispunite obavezne podatke (*).",
+      "householdMembers": {
+        "label": "Za koga želite udomiti ljubimca?",
+        "options": {
+          "self": "Za sebe",
+          "family": "Za člana obitelji",
+          "friend": "Za prijatelja"
+        }
+      },
+      "schedule": {
+        "label": "Koliko ste zauzeti?",
+        "options": {
+          "veryBusy": "Jako zauzet",
+          "busy": "Zauzet",
+          "notBusy": "Nisam zauzet"
+        }
+      },
+      "allergies": {
+        "label": "Postoje li alergije na životinje?",
+        "placeholder": "Napišite ako imate alergije, ako ne — upišite \"Nemam\""
+      },
+      "address": {
+        "label": "Vaša adresa",
+        "placeholder": "Unesite punu adresu"
+      },
+      "environment": {
+        "label": "Opišite svoje životno okruženje",
+        "placeholder": "Npr. apartman, kuća, dvorište, veličina prostora, ograđeno dvorište i sl."
+      },
+      "experience": {
+        "label": "Vaše iskustvo s ljubimcima",
+        "placeholder": "Imate li iskustva s ljubimcima? Koje vrste? Koliko dugo?"
+      },
+      "alert": "Vaš zahtjev bit će pregledan od strane oglašivača.",
+      "submit": "Pošalji zahtjev"
+    },
+    "actions": {
+      "approve": "Odobri",
+      "reject": "Odbij",
+      "assessmentDone": "Obavljena procjena",
+      "approveAdoption": "Odobri udomljavanje",
+      "signContract": "Potpisivanje ugovora",
+      "finishProcess": "Završi proces",
+      "cancelRequest": "Otkaži zahtjev",
+      "adopted": "Udomljeno"
+    },
+    "modal": {
+      "title": "Promjena statusa",
+      "placeholder": "Razlog..."
+    },
+    "list": {
+      "title": "Zahtjevi",
+      "description": "Pregled vaših zahtjeva za udomljavanje.",
+      "received": "Zaprimljeni",
+      "sent": "Podneseni",
+      "searchPlaceholder": "Pretraži zahtjeve...",
+      "allStatuses": "Svi statusi",
+      "empty": "Nema zahtjeva.",
+      "adCode": "Šifra oglasa: ",
+      "unknown": "Nepoznato",
+      "receivedDescription": "Zahtjevi koje ste zaprimili",
+      "sentDescription": "Zahtjevi koje ste poslali"
+    },
+    "container": {
+      "title": "Prijava",
+      "descDetail": "Pregledajte zahtjev za udomljavanje ovog ljubimca.",
+      "descCreate": "Ispunite obrazac kako biste poslali zahtjev za udomljavanje ovog ljubimca."
+    },
+    "progress": {
+      "title": "Proces udomljavanja"
+    },
+    "sideDetails": {
+      "applicant": "Podnositelj zahtjeva",
+      "adOwner": "Zaprimatelj zahtjeva"
+    },
+    "mutations": {
+      "sendRequestMessage": "Zahtjev za udomljavanje",
+      "sendRequestSuccess": "Zahtjev je uspješno poslan.",
+      "sendRequestError": "Slanje zahtjeva nije uspjelo.",
+      "changeStatus": "Promjena statusa udomljavanja",
+      "changeStatusSuccess": "Uspješno ste promijenili status udomljavanja, drugi sudionik je obaviješten.",
+      "changeStatusError": "Došlo je do pogreške prilikom promjene statusa."
+    },
+    "query": {
+      "listErrorTitle": "Neuspješan dohvat zahtjeva za udomljavanje",
+      "listErrorDescription": "Došlo je do pogreške prilikom dohvata zahtjeva za udomljavanje.",
+      "detailsErrorTitle": "Neuspješan dohvat detalja zahtjeva za udomljavanje",
+      "detailsErrorDescription": "Došlo je do pogreške prilikom dohvata detalja zahtjeva."
+    }
+  },
+  "searchInfoTooltip": "Možete pretraživati po: korisničkim imenima i šifri oglasa."
+}

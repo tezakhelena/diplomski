@@ -1,0 +1,22 @@
+{
+  "header": {
+    "logo": "LostPaw",
+    "login": "Prijava",
+    "logout": "Odjava",
+    "dropdown": {
+      "contacts": "Razgovori",
+      "settings": "Postavke",
+      "adoptions": "Zahtjevi za udomljavanje",
+      "volunteer": "Prijave za volontiranje"
+    }
+  },
+  "sider": {
+    "home": "Naslovnica",
+    "users": "Korisnici",
+    "ads": "Oglasi",
+    "admin": "Admin panel",
+    "organizations": "Organizacije",
+    "inquiries": "Pitanja i odgovori",
+    "addAd": "Predaj oglas"
+  }
+}

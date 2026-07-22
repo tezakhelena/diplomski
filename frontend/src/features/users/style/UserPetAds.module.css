@@ -1,0 +1,97 @@
+.adRow {
+    border-radius: 18px;
+    background: #ffffff !important;
+    border: 1px solid #edf0f7;
+    box-shadow: 0 10px 24px rgba(24, 31, 56, 0.05);
+    transition: 0.2s ease;
+}
+
+.adRow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(24, 31, 56, 0.1);
+}
+
+.adRow :global(.ant-card-body) {
+    padding: 14px;
+}
+
+.adContent {
+    display: grid;
+    grid-template-columns: 132px minmax(210px, 1fr) 120px 130px 104px 42px;
+    gap: 18px;
+    align-items: center;
+}
+
+.adImage {
+    width: 132px !important;
+    height: 108px !important;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.adInfo h4 {
+    margin: 0 0 12px !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.adInfo svg,
+.stats svg {
+    color: #667085;
+}
+
+.adInfo span,
+.stats span {
+    color: #667085;
+}
+
+.statusTag {
+    width: fit-content;
+    border: none;
+    border-radius: 999px;
+    padding: 7px 14px;
+    background: #ecfdf3;
+    color: #16a34a;
+    font-weight: 800;
+}
+
+.stats {
+    color: #667085;
+    justify-content: center;
+}
+
+.editButton {
+    height: 42px;
+    border-radius: 12px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    font-weight: 700;
+}
+
+.moreButton {
+    color: #344054;
+}
+
+@media (max-width: 1100px) {
+    .adContent {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .statusTag,
+    .stats,
+    .editButton,
+    .moreButton {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 700px) {
+    .adContent {
+        grid-template-columns: 1fr;
+    }
+
+    .adImage {
+        width: 100% !important;
+        height: 210px !important;
+    }
+}

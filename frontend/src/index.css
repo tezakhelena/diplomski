@@ -1,0 +1,271 @@
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: url('/src/assets/fonts/Nunito-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito-Bold';
+  src: url('/src/assets/fonts/Nunito-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  font-family: 'Nunito-Bold', sans-serif;
+  font-weight: 700;
+}
+
+.typography-regular {
+  font-family: 'Nunito-Regular', sans-serif !important;
+  font-weight: 400;
+}
+
+.typography-bold {
+  font-family: 'Nunito-Bold', sans-serif !important;
+  font-weight: 700;
+}
+
+.ant-card-head-title,
+.ant-drawer-title,
+.ant-tag,
+label {
+  font-family: 'Nunito-Bold', sans-serif !important;
+  font-weight: 700;
+}
+
+img {
+  border-radius: 8px !important;
+}
+
+.ant-card {
+  border-radius: 30px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08) !important;
+}
+
+.ant-card-body {
+  padding: 24px;
+}
+
+.ant-table {
+  border-radius: 30px !important;
+  box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08) !important;
+}
+
+.ant-switch-checked {
+  background-color: #7c65ff !important;
+}
+
+.ant-timeline .ant-timeline-item-head {
+  background-color: transparent !important;
+}
+
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  background-color: #6c5cff !important;
+  border-color: #6c5cff !important;
+}
+
+.ant-segmented {
+  color: #000 !important;
+  background-color: #e6f4ff !important;
+}
+
+.ant-btn-primary {
+  height: 45px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #5b4dff, #7c65ff);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(92, 77, 255, 0.28);
+}
+
+.ant-btn-primary:not(:disabled):hover,
+.ant-btn-primary:not(:disabled):focus {
+  background: linear-gradient(135deg, #6a5cff, #8974ff) !important;
+  border: none;
+}
+
+.ant-btn-default {
+  height: 45px;
+  padding: 0 28px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #dfe3f1;
+  border-radius: 16px;
+}
+
+.ant-btn-default:not(:disabled):hover,
+.ant-btn-default:not(:disabled):focus {
+  color: #5b4dff !important;
+  background: #fff !important;
+  border-color: #7c65ff !important;
+}
+
+
+/* Ovo je tvoj postojeći kod */
+.app-icon-button.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #5b4dff;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #edf0f7;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.galleryArrowLeft,
+.galleryArrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.galleryArrowLeft {
+  left: 18px;
+}
+
+.galleryArrowRight {
+  right: 18px;
+}
+
+.app-icon-button.ant-btn:not(:disabled):hover,
+.app-icon-button.ant-btn:not(:disabled):focus {
+  color: #5b4dff;
+  background: #fff;
+  border-color: #d8ddf0;
+}
+
+.app-send-button.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  background: linear-gradient(135deg, #5b4dff, #7c65ff);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(92, 77, 255, 0.22);
+}
+
+.app-send-button.ant-btn:not(:disabled):hover,
+.app-send-button.ant-btn:not(:disabled):focus {
+  background: linear-gradient(135deg, #6a5cff, #8974ff);
+}
+
+.app-full {
+  width: 100%;
+}
+
+/* Pagination */
+
+.app-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.app-pagination-page,
+.app-pagination-break,
+.app-pagination-previous,
+.app-pagination-next {
+  display: flex;
+}
+
+.app-pagination-link,
+.app-pagination-break-link,
+.app-pagination-previous a,
+.app-pagination-next a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  color: #667085;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dfe3f1;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.app-pagination-link,
+.app-pagination-break-link {
+  min-width: 40px;
+  padding: 0 12px;
+}
+
+.app-pagination-previous a,
+.app-pagination-next a {
+  padding: 0 16px;
+}
+
+.app-pagination-link:hover,
+.app-pagination-previous a:hover,
+.app-pagination-next a:hover {
+  color: #5b4dff;
+  background: #f4f1ff;
+  border-color: #7c65ff;
+}
+
+.app-pagination-active .app-pagination-link {
+  color: #fff;
+  background: linear-gradient(135deg, #5b4dff, #7c65ff);
+  border-color: transparent;
+  box-shadow: 0 10px 22px rgba(92, 77, 255, 0.24);
+}
+
+.app-pagination-disabled a {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.app-pagination-break-link {
+  cursor: default;
+  background: transparent;
+  border-color: transparent;
+}
+
+.ant-tag {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px !important;
+  /* Povećan padding */
+  font-size: 14px !important;
+  /* Veći font */
+  font-weight: 600 !important;
+  /* Podebljano */
+  border-radius: 10px !important;
+  /* Zaobljenje */
+  height: auto !important;
+  /* Prilagođava visinu paddingu */
+}

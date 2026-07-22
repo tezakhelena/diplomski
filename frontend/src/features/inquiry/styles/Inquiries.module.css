@@ -1,0 +1,230 @@
+.full {
+    width: 100%;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 28px 0 46px;
+}
+
+.sideCard,
+.listCard,
+.inquiryCard {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid #ece8f8;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.08);
+}
+
+.sideCard :global(.ant-card-body) {
+    padding: 24px;
+}
+
+.listCard :global(.ant-card-body) {
+    padding: 26px;
+}
+
+.cardIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f0edff;
+    color: #5b4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helpIcon {
+    background: #eaf4ff;
+    color: #1677ff;
+}
+
+.sideCard :global(.ant-typography h4),
+.sideCard h4,
+.listCard h4 {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-weight: 850 !important;
+}
+
+.sideCard :global(.ant-form-item-label > label) {
+    font-weight: 700;
+    color: #172033;
+}
+
+.sideCard :global(.ant-select-selector),
+.sideCard :global(.ant-input),
+.sideCard :global(.ant-input-affix-wrapper) {
+    border-radius: 14px !important;
+    border: 1px solid #d8d2ec !important;
+    background: #fff !important;
+}
+
+.textArea {
+    border-radius: 16px !important;
+    border-color: #d8d2ec !important;
+    resize: none;
+}
+
+.primarySmallButton {
+    height: 46px;
+    border-radius: 14px;
+    border: none !important;
+    background: linear-gradient(135deg, #5b4dff, #7c65ff) !important;
+    box-shadow: 0 14px 30px rgba(92, 77, 255, 0.22);
+    font-weight: 750;
+}
+
+.primarySmallButton {
+    height: 42px;
+}
+
+.tabs {
+    padding-bottom: 8px;
+}
+
+.tabButton {
+    min-height: 46px;
+    padding: 0 16px;
+    border: none;
+    background: transparent;
+    color: #667085;
+    font-weight: 750;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tabButton span {
+    margin-left: 8px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+}
+
+.tabButtonActive {
+    color: #5b4dff;
+    border-bottom-color: #5b4dff;
+}
+
+.filterSelect,
+.sortSelect {
+    min-width: 190px;
+}
+
+.filterSelect :global(.ant-select-selector),
+.sortSelect :global(.ant-select-selector) {
+    height: 44px !important;
+    border-radius: 14px !important;
+    border-color: #d8d2ec !important;
+}
+
+.inquiryCard {
+    box-shadow: 0 8px 24px rgba(24, 31, 56, 0.04);
+}
+
+.inquiryCard :global(.ant-card-body) {
+    padding: 20px;
+}
+
+.username {
+    color: #172033;
+    font-size: 16px;
+}
+
+.typeTag {
+    border: none;
+    border-radius: 999px;
+    background: #f0edff;
+    color: #5b4dff;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.question {
+    margin: 0 !important;
+    color: #172033 !important;
+    font-weight: 800 !important;
+}
+
+.answeredTag,
+.pendingTag {
+    border: none;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 750;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.answeredTag {
+    color: #16a34a;
+    background: #ecfdf3;
+}
+
+.pendingTag {
+    color: #d97706;
+    background: #fff7ed;
+}
+
+.answerBox {
+    margin-top: 18px;
+    border-radius: 14px;
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0;
+}
+
+.answerBox :global(.ant-card-body) {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #166534;
+}
+
+.answerForm {
+    margin-top: 18px;
+}
+
+.answerForm :global(.ant-input) {
+    border-radius: 14px !important;
+    border-color: #d8d2ec !important;
+    resize: none;
+}
+
+.replyButton,
+.cancelButton {
+    height: 42px;
+    border-radius: 13px;
+    color: #5b4dff;
+    border-color: #dcd7ff;
+    background: #fff;
+    font-weight: 700;
+}
+
+.replyButton:hover,
+.cancelButton:hover {
+    color: #5b4dff !important;
+    border-color: #6c5cff !important;
+    background: #fbfaff !important;
+}
+
+@media (max-width: 900px) {
+    .page {
+        padding: 20px 0;
+    }
+
+    .filterSelect,
+    .sortSelect {
+        width: 100%;
+    }
+}

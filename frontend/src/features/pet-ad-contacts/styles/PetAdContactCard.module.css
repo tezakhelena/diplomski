@@ -1,0 +1,85 @@
+.card {
+    width: 100%;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 18px;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(126, 87, 255, 0.3);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.unreadCard {
+    border-left: 4px solid #7e57ff;
+    background: rgba(126, 87, 255, 0.025);
+}
+
+.username {
+    font-size: 15px;
+}
+
+.petAdTitle {
+    color: #7e57ff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.message {
+    display: block;
+    max-width: 100%;
+}
+
+.date {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.newTag {
+    margin: 0;
+    border: none;
+    border-radius: 999px;
+    color: #6d44ed;
+    background: rgba(126, 87, 255, 0.12);
+}
+
+.statusTag {
+    margin: 0;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.statusPending {
+    color: #b76e00;
+    background: rgba(245, 158, 11, 0.13);
+}
+
+.statusAnswered {
+    color: #15803d;
+    background: rgba(34, 197, 94, 0.13);
+}
+
+.arrow {
+    color: #94a3b8;
+}
+
+.infoRow {
+    width: 100%;
+    min-width: 0;
+    color: #667085;
+}
+
+.infoRow svg {
+    flex-shrink: 0;
+    color: #5b4dff;
+}
+
+.infoRow :global(.ant-typography) {
+    min-width: 0;
+}

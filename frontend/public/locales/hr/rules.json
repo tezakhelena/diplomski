@@ -1,0 +1,69 @@
+{
+    "title": "Odredbe i uvjeti platforme Izgubljene šapice",
+    "lastUpdated": "Zadnje izmjene: 21.06.2026.",
+    "welcome": "Dobrodošli u Izgubljene šapice, platformu posvećenu povezivanju osoba koje su izgubile ili pronašle kućne ljubimce u Hrvatskoj. Korištenjem naših usluga pristajete na sljedeće uvjete i odredbe:",
+    "blockedReasonsTitle": "Mogući razlozi blokiranja oglasa",
+    "sections": {
+      "user-responsibilities": {
+        "title": "1. Odgovornosti korisnika",
+        "items": [
+          { "title": "Točne informacije", "description": "Korisnici moraju dati točne i istinite informacije prilikom objavljivanja oglasa o izgubljenim ili pronađenim kućnim ljubimcima." },
+          { "title": "Pravna usklađenost", "description": "Korisnici se moraju pridržavati svih važećih zakona i propisa u Hrvatskoj, uključujući one koji se odnose na dobrobit životinja i zaštitu osobnih podataka." },
+          { "title": "Korištenje s poštovanjem", "description": "Korisnici ne smiju objavljivati uvredljiv, klevetnički ili neprikladan sadržaj niti koristiti aplikaciju za nanošenje štete drugima." },
+          { "title": "Komercijalna upotreba", "description": "Komercijalni oglasi i promocije nisu dopušteni." }
+        ]
+      },
+      "privacy": {
+        "title": "2. Privatnost i zaštita podataka",
+        "items": [
+          { "title": "Dijeljenje podataka", "description": "Vaši podaci za kontakt mogu se dijeliti s drugim korisnicima samo kada je to potrebno za ponovno povezivanje izgubljenih kućnih ljubimaca s njihovim vlasnicima." },
+          { "title": "Osobni podaci", "description": "Platforma čuva vaše osobne podatke. Vidljivi su administratoru platforme te drugim korisnicima samo ako ih odlučite podijeliti u svrhu oglasa." }
+        ]
+      },
+      "disclaimer": {
+        "title": "3. Odricanje od odgovornosti",
+        "items": [
+          { "title": "Korištenje platforme", "description": "Izgubljene šapice pružaju platformu za povezivanje korisnika, ali ne odgovaraju za točnost sadržaja koji su korisnici objavili niti za ishode njihovih međusobnih interakcija." }
+        ]
+      },
+      "prohibited-activities": {
+        "title": "4. Zabranjene aktivnosti",
+        "items": [
+          { "title": "Lažni oglasi", "description": "Strogo je zabranjeno objavljivanje lažnih podataka o izgubljenim ili pronađenim kućnim ljubimcima." },
+          { "title": "Uznemiravanje ili prijevara", "description": "Svaki pokušaj iskorištavanja platforme u prijevarne ili štetne svrhe može rezultirati obustavom računa i mogućim pravnim postupkom." },
+          { "title": "Iskorištavanje životinja", "description": "Oglasi ili radnje koje uključuju iskorištavanje, zlostavljanje ili nezakonitu trgovinu životinjama strogo su zabranjeni i mogu biti prijavljeni nadležnim tijelima." }
+        ]
+      },
+      "reports-and-suspension": {
+        "title": "5. Prijava oglasa i obustava računa",
+        "items": [
+          { "title": "Prijava zlouporabe", "description": "Korisnici mogu prijaviti neprikladne ili lažne oglase. Platforma zadržava pravo pregleda i blokiranja sadržaja koji krši ove uvjete." },
+          { "title": "Obustava računa", "description": "Ponovljena kršenja ovih uvjeta mogu rezultirati privremenom ili trajnom obustavom korisničkog računa." }
+        ]
+      },
+      "platform-violations": {
+        "title": "1. Kršenja pravila platforme",
+        "items": [
+          { "title": "Neprikladan sadržaj", "description": "Oglas sadrži uvredljiv jezik, eksplicitne ili neprikladne slike ili diskriminirajuće napomene." },
+          { "title": "Lažne informacije", "description": "Oglas sadrži lažne ili pretjerane tvrdnje o izgubljenom ili pronađenom ljubimcu koje mogu uzrokovati štetu ili zabunu." },
+          { "title": "Spam ili duplicirani oglasi", "description": "Isti oglas objavljen je više puta i nepotrebno zatrpava platformu." },
+          { "title": "Komercijalna upotreba", "description": "Oglasi se koriste za promicanje poduzeća, proizvoda ili nepovezanih usluga." }
+        ]
+      },
+      "animal-welfare": {
+        "title": "2. Zabrinutost za dobrobit ljubimca",
+        "items": [
+          { "title": "Pogrešne informacije o životinji", "description": "Pogrešno je predstavljeno stanje, pasmina ili druga važna pojedinost o ljubimcu." },
+          { "title": "Iskorištavanje oglasa", "description": "Oglas se koristi za nezakonite aktivnosti poput nedopuštene trgovine životinjama." }
+        ]
+      },
+      "security": {
+        "title": "3. Sigurnost",
+        "items": [
+          { "title": "Lažni oglasi", "description": "Oglas je stvoren kao šala ili radi širenja lažnih informacija koje mogu uznemiriti zajednicu." },
+          { "title": "Potencijalna šteta za životinju", "description": "Informacije u oglasu mogu ugroziti sigurnost ljubimca, primjerice zbog nepotpunih ili nesigurnih uputa za vraćanje." },
+          { "title": "Prijevare", "description": "Oglas pokušava privući korisnike u prijevarne aktivnosti, primjerice traženjem nagrade za nepostojećeg pronađenog ljubimca." }
+        ]
+      }
+    }
+  }

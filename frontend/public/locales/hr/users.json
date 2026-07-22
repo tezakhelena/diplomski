@@ -1,0 +1,312 @@
+{
+    "overview": {
+        "page": {
+            "title": "Korisnici",
+            "description": "Upravljajte korisnicima, ulogama i statusima računa."
+        },
+        "resultLabel": "korisnika",
+        "searchPlaceholder": "Pretraži korisnike...",
+        "businessTypePlaceholder": "Sve vrste",
+        "activeFilters": {
+            "firstName": "Ime",
+            "lastName": "Prezime",
+            "username": "Korisničko ime",
+            "role": "Uloga",
+            "status": "Status korisnika"
+        },
+        "filters": {
+            "firstName": {
+                "label": "Ime",
+                "placeholder": "Unesite ime"
+            },
+            "lastName": {
+                "label": "Prezime",
+                "placeholder": "Unesite prezime"
+            },
+            "username": {
+                "label": "Korisničko ime",
+                "placeholder": "Unesite korisničko ime"
+            },
+            "role": {
+                "label": "Uloga",
+                "placeholder": "Odaberite ulogu"
+            },
+            "status": {
+                "label": "Status korisnika",
+                "placeholder": "Odaberite status"
+            }
+        },
+        "table": {
+            "columns": {
+                "user": "Korisnik",
+                "username": "Korisničko ime",
+                "role": "Uloga",
+                "status": "Status",
+                "registrationDate": "Datum registracije",
+                "suspensionReason": "Razlog obustave",
+                "ads": "Oglasi",
+                "activate": "Aktiviraj",
+                "actions": "Akcije"
+            },
+            "viewAdsButton": "Vidi oglase",
+            "reactivateButton": "Ponovno aktiviraj",
+            "detailsButton": "Detalji",
+            "reactivationModal": {
+                "title": "Ponovna aktivacija korisnika",
+                "description": "Korisnik će ponovno moći objavljivati oglase, postavljati upite i slično.",
+                "confirmButton": "Ponovno aktiviraj",
+                "cancelButton": "Odustani"
+            }
+        }
+    },
+    "details": {
+        "pageDescription": "Pregledajte profil",
+        "showActivityButton": "Prikaži aktivnost",
+        "tabs": {
+            "information": "Informacije",
+            "account": "Račun",
+            "ads": "Oglasi"
+        },
+        "accountMenu": {
+            "profile": {
+                "title": "Profil",
+                "description": "Osnovni podaci"
+            },
+            "security": {
+                "title": "Sigurnost",
+                "description": "Lozinka i privatnost"
+            },
+            "notifications": {
+                "title": "Notifikacije",
+                "description": "Upravljanje obavijestima"
+            }
+        },
+        "basicData": {
+            "accountCreationDate": "Datum kreiranja računa",
+            "username": "Korisničko ime",
+            "lastLogin": "Zadnja prijava",
+            "neverLoggedIn": "Prijava još nije izvršena",
+            "email": "Email",
+            "location": "Lokacija",
+            "userId": "Jedinstveni broj korisnika",
+            "role": "Uloga",
+            "accountType": "Tip računa",
+            "privateAccount": "Fizička osoba",
+            "businessAccount": "Pravna osoba",
+            "phoneNumber": "Broj mobitela"
+        },
+        "summary": {
+            "title": "Sažetak računa",
+            "unknown": "Nije poznato",
+            "status": {
+                "label": "Status",
+                "description": "Trenutačni status korisničkog računa"
+            },
+            "registrationDate": {
+                "label": "Datum registracije",
+                "description": "Datum kreiranja korisničkog računa"
+            },
+            "emailVerification": {
+                "label": "Verifikacija emaila",
+                "verified": "Verificirano",
+                "notVerified": "Nije verificirano",
+                "description": "Status provjere email adrese"
+            },
+            "contactVisibility": {
+                "label": "Vidljivost kontakata",
+                "visible": "Vidljivo",
+                "hidden": "Sakriveno",
+                "description": "Prikaz kontakt podataka na oglasima"
+            }
+        },
+        "activity": {
+            "title": "Aktivnost korisnika",
+            "description": "Pregled zadnjih radnji i promjena na korisničkom računu.",
+            "empty": "Nema aktivnosti za prikaz.",
+            "showMoreButton": "Prikaži više"
+        }
+    },
+    "forms": {
+        "blockAccount": {
+            "reasonLabel": "Razlog obustave računa",
+            "reasonPlaceholder": "Odaberite razlog obustave računa",
+            "validationLabel": "Razlog obustave računa"
+        },
+        "changePassword": {
+            "oldPassword": {
+                "label": "Stara lozinka",
+                "placeholder": "Unesite staru lozinku",
+                "validationLabel": "Stara lozinka"
+            },
+            "newPassword": {
+                "label": "Nova lozinka",
+                "placeholder": "Unesite novu lozinku",
+                "validationLabel": "Nova lozinka"
+            },
+            "confirmPassword": {
+                "label": "Potvrda nove lozinke",
+                "placeholder": "Potvrdite novu lozinku",
+                "validationLabel": "Potvrda lozinke"
+            }
+        },
+        "user": {
+            "firstName": {
+                "label": "Ime",
+                "placeholder": "Unesite svoje ime"
+            },
+            "businessName": {
+                "label": "Naziv poduzeća",
+                "placeholder": "Unesite naziv poduzeća"
+            },
+            "businessType": {
+                "label": "Tip poslovnog korisnika",
+                "placeholder": "Odaberite tip poduzeća"
+            },
+            "oib": {
+                "label": "OIB",
+                "placeholder": "Unesite 11-znamenkasti OIB",
+                "invalid": "OIB mora sadržavati točno 11 znamenki"
+            },
+            "website": {
+                "label": "Web stranica",
+                "placeholder": "Unesite URL web stranice",
+                "invalid": "Unesite ispravan URL (npr. https://stranica.hr)"
+            },
+            "lastName": {
+                "label": "Prezime",
+                "placeholder": "Unesite svoje prezime"
+            },
+            "username": {
+                "label": "Korisničko ime",
+                "placeholder": "Korisničko ime"
+            },
+            "phoneNumber": {
+                "label": "Broj mobitela",
+                "placeholder": "Unesite broj mobitela"
+            },
+            "county": {
+                "label": "Županija",
+                "placeholder": "Odaberite županiju"
+            },
+            "city": {
+                "label": "Grad",
+                "placeholder": "Unesite grad"
+            },
+            "role": {
+                "label": "Uloga",
+                "placeholder": "Odaberite ulogu"
+            },
+            "contactVisibility": {
+                "title": "Prikaz kontakt podataka ostalim korisnicima",
+                "description": "Ovo se odnosi na prikaz kontakt podataka na detaljima Vaših oglasa i korisničkog računa kako bi Vas korisnici mogli lakše kontaktirati."
+            },
+            "saveButton": "Spremi promjene"
+        }
+    },
+    "ads": {
+        "statistics": {
+            "title": "Statistika",
+            "totalAds": {
+                "title": "Ukupno oglasa",
+                "description": "Svi oglasi"
+            },
+            "activeAds": {
+                "title": "Aktivni oglasi",
+                "description": "Trenutno vidljivi oglasi"
+            },
+            "totalViews": {
+                "title": "Pregledi ukupno",
+                "description": "Ukupan broj pregleda"
+            }
+        },
+        "searchPlaceholder": "Pretraži oglase...",
+        "published": "Objavljeno {{date}}",
+        "activeStatus": "Aktivan",
+        "detailsButton": "Detalji"
+    },
+    "account": {
+        "profileSaveModal": {
+            "title": "Spremanje profila",
+            "description": "Jeste li sigurni da želite spremiti promjene na profilu?",
+            "confirmButton": "Spremi promjene",
+            "cancelButton": "Odustani"
+        },
+        "settings": {
+            "emailLabel": "Email",
+            "emailPlaceholder": "Unesite email",
+            "changePasswordButton": "Promijeni lozinku",
+            "contactVisibilityTitle": "Prikaz kontakt podataka ostalim korisnicima",
+            "contactVisibilityDescription": "Ovo se odnosi na prikaz kontakt podataka na detaljima Vaših oglasa i korisničkog računa kako bi Vas korisnici mogli lakše kontaktirati u vezi oglasa."
+        },
+        "changePasswordModal": {
+            "title": "Promjena lozinke",
+            "description": "Unesite trenutnu lozinku i novu lozinku koju želite koristiti.",
+            "confirmButton": "Spremi lozinku"
+        },
+        "management": {
+            "title": "Upravljanje računom",
+            "description": "Ove akcije utječu na dostupnost korisničkog računa i oglasa.",
+            "suspendButton": "Obustava računa",
+            "deleteButton": "Brisanje računa",
+            "delete": {
+                "title": "Brisanje računa",
+                "description": "Ova akcija trajno briše korisnički račun i povezane podatke.",
+                "confirmButton": "Obriši račun",
+                "confirmTitle": "Jeste li sigurni da želite obrisati račun?",
+                "confirmDescription": "Brisanjem računa brišu se korisnički podaci, oglasi i postavke. Nakon brisanja nećete moći vratiti podatke."
+            },
+            "suspend": {
+                "title": "Obustava računa",
+                "description": "Ova akcija privremeno obustavlja račun i skriva korisnikove oglase.",
+                "confirmButton": "Obustavi račun",
+                "confirmTitle": "Jeste li sigurni da želite obustaviti račun?",
+                "confirmDescription": "Korisnik neće moći objavljivati oglase, komentirati ni ažurirati profil."
+            }
+        }
+    },
+    "notifications": {
+        "updateProfile": {
+            "title": "Ažuriranje profila",
+            "success": "Profil uspješno ažuriran.",
+            "error": "Greška pri ažuriranju profila."
+        },
+        "visibility": {
+            "title": "Vidljivost",
+            "error": "Greška pri promjeni vidljivosti."
+        },
+        "email": {
+            "title": "E-mail",
+            "success": "E-mail adresa uspješno promijenjena.",
+            "error": "Greška pri promjeni e-maila."
+        },
+        "password": {
+            "title": "Lozinka",
+            "success": "Lozinka uspješno promijenjena.",
+            "error": "Greška pri promjeni lozinke."
+        },
+        "status": {
+            "title": "Status",
+            "success": "Status korisnika promijenjen.",
+            "error": "Greška pri promjeni statusa korisnika."
+        },
+        "deleteAccount": {
+            "title": "Brisanje",
+            "success": "Račun je uspješno obrisan.",
+            "error": "Greška pri brisanju računa."
+        },
+        "preferences": {
+            "title": "Postavke",
+            "error": "Greška pri ažuriranju postavki."
+        },
+        "fetchUsers": {
+            "title": "Dohvat korisnika",
+            "error": "Neuspješan dohvat korisnika."
+        },
+        "fetchUserDetails": {
+            "title": "Dohvat detalja",
+            "error": "Neuspješan dohvat detalja korisnika."
+        }
+    },
+    "searchInfoTooltip": "Možete pretraživati po: imenu, prezimenu, korisničkom imenu, emailu, tipu subjekta ili OIB-u.",
+    "searchInfoTooltipAds": "Možete pretraživati po: nazivu županije, kategorije, pasmine, gradu, šifri ili vrsti životinje."
+}

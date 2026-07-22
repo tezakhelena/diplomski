@@ -1,0 +1,132 @@
+.petGrid {
+    width: 100%;
+    margin-top: 26px;
+}
+
+.petCard {
+    height: 126px;
+
+    border: 1px solid rgba(238, 240, 247, 0.9) !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 14px 40px rgba(24, 31, 56, 0.07);
+
+    cursor: pointer;
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.petCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(24, 31, 56, 0.12);
+}
+
+.petCard :global(.ant-card-body) {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    height: 100%;
+    padding: 22px 24px !important;
+}
+
+.petIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+.petIcon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.petIcon51 {
+    color: #6c5cff;
+    background: #f0edff;
+}
+
+.petIcon52 {
+    color: #17a878;
+    background: #e9faf3;
+}
+
+.petIcon53 {
+    color: #2f80ed;
+    background: #edf5ff;
+}
+
+.petIcon54 {
+    color: #ff7a30;
+    background: #fff0e5;
+}
+
+.petContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.petTitle {
+    display: block;
+    overflow: hidden;
+
+    color: #101828;
+    font-size: 17px;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.petLabel {
+    display: block;
+    margin-top: 8px;
+
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.petArrow {
+    flex-shrink: 0;
+
+    width: 38px !important;
+    height: 38px !important;
+
+    color: #172033 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #edf0f7 !important;
+    box-shadow: 0 8px 20px rgba(24, 31, 56, 0.06);
+}
+
+.petArrow:hover {
+    color: #6c5cff !important;
+    background: #f7f5ff !important;
+    border-color: #dcd7ff !important;
+}
+
+@media (max-width: 575px) {
+    .petCard {
+        height: auto;
+        min-height: 126px;
+    }
+
+    .petCard :global(.ant-card-body) {
+        padding: 18px !important;
+    }
+
+    .petIcon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .petIcon svg {
+        width: 30px;
+        height: 30px;
+    }
+}

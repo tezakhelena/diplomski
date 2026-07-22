@@ -1,0 +1,92 @@
+.fullWidth {
+    width: 100%;
+}
+
+.contractCard {
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(31, 28, 79, 0.06);
+}
+
+.contractCard :global(.ant-card-body) {
+    padding: 24px;
+}
+
+.title {
+    margin: 0 !important;
+}
+
+.titleIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f3efff;
+    color: #5b35d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.documentBox {
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.documentBox :global(.ant-card-body) {
+    padding: 18px;
+}
+
+.fileIcon {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+    background: #f3efff;
+    color: #5b35d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contractInfo {
+    flex: 1;
+}
+
+.statusBox {
+    border-radius: 12px;
+    background: #faf9ff;
+}
+
+.statusBox :global(.ant-card-body) {
+    padding: 18px;
+}
+
+.statusTag {
+    width: fit-content;
+    border-radius: 999px;
+    border: none;
+    padding: 4px 12px;
+}
+
+.signButton {
+    height: 44px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6a3df0 0%, #4d2cc7 100%);
+}
+
+.signButton:hover {
+    background: linear-gradient(135deg, #7650f5 0%, #5735d4 100%) !important;
+}
+
+@media (max-width: 768px) {
+    .documentBox :global(.ant-space) {
+        align-items: flex-start !important;
+    }
+
+    .documentBox :global(.ant-space-item:last-child) {
+        width: 100%;
+    }
+
+    .documentBox button {
+        width: 100%;
+    }
+}
