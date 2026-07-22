@@ -1219,7 +1219,7 @@
   dependencies:
     pako "^1.0.10"
 
-"@pdftron/webviewer@^11.2.0":
+"@pdftron/webviewer@11.2.0":
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/@pdftron/webviewer/-/webviewer-11.2.0.tgz#024a340b5991e5e61bd1abcfe833e91f938d13f8"
   integrity sha512-ZAbnNCig70tPZHD8ZArpt/1+vNLdmCMfoDAfr3yLNO6POAGjh01rtAen+bmzadBxYELBAaPKvOkaYhkDYquH4w==

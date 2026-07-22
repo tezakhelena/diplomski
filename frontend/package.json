@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postinstall": "node node_modules/@pdftron/webviewer/scripts/copy-files.js public/WebViewer"
+    "postinstall": "mkdir -p public/WebViewer/lib && cp -R node_modules/@pdftron/webviewer/public/. public/WebViewer/lib/"
   },
   "dependencies": {
     "@ant-design/charts": "^2.2.6",
