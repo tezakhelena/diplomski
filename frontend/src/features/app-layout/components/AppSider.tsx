@@ -58,7 +58,7 @@ export const AppSider = memo(() => {
                 </Menu.Item>
             )}
 
-            {trebaDovrsitiProfil() && auth.isAuthenticated && (
+            {trebaDovrsitiProfil() && auth.isAuthenticated && !isAdmin() && (
                 <Menu.Item key="predajOglas" className={style.authMenuItem}>
                     <Link to="/oglasi/dodaj" onClick={() => { dispatch(resetForm()); closeDrawer(); }}>
                         <Button className={style.loginButton} icon={<Plus size={17} />}>

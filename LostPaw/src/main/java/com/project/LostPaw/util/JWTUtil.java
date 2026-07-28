@@ -11,14 +11,16 @@ import java.util.function.Function;
 
 @Component
 public class JWTUtil {
-    private final String SECRET_KEY = "your_secret_key"; // Use a strong key and keep it secret
+
+    @Value("${jwt.secret}")
+    private String secretKey;
 
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
-                .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
+                .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
 
@@ -27,13 +29,12 @@ public class JWTUtil {
         return (extractedUsername.equals(username) && !isTokenExpired(token));
     }
 
-    @Value("${jwt.secret}")
-    private String secretKey;
+
 
     public String generateTokenEmail(String email) {
         return Jwts.builder()
                 .setSubject(email)
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 24 hours validity
+                .setExpiration(new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24)) // 24 hours validity
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
@@ -41,7 +42,7 @@ public class JWTUtil {
     public String generateTokenChangeEmail(String email) {
         return Jwts.builder()
                 .setSubject(email)
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 24 hours validity
+                .setExpiration(new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24)) // 24 hours validity
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
@@ -58,11 +59,11 @@ public class JWTUtil {
     }
 
     private Date extractExpiration(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getExpiration();
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getExpiration();
     }
 
     public String extractUsername(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
     private Claims extractAllClaims(String token) {

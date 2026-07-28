@@ -13,6 +13,9 @@ import FilterButtons from "../../../../reusable/FilterButtons";
 import { SectionTitle } from "../../../../reusable/two-column-page/SectionTitle";
 import { useCategories, useSpecies } from "../../../attributes/hooks/useAttributes";
 import { toSelectOptions } from "../../../attributes/util/attributeUtils";
+import { BusinessType } from "../../../../enums/userEnums";
+import { useMemo } from "react";
+import { PetCategory } from "../../../../enums/petEnums";
 
 interface Props {
     nextStep: () => void;
@@ -24,9 +27,18 @@ export const FirstStep = ({ nextStep }: Props) => {
     const { data: species = [] } = useSpecies();
     const { data: categories = [] } = useCategories();
 
-    const { speciesId, categoryId } = useSelector(
-        (state: RootState) => state.oglasi.adRequest
-    );
+    const { speciesId, categoryId } = useSelector((state: RootState) => state.oglasi.adRequest);
+    const { businessTypeId } = useSelector((state: RootState) => state.auth);
+
+    const shelter = businessTypeId === BusinessType.UdrugaAzil;
+
+    const availableCategories = useMemo(() => {
+        if (!shelter) {
+            return categories;
+        }
+
+        return categories.filter((category) => Number(category.code) === PetCategory.Napusten);
+    }, [categories, shelter])
 
     const handleSpeciesSelect = (value: string | number | null) => {
         const speciesId = value == null ? undefined : Number(value);
@@ -81,7 +93,7 @@ export const FirstStep = ({ nextStep }: Props) => {
                     <FilterButtons
                         context="newAd"
                         variant="category"
-                        options={toSelectOptions(categories)}
+                        options={toSelectOptions(availableCategories)}
                         value={categoryId}
                         onChange={handleCategorySelect}
                     />

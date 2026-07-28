@@ -39,9 +39,16 @@ public interface AdoptionRequestsRepository extends JpaRepository<AdoptionReques
            )
            AND (:statusId IS NULL OR attr.attribute_id = :statusId)
            AND (
-               (:filterBy = 'applicant' AND a.user_id = :userId) 
-               OR 
-               (:filterBy = 'owner' AND o.user_id = :userId)
+               :filterBy IS NULL
+               OR TRIM(:filterBy) = ''
+               OR (
+                   UPPER(:filterBy) = 'APPLICANT'
+                   AND a.user_id = :userId
+               )
+               OR (
+                   UPPER(:filterBy) = 'OWNER'
+                   AND o.user_id = :userId
+               )
            )
         ORDER BY
            CASE WHEN :sortDirection = 'ASC' THEN ar.created_at END ASC,

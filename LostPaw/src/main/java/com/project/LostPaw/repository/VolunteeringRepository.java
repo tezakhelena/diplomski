@@ -37,12 +37,19 @@ public interface VolunteeringRepository extends JpaRepository<Volunteer, Long> {
                OR UPPER(u2.username) LIKE UPPER(CONCAT('%', :search, '%'))
            )  
            AND (:statusId IS NULL OR a.attribute_id = :statusId)   
-           AND (:volunteerType IS NULL OR a2.attribute_id = :volunteerType)   
+           AND (:volunteerType IS NULL OR a2.attribute_id = :volunteerType) 
            AND (
-               (UPPER(:filterBy) = 'PODNOSITELJ' AND u1.user_id = :userId) 
-               OR 
-               (UPPER(:filterBy) = 'PODUZECE' AND u2.user_id = :userId)
-           )
+               :filterBy IS NULL
+               OR TRIM(:filterBy) = ''
+               OR (
+                   UPPER(:filterBy) = 'PODNOSITELJ'
+                   AND u1.user_id = :userId
+               )
+               OR (
+                   UPPER(:filterBy) = 'PODUZECE'
+                   AND u2.user_id = :userId
+               )
+           )  
         ORDER BY
           CASE WHEN :sortDirection = 'ASC' THEN v.applied_at END ASC,
           CASE WHEN :sortDirection = 'DESC' THEN v.applied_at END DESC

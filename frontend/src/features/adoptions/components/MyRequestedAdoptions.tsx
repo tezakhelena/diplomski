@@ -22,15 +22,17 @@ interface Props {
     isLoading?: boolean;
     filters: any;
     updateFilters: (values: any) => void;
+    isAdmin?: boolean;
+    sviZahtjevi: AdoptionRequestsResponse[];
 }
 
-export const MyRequestedAdoptions = ({ zaprimljeni, podneseni, isLoading = false, filters, updateFilters }: Props) => {
+export const MyRequestedAdoptions = ({ zaprimljeni, podneseni, isLoading = false, filters, updateFilters, isAdmin, sviZahtjevi }: Props) => {
     const { t } = useTranslation('adoption');
 
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState<"received" | "sent">("sent");
 
-    const currentList = activeTab === "received" ? zaprimljeni : podneseni;
+    const currentList = isAdmin ? sviZahtjevi : activeTab === "received" ? zaprimljeni : podneseni;
 
     const { currentData, pageCount, currentPage, handlePageChange, setCurrentPage } = usePagination(currentList, 6);
 
@@ -44,10 +46,14 @@ export const MyRequestedAdoptions = ({ zaprimljeni, podneseni, isLoading = false
             title={<SideIntroCard icon={<PawPrint size={30} />} title={t('adoption.list.title')} description={t('adoption.list.description')} />}
             side={
                 <QuickStatsCard
-                    items={[
-                        { icon: <Inbox size={24} />, title: t('adoption.list.received'), description: t('adoption.list.receivedDescription'), value: zaprimljeni.length },
-                        { icon: <Send size={24} />, title: t('adoption.list.sent'), description: t('adoption.list.sentDescription'), value: podneseni.length }
-                    ]}
+                    items={
+                        isAdmin ? [
+                            { icon: <Send size={24} />, title: t('adoption.list.all'), description: t('adoption.list.allDescription'), value: sviZahtjevi.length },
+                        ] : [
+                            { icon: <Inbox size={24} />, title: t('adoption.list.received'), description: t('adoption.list.receivedDescription'), value: zaprimljeni.length },
+                            { icon: <Send size={24} />, title: t('adoption.list.sent'), description: t('adoption.list.sentDescription'), value: podneseni.length }
+                        ]
+                    }
                 />
             }
             sideWidth={6}
@@ -55,14 +61,16 @@ export const MyRequestedAdoptions = ({ zaprimljeni, podneseni, isLoading = false
         >
             <ContentCard>
                 <Space direction="vertical" size={24} className="app-full">
-                    <PageTabs
-                        activeKey={activeTab}
-                        onChange={(tab) => { setCurrentPage(0); setActiveTab(tab); }}
-                        items={[
-                            { key: "received", label: t('adoption.list.received'), icon: <Inbox size={20} />, count: zaprimljeni.length },
-                            { key: "sent", label: t('adoption.list.sent'), icon: <Send size={20} />, count: podneseni.length }
-                        ]}
-                    />
+                    {!isAdmin && (
+                        <PageTabs
+                            activeKey={activeTab}
+                            onChange={(tab) => { setCurrentPage(0); setActiveTab(tab); }}
+                            items={[
+                                { key: "received", label: t('adoption.list.received'), icon: <Inbox size={20} />, count: zaprimljeni.length },
+                                { key: "sent", label: t('adoption.list.sent'), icon: <Send size={20} />, count: podneseni.length }
+                            ]}
+                        />
+                    )}
 
                     <FastFilter
                         search={filters.searchInput}

@@ -184,7 +184,7 @@ export const AdDetailsExtraButtons = ({
             }
         >
             <Space direction="vertical" size={12} className="app-full">
-                {sameUserId ? (
+                {(sameUserId || isAdmin()) ? (
                     <>
                         <Tooltip title={getEditTooltip(t, petAd.statusId)}>
                             <Button
@@ -236,38 +236,41 @@ export const AdDetailsExtraButtons = ({
                         </Tooltip>
                     </>
                 ) : (
-                    <>
-                        <Tooltip title={getAdoptTooltip(t, isAuthenticated, petAd.statusId)}>
-                            <Button
-                                block
-                                disabled={isAdoptDisabled(isAuthenticated, petAd.statusId)}
-                                icon={<HandHeart size={20} />}
-                                className={style.actionButton}
-                                onClick={navigateToAdoptionRequest}
-                            >
-                                <ActionButtonContent
-                                    title={t("details.actions.buttons.adopt.title")}
-                                    description={t("details.actions.buttons.adopt.description")}
-                                />
-                            </Button>
-                        </Tooltip>
+                    <> {!isAdmin() &&
+                        <>
+                            <Tooltip title={getAdoptTooltip(t, isAuthenticated, petAd.statusId)}>
+                                <Button
+                                    block
+                                    disabled={isAdoptDisabled(isAuthenticated, petAd.statusId)}
+                                    icon={<HandHeart size={20} />}
+                                    className={style.actionButton}
+                                    onClick={navigateToAdoptionRequest}
+                                >
+                                    <ActionButtonContent
+                                        title={t("details.actions.buttons.adopt.title")}
+                                        description={t("details.actions.buttons.adopt.description")}
+                                    />
+                                </Button>
+                            </Tooltip>
 
-                        <Tooltip title={getContactTooltip(t, isAuthenticated, petAd.statusId)}>
-                            <Button
-                                block
-                                disabled={isContactDisabled(isAuthenticated, petAd.statusId)}
-                                icon={<MessageCircle size={20} />}
-                                className={style.actionButton}
-                                onClick={() => setActiveModal("contact")}
-                            >
-                                <ActionButtonContent
-                                    title={t("details.actions.buttons.contact.title")}
-                                    description={t("details.actions.buttons.contact.description")}
-                                />
-                            </Button>
-                        </Tooltip>
+                            <Tooltip title={getContactTooltip(t, isAuthenticated, petAd.statusId)}>
+                                <Button
+                                    block
+                                    disabled={isContactDisabled(isAuthenticated, petAd.statusId)}
+                                    icon={<MessageCircle size={20} />}
+                                    className={style.actionButton}
+                                    onClick={() => setActiveModal("contact")}
+                                >
+                                    <ActionButtonContent
+                                        title={t("details.actions.buttons.contact.title")}
+                                        description={t("details.actions.buttons.contact.description")}
+                                    />
+                                </Button>
+                            </Tooltip>
+                        </>
+                    }
 
-                        {!userReported && (
+                        {(!userReported && !isAdmin()) && (
                             <Tooltip title={getReportTooltip(t, isAuthenticated, petAd.statusId)}>
                                 <Button
                                     block

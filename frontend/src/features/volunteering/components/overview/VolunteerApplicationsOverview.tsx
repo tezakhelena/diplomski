@@ -24,6 +24,8 @@ interface Props {
     isLoading?: boolean;
     filters: any;
     updateFilters: (values: any) => void;
+    isAdmin?: boolean;
+    sviZahtjevi: VolunteerApplicationResponse[];
 }
 
 type TabKey = "received" | "sent";
@@ -33,7 +35,9 @@ export const VolunteerApplicationsOverview = ({
     zaprimljeno = [],
     isLoading = false,
     filters,
-    updateFilters
+    updateFilters,
+    isAdmin,
+    sviZahtjevi
 }: Props) => {
     const { t } = useTranslation("volunteer");
     const auth = useSelector((state: RootState) => state.auth);
@@ -41,7 +45,7 @@ export const VolunteerApplicationsOverview = ({
 
     const [activeTab, setActiveTab] = useState<"received" | "sent">(auth.privateUser ? "sent" : "received");
 
-    const currentList = activeTab === "received" ? zaprimljeno : poslano;
+    const currentList = isAdmin ? sviZahtjevi : activeTab === "received" ? zaprimljeno : poslano;
 
     const { currentData, pageCount, currentPage, handlePageChange, setCurrentPage } = usePagination(currentList, 6);
 
@@ -64,7 +68,10 @@ export const VolunteerApplicationsOverview = ({
             }
             side={
                 <QuickStatsCard
-                    items={[
+                    items={isAdmin ? [
+                        { icon: <Send size={24} />, title: t('overview.statistics.all.title'), description: t('overview.statistics.all.description'), value: sviZahtjevi.length },
+
+                    ] : [
                         {
                             icon: <Inbox size={24} />,
                             title: t("overview.statistics.received.title"),
@@ -87,28 +94,30 @@ export const VolunteerApplicationsOverview = ({
                     size={24}
                     className="app-full"
                 >
-                    <PageTabs<TabKey>
-                        activeKey={activeTab}
-                        onChange={(tab) => { setCurrentPage(0); setActiveTab(tab as any); }}
-                        items={[
-                            ...(canViewReceivedApplications
-                                ? [
-                                    {
-                                        key: "received" as TabKey,
-                                        label: t("overview.tabs.received"),
-                                        icon: <Inbox size={20} />,
-                                        count: zaprimljeno.length,
-                                    },
-                                ]
-                                : []),
-                            {
-                                key: "sent",
-                                label: t("overview.tabs.sent"),
-                                icon: <Send size={20} />,
-                                count: poslano.length,
-                            },
-                        ]}
-                    />
+                    {!isAdmin && (
+                        <PageTabs<TabKey>
+                            activeKey={activeTab}
+                            onChange={(tab) => { setCurrentPage(0); setActiveTab(tab as any); }}
+                            items={[
+                                ...(canViewReceivedApplications
+                                    ? [
+                                        {
+                                            key: "received" as TabKey,
+                                            label: t("overview.tabs.received"),
+                                            icon: <Inbox size={20} />,
+                                            count: zaprimljeno.length,
+                                        },
+                                    ]
+                                    : []),
+                                {
+                                    key: "sent",
+                                    label: t("overview.tabs.sent"),
+                                    icon: <Send size={20} />,
+                                    count: poslano.length,
+                                },
+                            ]}
+                        />
+                    )}
 
                     <FastFilter
                         search={filters.searchInput}
@@ -173,6 +182,6 @@ export const VolunteerApplicationsOverview = ({
                     </AntSpin>
                 </Space>
             </ContentCard>
-        </TwoColumnPageLayout>
+        </TwoColumnPageLayout >
     );
 };

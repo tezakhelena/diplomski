@@ -1,4 +1,3 @@
-// @ts-ignore
 import WebViewer from "@pdftron/webviewer";
 import { Button, notification, Space } from "antd";
 import { useEffect, useRef, useState } from "react";

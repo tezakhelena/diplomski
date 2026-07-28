@@ -56,6 +56,7 @@
       "title": "Zahtjevi",
       "description": "Pregled vaših zahtjeva za udomljavanje.",
       "received": "Zaprimljeni",
+      "all": "Svi zahtjevi",
       "sent": "Podneseni",
       "searchPlaceholder": "Pretraži zahtjeve...",
       "allStatuses": "Svi statusi",
@@ -63,6 +64,7 @@
       "adCode": "Šifra oglasa: ",
       "unknown": "Nepoznato",
       "receivedDescription": "Zahtjevi koje ste zaprimili",
+      "allDescription": "Svi zahtjevi za udomljavanje",
       "sentDescription": "Zahtjevi koje ste poslali"
     },
     "container": {

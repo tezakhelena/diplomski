@@ -8,10 +8,11 @@ interface UserFormFieldsProps {
     edit?: boolean;
     visible?: boolean;
     isAdmin: boolean;
+    disabled?: boolean;
     handleSwitch?: (value: boolean) => void;
 }
 
-export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwitch }: UserFormFieldsProps) => {
+export const UserFormFields = ({ privateUser, edit, visible, isAdmin, disabled, handleSwitch }: UserFormFieldsProps) => {
     const { t } = useTranslation("users");
 
     return (
@@ -25,7 +26,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
                         ValidationRules.maxLength(50, privateUser ? t("forms.user.firstName.label") : t("forms.user.businessName.label"))
                     ]}
                 >
-                    <Input size="large" placeholder={privateUser ? t("forms.user.firstName.placeholder") : t("forms.user.businessName.placeholder")} />
+                    <Input size="large" disabled={disabled} placeholder={privateUser ? t("forms.user.firstName.placeholder") : t("forms.user.businessName.placeholder")} />
                 </Form.Item>
             </Col>
 
@@ -37,6 +38,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
                             placeholder={t("forms.user.businessType.placeholder")}
                             name="businessTypeId"
                             label={t("forms.user.businessType.label")}
+                            disabled={disabled}
                         />
                     </Col>
                     <Col xs={24} sm={12}>
@@ -48,7 +50,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
                                 { pattern: /^\d{11}$/, message: t("forms.user.oib.invalid") }
                             ]}
                         >
-                            <Input size="large" placeholder={t("forms.user.oib.placeholder")} maxLength={11} />
+                            <Input size="large" disabled={disabled} placeholder={t("forms.user.oib.placeholder")} maxLength={11} />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12}>
@@ -58,7 +60,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
                             rules={[{ type: "url", message: t("forms.user.website.invalid") }]}
                             normalize={(value) => (value && !value.startsWith('http') ? `https://${value}` : value)}
                         >
-                            <Input size="large" placeholder={t("forms.user.website.placeholder")} />
+                            <Input size="large" disabled={disabled} placeholder={t("forms.user.website.placeholder")} />
                         </Form.Item>
                     </Col>
                 </>
@@ -67,7 +69,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
             {privateUser && (
                 <Col xs={24} sm={12}>
                     <Form.Item label={t("forms.user.lastName.label")} name="lastName" rules={[ValidationRules.required(t("forms.user.lastName.label")), ValidationRules.maxLength(30, t("forms.user.lastName.label")), ValidationRules.minLength(2, t("forms.user.lastName.label"))]}>
-                        <Input size="large" placeholder={t("forms.user.lastName.placeholder")} />
+                        <Input size="large" disabled={disabled} placeholder={t("forms.user.lastName.placeholder")} />
                     </Form.Item>
                 </Col>
             )}
@@ -75,7 +77,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
             {edit && (
                 <Col xs={24} sm={12}>
                     <Form.Item label={t("forms.user.username.label")} name="username" rules={[ValidationRules.required(t("forms.user.username.label")), ValidationRules.maxLength(30, t("forms.user.username.label")), ValidationRules.minLength(3, t("forms.user.username.label"))]}>
-                        <Input size="large" placeholder={t("forms.user.username.placeholder")} />
+                        <Input size="large" disabled={disabled} placeholder={t("forms.user.username.placeholder")} />
                     </Form.Item>
                 </Col>
             )}
@@ -83,18 +85,18 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
             {visible && (
                 <Col xs={24} sm={12}>
                     <Form.Item label={t("forms.user.phoneNumber.label")} name="phoneNumber" rules={[ValidationRules.required(t("forms.user.phoneNumber.label")), ValidationRules.phoneNumber()]}>
-                        <Input size="large" placeholder={t("forms.user.phoneNumber.placeholder")} />
+                        <Input size="large" disabled={disabled} placeholder={t("forms.user.phoneNumber.placeholder")} />
                     </Form.Item>
                 </Col>
             )}
 
             <Col xs={24} sm={12}>
-                <AttributeSelect type="county" name="countyId" label={t("forms.user.county.label")} placeholder={t("forms.user.county.placeholder")} />
+                <AttributeSelect type="county" disabled={disabled} name="countyId" label={t("forms.user.county.label")} placeholder={t("forms.user.county.placeholder")} />
             </Col>
 
             <Col xs={24} sm={12}>
                 <Form.Item label={t("forms.user.city.label")} name="city" rules={[ValidationRules.required(t("forms.user.city.label")), ValidationRules.minLength(2, t("forms.user.city.label"))]}>
-                    <Input size="large" placeholder={t("forms.user.city.placeholder")} />
+                    <Input size="large" disabled={disabled} placeholder={t("forms.user.city.placeholder")} />
                 </Form.Item>
             </Col>
 
@@ -115,7 +117,7 @@ export const UserFormFields = ({ privateUser, edit, visible, isAdmin, handleSwit
                         <Typography.Title level={5}>
                             <Space>
                                 {t("forms.user.contactVisibility.title")}
-                                <Switch onChange={(value) => handleSwitch!(value)} />
+                                <Switch disabled={disabled} onChange={(value) => handleSwitch!(value)} />
                             </Space>
                         </Typography.Title>
                         <Typography.Text type="secondary">{t("forms.user.contactVisibility.description")}</Typography.Text>

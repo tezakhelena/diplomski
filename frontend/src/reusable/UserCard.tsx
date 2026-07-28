@@ -58,7 +58,7 @@ export const UserCard = ({
     const displayedUserType = isBusinessUser ? user.businessUserType : user.role;
     const canViewContactInfo = isBusinessUser || user.contactVisible === true || korisnik.isAdmin();
 
-    const canVolunteer = isShelter && isNotSelf && showVolunteerButton;
+    const canVolunteer = isShelter && isNotSelf && showVolunteerButton && !korisnik.isAdmin();
 
     const contactItems: ContactItem[] = [
         { key: "email", icon: <Mail size={17} />, value: user.email },
