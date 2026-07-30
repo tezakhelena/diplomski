@@ -6,6 +6,9 @@ import { ValidationRules } from "../../../utils/validationRules";
 import { usePetAdContactMutations } from "../hooks/usePetAdContactMutations";
 import { PetAdContactDetailResponse } from "../types/response-types";
 import { formatMomentDate } from "../../../utils/dateUtils";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
+import { AccountStatus } from "../../../enums/userEnums";
 
 const iconStyle = { color: "#722ed1" };
 const cardIconWrapperStyle = {
@@ -26,6 +29,7 @@ export const PetAdContactDetailContent = ({ details, isReceiver, refetch }: Prop
     const { replyToContactMessage, isReplying } = usePetAdContactMutations({
         onReplySuccess: () => { form.resetFields(); refetch(); },
     });
+    const { statusId } = useSelector((state: RootState) => state.auth);
 
     const handleReply = async () => {
         const values = await form.validateFields();
@@ -82,6 +86,7 @@ export const PetAdContactDetailContent = ({ details, isReceiver, refetch }: Prop
                             form={form}
                             onFinish={handleReply}
                             actionsType="submit"
+                            disabled={statusId == AccountStatus.Obustavljen}
                             submitText={t("detailContent.sendReplyButton")}
                             submitButtonProps={{ loading: isReplying, icon: <MessageSquareReply size={18} /> }}
                         >

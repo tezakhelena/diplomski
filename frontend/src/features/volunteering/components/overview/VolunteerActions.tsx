@@ -1,10 +1,11 @@
-import { Button, Space, Tag, Typography } from "antd";
+import { Alert, Button, Space, Tooltip } from "antd";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { VolunteerStatus } from "../../../../enums/processEnums";
 import { RootState } from "../../../../redux/store";
 import { VolunteerModal } from "./VolunteerModal";
-import { VolunteerStatus } from "../../../../enums/processEnums";
+import { AccountStatus } from "../../../../enums/userEnums";
 
 interface Props {
     volontiranjeId?: number;
@@ -32,18 +33,20 @@ export const VolunteerActions = ({ poduzeceId, currentStatusId, volontiranjeId, 
             {(auth.userId === poduzeceId) &&
                 <>
                     {currentStatusId === VolunteerStatus.PrijavaPoslana && (
-                        <Space>
-                            <Button onClick={() => changeAdoptionStatus(VolunteerStatus.PrijavaPrihvacena)} color="primary" variant="outlined">{t("actions.approveButton")}</Button>
-                            <Button onClick={() => changeAdoptionStatus(VolunteerStatus.PrijavaOdbijena)} color="danger" variant="outlined">{t("actions.rejectButton")}</Button>
-                        </Space>
+                        <Tooltip title={t('actions.userBlocked')}>
+                            <Space>
+                                <Button disabled={auth.statusId == AccountStatus.Obustavljen} onClick={() => changeAdoptionStatus(VolunteerStatus.PrijavaPrihvacena)} color="primary" variant="outlined">{t("actions.approveButton")}</Button>
+                                <Button disabled={auth.statusId == AccountStatus.Obustavljen} onClick={() => changeAdoptionStatus(VolunteerStatus.PrijavaOdbijena)} color="danger" variant="outlined">{t("actions.rejectButton")}</Button>
+                            </Space>
+                        </Tooltip>
                     )}
 
                     {currentStatusId === VolunteerStatus.PrijavaPrihvacena && (
-                        <Typography.Text>{t("actions.acceptedMessage")}</Typography.Text>
+                        <Alert type="success" description={t("actions.acceptedMessage")} />
                     )}
 
                     {currentStatusId === VolunteerStatus.PrijavaOdbijena && (
-                        <Tag color="green" bordered>{t("actions.rejectedTag")}</Tag>
+                        <Alert type="error" description={t("actions.rejectedTag")} />
                     )}
 
                 </>

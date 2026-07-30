@@ -27,5 +27,11 @@ export enum NotificationType {
     ZavrsenProces = 25,
     PotpisivanjeUzivo = 26,
     OdgovorNaUpit = 27,
-    PoslanUpit = 28
+    PoslanUpit = 28,
+    PodnositeljPotpisao = 29,
+    NovaPoruka = 30,
+    OdgovorNaPoruku = 31,
+    PrijavaZaVolontiranje = 32,
+    PrijavaOdobrena = 33,
+    PrijavaOdbijena = 34
 }

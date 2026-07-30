@@ -1,6 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-import { showSuccessNotification, showErrorNotification } from "../../../utils/notificationUtils";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { setProfilna } from "../../../redux/slices/authSlice";
+import { RootState } from "../../../redux/store";
+import { api } from "../../../utils/api";
 import {
     CHANGE_EMAIL,
     CHANGE_PASSWORD,
@@ -10,11 +13,8 @@ import {
     EDIT_USER,
     UPDATE_PREFERENCE
 } from "../../../utils/constants";
+import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 import { UpdatePreferenceRequest, UpdateProfileRequest } from "../types/request-types";
-import { useDispatch, useSelector } from "react-redux";
-import { setProfilna } from "../../../redux/slices/authSlice";
-import { RootState } from "../../../redux/store";
-import { useTranslation } from "react-i18next";
 
 export const useUserMutations = () => {
     const { t } = useTranslation("users");
@@ -28,7 +28,7 @@ export const useUserMutations = () => {
     };
 
     const updateProfileMutation = useMutation({
-        mutationFn: (request: FormData) => axios.post(EDIT_USER, request, {
+        mutationFn: (request: FormData) => api.post(EDIT_USER, request, {
             headers: { 'Content-Type': 'multipart/form-data' }
         }),
         onSuccess: (response) => {
@@ -48,14 +48,14 @@ export const useUserMutations = () => {
 
     const toggleVisibilityMutation = useMutation({
         mutationFn: (request: Partial<UpdateProfileRequest>) =>
-            axios.post(CONTACT_VISIBILITY, request),
+            api.post(CONTACT_VISIBILITY, request),
         onSuccess: (_, vars) => invalidateUserQueries(vars.userId),
         onError: (error) => showErrorNotification(t("notifications.visibility.title"), error, t("notifications.visibility.error"))
     });
 
     const changeEmailMutation = useMutation({
         mutationFn: (request: Partial<UpdateProfileRequest>) =>
-            axios.post(CHANGE_EMAIL, request),
+            api.post(CHANGE_EMAIL, request),
         onSuccess: (_, vars) => {
             showSuccessNotification(t("notifications.email.title"), t("notifications.email.success"));
             invalidateUserQueries(vars.userId);
@@ -65,7 +65,7 @@ export const useUserMutations = () => {
 
     const changePasswordMutation = useMutation({
         mutationFn: (request: Partial<UpdateProfileRequest>) =>
-            axios.post(CHANGE_PASSWORD, request),
+            api.post(CHANGE_PASSWORD, request),
         onSuccess: () => {
             showSuccessNotification(t("notifications.password.title"), t("notifications.password.success"));
         },
@@ -74,7 +74,7 @@ export const useUserMutations = () => {
 
     const changeStatusMutation = useMutation({
         mutationFn: (request: Partial<UpdateProfileRequest>) =>
-            axios.post(CHANGE_STATUS, request),
+            api.post(CHANGE_STATUS, request),
         onSuccess: (_, vars) => {
             showSuccessNotification(t("notifications.status.title"), t("notifications.status.success"));
             invalidateUserQueries(vars.userId);
@@ -83,7 +83,7 @@ export const useUserMutations = () => {
     });
 
     const deleteAccountMutation = useMutation({
-        mutationFn: (userId: number) => axios.get(`${DELETE_USER}${userId}`),
+        mutationFn: (userId: number) => api.get(`${DELETE_USER}${userId}`),
         onSuccess: () => {
             showSuccessNotification(t("notifications.deleteAccount.title"), t("notifications.deleteAccount.success"));
             invalidateUserQueries();
@@ -93,7 +93,7 @@ export const useUserMutations = () => {
 
     const updatePreferenceMutation = useMutation({
         mutationFn: (data: Partial<UpdatePreferenceRequest>) =>
-            axios.post(UPDATE_PREFERENCE, data),
+            api.post(UPDATE_PREFERENCE, data),
         onSuccess: (_, vars) => invalidateUserQueries(vars.userId),
         onError: (error) => showErrorNotification(t("notifications.preferences.title"), error, t("notifications.preferences.error"))
     });

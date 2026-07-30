@@ -71,15 +71,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Long register(RegisterRequest request) {
+        String username = request.getUsername().trim();
+        String email = request.getEmail().trim().toLowerCase();
+
+        if (userRepository.existsByUsernameIgnoreCase(username)) {
+            throw new IllegalArgumentException("Korisnik s tim korisničkim imenom već postoji.");
+        }
+
+        if (userRepository.existsByEmailIgnoreCase(email)) {
+            throw new IllegalArgumentException("Korisnik s tom e-mail adresom već postoji.");
+        }
+
         String encodedPassword = passwordEncoder.encode(request.getPassword());
+
         User user = new User();
-        user.setUsername(request.getUsername());
+        user.setUsername(username);
         user.setStatusId(11L);
         user.setRoleId(RolesEnum.NEPOTPUNI_PROFIL.getCode());
         user.setPassword(encodedPassword);
-        user.setEmail(request.getEmail());
+        user.setEmail(email);
         user.setRegistrationDate(LocalDate.now());
         user.setPrivateUser(request.isPrivateUser());
+        user.setEmailVerified(false);
 
         return userRepository.saveAndFlush(user).getId();
     }
@@ -214,6 +227,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void verifyUserByEmail(String email){
         User user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            throw new IllegalArgumentException("Korisnik s e-mail adresom " + email + " ne postoji.");
+        }
 
         user.setEmailVerified(true);
 

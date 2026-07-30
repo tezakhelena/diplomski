@@ -23,23 +23,36 @@ public class UserHistoryServiceImpl implements UserHistoryService {
     SimpMessagingTemplate messagingTemplate;
 
     @Override
-    public void addUserHistory(String content, Long userId, Long createdBy, Integer type, String notification, Integer isRead) {
-        UserHistory userHistory = new UserHistory();
+    public void addUserHistory(
+            String content,
+            Long userId,
+            Long createdBy,
+            Integer type,
+            String notification,
+            Integer isRead
+    ) {
+        boolean receiveNotification =
+                userNotificationPreferencesRepository
+                        .findByUserIdAndType(userId, type)
+                        .map(UserNotificationPreference::isReceiveNotification)
+                        .orElse(true);
 
-        boolean receiveNotification = userNotificationPreferencesRepository
-                .findByUserIdAndType(userId, type)
-                .map(UserNotificationPreference::isReceiveNotification)
-                .orElse(true);
+        if (!receiveNotification) {
+            return;
+        }
+
+        UserHistory userHistory = new UserHistory();
 
         userHistory.setUserId(userId);
         userHistory.setContent(content);
         userHistory.setCreatedAt(LocalDateTime.now());
-        userHistory.setIsRead(receiveNotification ? isRead : NotificationStatus.NOTIFICATION_UNREAD.getCode());
+        userHistory.setIsRead(isRead);
         userHistory.setType(type);
         userHistory.setNotification(notification);
         userHistory.setCreatedBy(createdBy);
 
-        UserHistory saved = userHistoryRepository.saveAndFlush(userHistory);
+        UserHistory saved =
+                userHistoryRepository.saveAndFlush(userHistory);
 
         messagingTemplate.convertAndSend(
                 "/topic/notifikacije/" + userId,
@@ -48,8 +61,24 @@ public class UserHistoryServiceImpl implements UserHistoryService {
     }
 
     @Override
-    public void addUserHistoryForUser(String content, Long userId, Integer type, String notification, Integer isRead, Long petAdId) {
-        // Used for adding notifications for similar pet ads
+    public void addUserHistoryForUser(
+            String content,
+            Long userId,
+            Integer type,
+            String notification,
+            Integer isRead,
+            Long petAdId
+    ) {
+        boolean receiveNotification =
+                userNotificationPreferencesRepository
+                        .findByUserIdAndType(userId, type)
+                        .map(UserNotificationPreference::isReceiveNotification)
+                        .orElse(true);
+
+        if (!receiveNotification) {
+            return;
+        }
+
         UserHistory userHistory = new UserHistory();
 
         userHistory.setUserId(userId);
@@ -61,7 +90,45 @@ public class UserHistoryServiceImpl implements UserHistoryService {
         userHistory.setCreatedBy(userId);
         userHistory.setPetAdId(petAdId);
 
-        UserHistory saved = userHistoryRepository.saveAndFlush(userHistory);
+        UserHistory saved =
+                userHistoryRepository.saveAndFlush(userHistory);
+
+        messagingTemplate.convertAndSend(
+                "/topic/notifikacije/" + userId,
+                saved
+        );
+    }
+
+    @Override
+    public void addUserHistoryForOrganization(
+            String content,
+            Long userId,
+            Integer type,
+            String notification,
+            Integer isRead
+    ) {
+        boolean receiveNotification =
+                userNotificationPreferencesRepository
+                        .findByUserIdAndType(userId, type)
+                        .map(UserNotificationPreference::isReceiveNotification)
+                        .orElse(true);
+
+        if (!receiveNotification) {
+            return;
+        }
+
+        UserHistory userHistory = new UserHistory();
+
+        userHistory.setUserId(userId);
+        userHistory.setContent(content);
+        userHistory.setCreatedAt(LocalDateTime.now());
+        userHistory.setIsRead(isRead);
+        userHistory.setType(type);
+        userHistory.setNotification(notification);
+        userHistory.setCreatedBy(userId);
+
+        UserHistory saved =
+                userHistoryRepository.saveAndFlush(userHistory);
 
         messagingTemplate.convertAndSend(
                 "/topic/notifikacije/" + userId,

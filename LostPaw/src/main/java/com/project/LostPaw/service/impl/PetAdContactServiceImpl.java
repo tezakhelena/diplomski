@@ -2,17 +2,18 @@ package com.project.LostPaw.service.impl;
 
 import com.project.LostPaw.dto.request.PetAdContactRequest;
 import com.project.LostPaw.dto.request.SendMessageRequest;
-import com.project.LostPaw.dto.response.AdoptionContractResponse;
-import com.project.LostPaw.dto.response.AdoptionRequestDetailResponse;
 import com.project.LostPaw.dto.response.PetAdContactDetailResponse;
 import com.project.LostPaw.dto.response.PetAdContactResponse;
-import com.project.LostPaw.entity.AdoptionRequest;
+import com.project.LostPaw.entity.PetAd;
 import com.project.LostPaw.entity.PetAdContact;
-import com.project.LostPaw.enumeration.AttributeEnum;
+import com.project.LostPaw.entity.User;
 import com.project.LostPaw.enumeration.NotificationStatus;
 import com.project.LostPaw.enumeration.NotificationType;
 import com.project.LostPaw.repository.PetAdContactRepository;
+import com.project.LostPaw.repository.PetAdRepository;
+import com.project.LostPaw.repository.UserRepository;
 import com.project.LostPaw.service.PetAdContactService;
+import com.project.LostPaw.service.UserHistoryService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,15 @@ import java.util.stream.Collectors;
 public class PetAdContactServiceImpl implements PetAdContactService {
     @Autowired
     PetAdContactRepository petAdContactRepository;
+
+    @Autowired
+    UserHistoryService userHistoryService;
+
+    @Autowired
+    PetAdRepository petAdRepository;
+
+    @Autowired
+    UserRepository userRepository;
     
     @Override
     public List<PetAdContactResponse> getContacts(PetAdContactRequest request) {
@@ -48,9 +58,20 @@ public class PetAdContactServiceImpl implements PetAdContactService {
         petAdContact.setSubject(request.getSubject());
         petAdContact.setMessage(request.getMessage());
         petAdContact.setCreatedAt(LocalDateTime.now());
+
+        PetAd petAd = petAdRepository.findById(request.getPetAdId()).orElseThrow();
+        User user = userRepository.findById(request.getReceiverId()).orElseThrow();
          
         petAdContactRepository.saveAndFlush(petAdContact);
 
+        userHistoryService.addUserHistory(
+                NotificationType.NOVA_PORUKA.getFormattedMessage(petAd.getGeneratedName(), user.getUsername()),
+                request.getReceiverId(),
+                request.getSenderId(),
+                NotificationType.NOVA_PORUKA.getCode(),
+                NotificationType.NOVA_PORUKA.getFormattedNotification(petAd.getGeneratedName(), user.getUsername()),
+                NotificationStatus.NOTIFICATION_UNREAD.getCode()
+        );
     }
 
     @Override
@@ -61,7 +82,20 @@ public class PetAdContactServiceImpl implements PetAdContactService {
         petAdContact.setAnswer(request.getAnswer());
         petAdContact.setRepliedAt(LocalDateTime.now());
 
-        petAdContactRepository.saveAndFlush( petAdContact);
+        PetAd petAd = petAdRepository.findById(petAdContact.getPetAdId()).orElseThrow();
+        User user = userRepository.findById(petAdContact.getSenderId()).orElseThrow();
+
+        petAdContactRepository.saveAndFlush(petAdContact);
+
+        userHistoryService.addUserHistory(
+                NotificationType.ODGOVOR_NA_PORUKU.getFormattedMessage(petAd.getGeneratedName(), user.getUsername()),
+                petAdContact.getSenderId(),
+                petAdContact.getReceiverId(),
+                NotificationType.ODGOVOR_NA_PORUKU.getCode(),
+                NotificationType.ODGOVOR_NA_PORUKU.getFormattedNotification(petAd.getGeneratedName(), user.getUsername()),
+                NotificationStatus.NOTIFICATION_UNREAD.getCode()
+        );
+
     }
 
     @Override

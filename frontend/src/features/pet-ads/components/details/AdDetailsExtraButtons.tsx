@@ -31,6 +31,8 @@ import { ReportAdFormFields } from "../form-fields/ReportAdFormFields";
 import { ReunitedFormFields } from "../form-fields/ReunitedFormFields";
 import { usePetAdContactMutations } from "../../../pet-ad-contacts/hooks/usePetAdContactMutations";
 import { getAdoptTooltip, getBlockTooltip, getContactTooltip, getDeleteTooltip, getEditTooltip, getReportTooltip, getReunitedTooltip, isAdoptDisabled, isBlockDisabled, isContactDisabled, isDeleteDisabled, isEditDisabled, isReportDisabled } from "../../../../utils/adActionsHelper";
+import { PetCategory } from "../../../../enums/petEnums";
+import { AccountStatus } from "../../../../enums/userEnums";
 
 type StatusModalType = "report" | "block" | "reunited" | "contact";
 type ModalType = StatusModalType | "delete";
@@ -75,7 +77,7 @@ export const AdDetailsExtraButtons = ({
     const [activeModal, setActiveModal] = useState<ModalType | null>(null);
     const [form] = useForm();
     const navigate = useNavigate();
-    const { isAuthenticated, userId } = useSelector((state: RootState) => state.auth);
+    const { isAuthenticated, userId, statusId } = useSelector((state: RootState) => state.auth);
     const { isAdmin } = useKorisnik();
 
     const closeModal = () => {
@@ -174,6 +176,7 @@ export const AdDetailsExtraButtons = ({
     };
 
     const statusModal = activeModal && activeModal !== "delete" ? modalConfigs[activeModal] : null;
+    const isUserAccountBlocked = statusId == AccountStatus.Obustavljen;
 
     return (
         <Card
@@ -186,12 +189,12 @@ export const AdDetailsExtraButtons = ({
             <Space direction="vertical" size={12} className="app-full">
                 {(sameUserId || isAdmin()) ? (
                     <>
-                        <Tooltip title={getEditTooltip(t, petAd.statusId)}>
+                        <Tooltip title={getEditTooltip(t, petAd.statusId, isUserAccountBlocked)}>
                             <Button
                                 block
                                 color="purple"
                                 variant="outlined"
-                                disabled={isEditDisabled(petAd.statusId)}
+                                disabled={isEditDisabled(petAd.statusId, isUserAccountBlocked)}
                                 icon={<Edit2 size={20} />}
                                 className={style.actionButton}
                                 onClick={navigateToEdit}
@@ -203,12 +206,12 @@ export const AdDetailsExtraButtons = ({
                             </Button>
                         </Tooltip>
 
-                        <Tooltip title={getReunitedTooltip(t, petAd.statusId)}>
+                        <Tooltip title={getReunitedTooltip(t, petAd.statusId, isUserAccountBlocked)}>
                             <Button
                                 block
                                 color="purple"
                                 variant="outlined"
-                                disabled={isEditDisabled(petAd.statusId)}
+                                disabled={isEditDisabled(petAd.statusId, isUserAccountBlocked)}
                                 icon={<CheckCircle size={20} />}
                                 className={style.actionButton}
                                 onClick={() => setActiveModal("reunited")}
@@ -219,11 +222,11 @@ export const AdDetailsExtraButtons = ({
                                 />
                             </Button>
                         </Tooltip>
-                        <Tooltip title={getDeleteTooltip(t, petAd.statusId)}>
+                        <Tooltip title={getDeleteTooltip(t, petAd.statusId, isUserAccountBlocked)}>
                             <Button
                                 block
                                 danger
-                                disabled={isDeleteDisabled(petAd.statusId)}
+                                disabled={isDeleteDisabled(petAd.statusId, isUserAccountBlocked)}
                                 icon={<Trash2 size={20} />}
                                 className={`${style.actionButton} ${style.dangerAction}`}
                                 onClick={() => setActiveModal("delete")}
@@ -238,25 +241,27 @@ export const AdDetailsExtraButtons = ({
                 ) : (
                     <> {!isAdmin() &&
                         <>
-                            <Tooltip title={getAdoptTooltip(t, isAuthenticated, petAd.statusId)}>
-                                <Button
-                                    block
-                                    disabled={isAdoptDisabled(isAuthenticated, petAd.statusId)}
-                                    icon={<HandHeart size={20} />}
-                                    className={style.actionButton}
-                                    onClick={navigateToAdoptionRequest}
-                                >
-                                    <ActionButtonContent
-                                        title={t("details.actions.buttons.adopt.title")}
-                                        description={t("details.actions.buttons.adopt.description")}
-                                    />
-                                </Button>
-                            </Tooltip>
+                            {petAd.categoryId === PetCategory.Napusten &&
+                                <Tooltip title={getAdoptTooltip(t, isAuthenticated, petAd.statusId, isUserAccountBlocked)}>
+                                    <Button
+                                        block
+                                        disabled={isAdoptDisabled(isAuthenticated, petAd.statusId, isUserAccountBlocked)}
+                                        icon={<HandHeart size={20} />}
+                                        className={style.actionButton}
+                                        onClick={navigateToAdoptionRequest}
+                                    >
+                                        <ActionButtonContent
+                                            title={t("details.actions.buttons.adopt.title")}
+                                            description={t("details.actions.buttons.adopt.description")}
+                                        />
+                                    </Button>
+                                </Tooltip>
+                            }
 
-                            <Tooltip title={getContactTooltip(t, isAuthenticated, petAd.statusId)}>
+                            <Tooltip title={getContactTooltip(t, isAuthenticated, petAd.statusId, isUserAccountBlocked)}>
                                 <Button
                                     block
-                                    disabled={isContactDisabled(isAuthenticated, petAd.statusId)}
+                                    disabled={isContactDisabled(isAuthenticated, petAd.statusId, isUserAccountBlocked)}
                                     icon={<MessageCircle size={20} />}
                                     className={style.actionButton}
                                     onClick={() => setActiveModal("contact")}
@@ -271,11 +276,11 @@ export const AdDetailsExtraButtons = ({
                     }
 
                         {(!userReported && !isAdmin()) && (
-                            <Tooltip title={getReportTooltip(t, isAuthenticated, petAd.statusId)}>
+                            <Tooltip title={getReportTooltip(t, isAuthenticated, petAd.statusId, isUserAccountBlocked)}>
                                 <Button
                                     block
                                     danger
-                                    disabled={isReportDisabled(isAuthenticated, petAd.statusId)}
+                                    disabled={isReportDisabled(isAuthenticated, petAd.statusId, isUserAccountBlocked)}
                                     icon={<Flag size={20} />}
                                     className={`${style.actionButton} ${style.dangerAction}`}
                                     onClick={() => setActiveModal("report")}
@@ -291,7 +296,7 @@ export const AdDetailsExtraButtons = ({
                 )}
 
                 {isAdmin() && (
-                    <Tooltip title={getBlockTooltip(t, isAuthenticated, petAd.statusId)}>
+                    <Tooltip title={getBlockTooltip(t, isAuthenticated, petAd.statusId, isUserAccountBlocked)}>
                         <Button
                             block
                             danger

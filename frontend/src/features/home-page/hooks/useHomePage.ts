@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { HOME_PAGE_STATISTICS, REVIEWS } from "../../../utils/constants";
 import { showErrorNotification } from "../../../utils/notificationUtils";
 import { HomePageResponse, HomepageReviewResponse } from "../../admin/types/response-types";
+import { api } from "../../../utils/api";
 
 interface UseHomePageOptions {
     enabled?: boolean;
@@ -16,7 +17,7 @@ export const useHomePageReviews = (options?: UseHomePageOptions) => {
         queryKey: ["homePageReviews"],
         queryFn: async (): Promise<HomepageReviewResponse[]> => {
             try {
-                const response = await axios.get<HomepageReviewResponse[]>(REVIEWS);
+                const response = await api.get<HomepageReviewResponse[]>(REVIEWS);
                 return response.data;
             } catch (error) {
                 showErrorNotification(t("errors.reviewsFetchTitle"), error, t("errors.reviewsFetch"));
@@ -42,7 +43,7 @@ export const useHomePageStatistics = (options?: UseHomePageOptions) => {
         queryKey: ["homePageStatistics"],
         queryFn: async (): Promise<HomePageResponse> => {
             try {
-                const response = await axios.get<HomePageResponse>(HOME_PAGE_STATISTICS);
+                const response = await api.get<HomePageResponse>(HOME_PAGE_STATISTICS);
                 return response.data;
             } catch (error) {
                 showErrorNotification(t("errors.statsFetchTitle"), error, t("errors.statsFetch"));

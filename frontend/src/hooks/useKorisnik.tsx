@@ -1,19 +1,18 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { useSelector } from "react-redux";
+import { Roles } from "../enums/userEnums";
+import { RootState } from "../redux/store";
 
 const useKorisnik = () => {
+    const { roleId, privateUser } = useSelector((state: RootState) => state.auth);
 
-    const { roleId: idRole, privateUser } = useSelector((state: RootState) => state.auth);
-
-    const hasRole = (roleId: number): boolean => {
-        return (idRole === roleId);
-    };
+    const hasRole = (requiredRoleId: number): boolean => roleId === requiredRoleId;
+    const trebaDovrsitiProfil = (): boolean => hasRole(Roles.NepotpuniProfil);
 
     return {
-        isAdmin: (): boolean => hasRole(1),
-        trebaDovrsitiProfil: (): boolean => !hasRole(4),
-        isFizickaOsoba: () => privateUser === true,
-        isPoslovniKorisnik: () => privateUser === false,
+        isAdmin: (): boolean => hasRole(Roles.Admin),
+        trebaDovrsitiProfil,
+        isFizickaOsoba: (): boolean => privateUser === true,
+        isPoslovniKorisnik: (): boolean => privateUser === false,
         hasRole,
     };
 };

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { REPLY_TO_INQUIRY, SEND_INQUIRY } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 import { InquiryRequest } from "../types/request-types";
+import { api } from "../../../utils/api";
 
 type InquiryAction = "send" | "reply";
 
@@ -19,7 +20,7 @@ export const useInquiryMutations = () => {
     const inquiryMutation = useMutation({
         mutationFn: ({ action, request }: InquiryMutationRequest) => {
             const url = action === "send" ? SEND_INQUIRY : REPLY_TO_INQUIRY;
-            return axios.post(url, request);
+            return api.post(url, request);
         },
         onSuccess: (_, variables) => {
             const isSend = variables.action === "send";

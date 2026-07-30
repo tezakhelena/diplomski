@@ -44,8 +44,12 @@ public enum NotificationType {
     POTPISIVANJE_UZIVO(26, "Potpisivanje ugovora", "Oglašivač je odabrao potpisivanje ugovora uživo. Molimo kontaktirajte oglašivača kako biste dogovorili termin i mjesto potpisivanja ugovora. Nakon što potpišete ugovor, proces udomljavanja bit će završen."),
     ODGOVOR_NA_UPIT(27, "Pitanja i odgovori", "Dobili ste odgovor na Vaš upit. Možete ga vidjeti pod opcijom Moji upiti na Pitanja i odgovori."),
     POSLAN_UPIT(28, "Pitanja i odgovori", "Postoje nova pitanja u aplikaciji na koja bi mogli dati odgovor"),
-    PODNOSITELJ_POTPISAO(29, "Potpisivanje ugovora", "Podnositelj zahtjeva je uspješno potpisao ugovor te Vam je ugovor vraćen radi Vašeg potpisa. Molimo da potpišete ugovor, nakon čega će proces udomljavanja bit završen.");
-
+    PODNOSITELJ_POTPISAO(29, "Potpisivanje ugovora", "Podnositelj zahtjeva je uspješno potpisao ugovor te Vam je ugovor vraćen radi Vašeg potpisa. Molimo da potpišete ugovor, nakon čega će proces udomljavanja bit završen."),
+    NOVA_PORUKA(30, "Nova poruka", "Korisnik '{username}' Vam je poslao novu poruku vezanu uz oglas '{naslovOglasa}'. Pregledajte ju u odjeljku 'Razgovori'."),
+    ODGOVOR_NA_PORUKU(31, "Odgovor na poruku", "Korisnik '{username}' odgovorio je na Vašu poruku. Pregledajte ju u odjeljku 'Razgovori'."),
+    PRIJAVA_ZA_VOLONTIRANJE(32, "Prijava za volontiranje.", "Zaprimili ste prijavu za volontiranje. Sve prijave možete vidjeti u odjeljku 'Prijave za volontiranje'."),
+    PRIJAVA_ODOBRENA(33, "Prijava za volontiranje.", "Vaša prijava za volontiranje je odobrena. Sve svoje prijave i njihove statuse možete pregledati u odjeljku 'Prijave za volontiranje'."),
+    PRIJAVA_ODBIJENA(34, "Prijava za volontiranje.", "Vaša prijava za volontiranje je odbijena. Sve svoje prijave i njihove statuse možete pregledati u odjeljku 'Prijave za volontiranje'.");
 
     private Integer code;
     private String sadrzaj;

@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { ADD_CONTRACT, ADD_SIGNATURE, DOWNLOAD_PDF } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 
@@ -26,7 +26,7 @@ export const useContractMutations = (options?: ContractMutationOptions) => {
 
     const addContractMutation = useMutation({
         mutationFn: async (request: FormData): Promise<void> => {
-            await axios.post(ADD_CONTRACT, request);
+            await api.post(ADD_CONTRACT, request);
         },
         onSuccess: async () => {
             showSuccessNotification(t("notifications.addContractTitle"), t("notifications.addSuccess"));
@@ -39,7 +39,7 @@ export const useContractMutations = (options?: ContractMutationOptions) => {
 
     const signContractMutation = useMutation({
         mutationFn: async (request: FormData): Promise<void> => {
-            await axios.post(ADD_SIGNATURE, request);
+            await api.post(ADD_SIGNATURE, request);
         },
         onSuccess: async () => {
             showSuccessNotification(t("notifications.signTitle"), t("notifications.signSuccess"));
@@ -52,7 +52,7 @@ export const useContractMutations = (options?: ContractMutationOptions) => {
 
     const downloadPdfMutation = useMutation({
         mutationFn: async (fileName: string): Promise<Blob> => {
-            const response = await axios.get<Blob>(DOWNLOAD_PDF, {
+            const response = await api.get<Blob>(DOWNLOAD_PDF, {
                 params: { fileName },
                 responseType: "blob",
             });

@@ -65,19 +65,31 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ApiResponse register(@RequestBody RegisterRequest request) throws IOException {
+    public ResponseEntity<ApiResponse> register(@RequestBody RegisterRequest request) throws IOException {
+        try {
+            Long userId = userService.register(request);
 
-        Long  userId = userService.register(request);
+            String token = jwtUtil.generateTokenEmail(request.getEmail());
 
-        String token = jwtUtil.generateTokenEmail(request.getEmail());
-        String verificationUrl = "http://localhost:5173/verify-email?token=" + token;
-        userHistoryService.addUserHistory(NotificationType.REGISTRACIJA.getFormattedMessageDatum(LocalDate.now()),  userId,  userId, NotificationType.REGISTRACIJA.getCode(), "Uspješno ste se registrirali", NotificationStatus.NOTIFICATION_UNREAD.getCode());
+            String verificationUrl = "http://localhost:5173/verify-email?token=" + token;
 
-        emailService.sendVerificationEmail(request.getEmail(), verificationUrl);
+            userHistoryService.addUserHistory(
+                    NotificationType.REGISTRACIJA.getFormattedMessageDatum(LocalDate.now()),
+                    userId,
+                    userId,
+                    NotificationType.REGISTRACIJA.getCode(),
+                    "Uspješno ste se registrirali",
+                    NotificationStatus.NOTIFICATION_UNREAD.getCode()
+            );
 
-        userNotificationPreferencesService.addNotificationPreferencesInitial( userId);
+            emailService.sendVerificationEmail(request.getEmail(), verificationUrl);
 
-        return new ApiResponse(true, "Uspješno ste se regstrirali.");
+            userNotificationPreferencesService.addNotificationPreferencesInitial(userId);
+
+            return ResponseEntity.ok(new ApiResponse(true, "Uspješno ste se registrirali."));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ApiResponse(false, e.getMessage()));
+        }
     }
 
     @PostMapping("/complete")
@@ -127,15 +139,17 @@ public class UserController {
         try {
             String email = jwtUtil.extractUsernameEmail(token);
 
-            if (email == null || email.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid token: Email not found.");
+            if (email == null || email.isBlank()) {
+                return ResponseEntity.badRequest().body("Invalid token: Email not found.");
             }
 
             userService.verifyUserByEmail(email);
 
             return ResponseEntity.ok("Email successfully verified!");
+
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid token.");
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("Verification failed: " + e.getMessage());
         }
     }
 
@@ -175,7 +189,8 @@ public class UserController {
                     user.isPrivateUser(),
                     user.isContactVisible(),
                     preferences,
-                    businessTypeId
+                    businessTypeId,
+                    user.getStatusId()
             );
 
             return ResponseEntity.ok(loginResponse);

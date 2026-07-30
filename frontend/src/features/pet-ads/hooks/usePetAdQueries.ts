@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { GET_LATEST_ADS, GET_PET_ADS } from "../../../utils/constants";
+import { removeEmptyFilters } from "../../../utils/formatters";
+import { showErrorNotification } from "../../../utils/notificationUtils";
 import { FilterAdsRequest } from "../types/request-types";
 import { PetAdDetailResponse, PetAdResponse } from "../types/response-types";
-import { showErrorNotification } from "../../../utils/notificationUtils";
-import { removeEmptyFilters } from "../../../utils/formatters";
 
 interface UsePetAdsOptions {
     enabled?: boolean;
@@ -23,7 +23,7 @@ export const usePetAds = (
         queryKey: ["petAds", activeFilters],
         queryFn: async (): Promise<PetAdResponse[]> => {
             try {
-                const response = await axios.post<PetAdResponse[]>(
+                const response = await api.post<PetAdResponse[]>(
                     GET_PET_ADS,
                     activeFilters
                 );
@@ -59,7 +59,7 @@ export const usePetAdDetails = (petAdId?: number, options?: UsePetAdsOptions) =>
         queryKey: ["petAdDetails", petAdId],
         queryFn: async (): Promise<PetAdDetailResponse> => {
             try {
-                const response = await axios.get<PetAdDetailResponse>(
+                const response = await api.get<PetAdDetailResponse>(
                     `${GET_PET_ADS}/details/${petAdId}`
                 );
                 return response.data;
@@ -92,7 +92,7 @@ export const useLatestPetAds = (options?: UsePetAdsOptions) => {
         queryKey: ["latestAds"],
         queryFn: async (): Promise<PetAdResponse[]> => {
             try {
-                const response = await axios.get<PetAdResponse[]>(GET_LATEST_ADS);
+                const response = await api.get<PetAdResponse[]>(GET_LATEST_ADS);
                 return response.data;
             } catch (error) {
                 showErrorNotification(

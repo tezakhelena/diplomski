@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useMemo } from "react";
-import { UserFilterRequest } from "../types/request-types";
-import { UserDetailsResponse, UsersResponse } from "../types/response-types";
-import { showErrorNotification } from "../../../utils/notificationUtils";
+import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { GET_USERS } from "../../../utils/constants";
 import { removeEmptyFilters } from "../../../utils/formatters";
-import { useTranslation } from "react-i18next";
+import { showErrorNotification } from "../../../utils/notificationUtils";
+import { UserFilterRequest } from "../types/request-types";
+import { UserDetailsResponse, UsersResponse } from "../types/response-types";
 
 export const useUsers = (filters?: Partial<UserFilterRequest>, enabled = true) => {
     const { t } = useTranslation("users");
@@ -16,7 +16,7 @@ export const useUsers = (filters?: Partial<UserFilterRequest>, enabled = true) =
         queryKey: ["users", activeFilters],
         queryFn: async (): Promise<UsersResponse[]> => {
             try {
-                const res = await axios.post<UsersResponse[]>(GET_USERS, activeFilters);
+                const res = await api.post<UsersResponse[]>(GET_USERS, activeFilters);
                 return res.data;
             } catch (error) {
                 showErrorNotification(t("notifications.fetchUsers.title"), error, t("notifications.fetchUsers.error"));
@@ -41,7 +41,7 @@ export const useUserDetails = (userId?: number) => {
         queryKey: ["user-details", userId],
         queryFn: async (): Promise<UserDetailsResponse> => {
             try {
-                const res = await axios.get<UserDetailsResponse>(`${GET_USERS}/${userId}`);
+                const res = await api.get<UserDetailsResponse>(`${GET_USERS}/${userId}`);
                 return res.data;
             } catch (error) {
                 showErrorNotification(t("notifications.fetchUserDetails.title"), error, t("notifications.fetchUserDetails.error"));

@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { CHANGE_STATUS_OGLAS, CREATE_PET_AD, EDIT_PET_AD, GET_PET_ADS } from "../../../utils/constants";
-import { ChangeAdStatusRequest, SaveAdRequest } from "../types/request-types";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
+import { ChangeAdStatusRequest, SaveAdRequest } from "../types/request-types";
 
 interface MutationOptions {
     onSuccess?: () => void;
@@ -16,7 +16,7 @@ export const usePetAdMutations = (options?: MutationOptions) => {
 
     const createAdMutation = useMutation({
         mutationFn: (request: FormData) => {
-            return axios.post(CREATE_PET_AD, request, {
+            return api.post(CREATE_PET_AD, request, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
         },
@@ -44,7 +44,7 @@ export const usePetAdMutations = (options?: MutationOptions) => {
 
     const updateAdMutation = useMutation({
         mutationFn: (request: SaveAdRequest) => {
-            return axios.put(EDIT_PET_AD, request);
+            return api.put(EDIT_PET_AD, request);
         },
         onSuccess: (_, variables) => {
             showSuccessNotification(
@@ -68,7 +68,7 @@ export const usePetAdMutations = (options?: MutationOptions) => {
 
     const deleteAdMutation = useMutation({
         mutationFn: (id: number) => {
-            return axios.delete(`${GET_PET_ADS}/delete/${id}`);
+            return api.delete(`${GET_PET_ADS}/delete/${id}`);
         },
         onSuccess: () => {
             showSuccessNotification(
@@ -93,7 +93,7 @@ export const usePetAdMutations = (options?: MutationOptions) => {
 
     const changeStatusMutation = useMutation({
         mutationFn: (request: Partial<ChangeAdStatusRequest>) => {
-            return axios.post(CHANGE_STATUS_OGLAS, request);
+            return api.post(CHANGE_STATUS_OGLAS, request);
         },
         onSuccess: () => {
             showSuccessNotification(

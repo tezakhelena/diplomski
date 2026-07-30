@@ -89,7 +89,7 @@ public interface PetAdHistoryRepository extends JpaRepository<PetAdHistory, Long
         where pa.user_id = :userId  
         and pa.status_id = 22 
         and ph.status_id = 22 
-        group by ph.pet_ad_id, ph.status_id, pa.user_id, ph.reason, ai.url, pa.generated_name 
+        group by ph.pet_ad_id, ph.status_id, pa.user_id, ph.reason, ai.url, pa.generated_name, a.value 
     """, nativeQuery = true)
     List<PetAdHistoryProjection> findAdsOfBlockedUser(Long userId);
 }

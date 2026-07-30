@@ -7,6 +7,7 @@ import { setContactVisible, setProfilna, setUloga } from "../../redux/slices/aut
 import { RootState } from "../../redux/store";
 import { UserForm } from "../users/components/user-details/UserForm";
 import { useAuthMutations } from "./hooks/useAuthMutations";
+import { Roles } from "../../enums/userEnums";
 
 export const CompleteProfileContainer = () => {
     const [form] = useForm();
@@ -17,7 +18,7 @@ export const CompleteProfileContainer = () => {
 
     const { completeProfile, isCompleting } = useAuthMutations({
         onSuccess: (data) => {
-            dispatch(setUloga(2));
+            dispatch(setUloga(Roles.Korisnik));
             dispatch(setProfilna(data.fileName));
             dispatch(setContactVisible(checked));
             navigate('/');

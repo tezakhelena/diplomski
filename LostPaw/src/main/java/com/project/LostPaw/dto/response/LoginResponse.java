@@ -21,4 +21,5 @@ public class LoginResponse {
     private boolean contactVisible;
     private List<UserPreferenceResponse> preferences;
     private Long businessTypeId;
+    private Long statusId;
 }

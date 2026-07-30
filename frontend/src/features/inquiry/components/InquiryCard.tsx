@@ -10,7 +10,7 @@ import { InquiryResponse } from "../types/response-types";
 import { formatMomentDate } from "../../../utils/dateUtils";
 import { getImage } from "../../../utils/urlUtils";
 import { QueryType } from "../../../enums/supportEnums";
-import { BusinessType } from "../../../enums/userEnums";
+import { AccountStatus, BusinessType } from "../../../enums/userEnums";
 
 interface InquiryCardProps {
     upit: InquiryResponse;
@@ -24,7 +24,7 @@ interface InquiryCardProps {
 
 export const InquiryCard = ({ upit, privateUser, activeAnswerId, setActiveAnswerId, answerForm, onFinishOdgovor, isReplying }: InquiryCardProps) => {
     const { t } = useTranslation("inquiries");
-    const { businessTypeId, roleId } = useSelector((state: RootState) => state.auth);
+    const { businessTypeId, roleId, statusId } = useSelector((state: RootState) => state.auth);
 
     const closeAnswerForm = () => {
         answerForm.resetFields();
@@ -54,7 +54,7 @@ export const InquiryCard = ({ upit, privateUser, activeAnswerId, setActiveAnswer
 
     const hasAnswer = Boolean(upit.answer);
     const isAnswerOpen = activeAnswerId === upit.inquiryId;
-    const showAnswerButton = !hasAnswer && canAnswer();
+    const showAnswerButton = !hasAnswer && canAnswer() && statusId != AccountStatus.Obustavljen;
 
     return (
         <Card bordered={false} className={style.inquiryCard}>

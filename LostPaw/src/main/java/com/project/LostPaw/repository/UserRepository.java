@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByStatusId(Long statusId);
     long countByStatusId(Long statusId);
     boolean existsByStatusId(Long statusId);
+    boolean existsByUsernameIgnoreCase(String username);
+    boolean existsByEmailIgnoreCase(String email);
 
     @Query(value = """
         SELECT          

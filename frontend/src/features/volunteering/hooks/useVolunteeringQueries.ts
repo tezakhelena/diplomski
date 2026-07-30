@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { GET_VOLUNTEERING } from "../../../utils/constants";
+import { removeEmptyFilters } from "../../../utils/formatters";
 import { showErrorNotification } from "../../../utils/notificationUtils";
 import {
     AdoptionFilterRequest,
     VolunteerApplicationDetailsResponse,
     VolunteerApplicationResponse,
 } from "../types/request-types";
-import { removeEmptyFilters } from "../../../utils/formatters";
 
 interface UseVolunteeringOptions {
     enabled?: boolean;
@@ -26,7 +26,7 @@ export const useVolunteerApplications = (
         queryKey: ["volunteerApplications", activeFilters],
         queryFn: async (): Promise<VolunteerApplicationResponse[]> => {
             try {
-                const response = await axios.post<VolunteerApplicationResponse[]>(
+                const response = await api.post<VolunteerApplicationResponse[]>(
                     GET_VOLUNTEERING,
                     activeFilters,
                 );
@@ -65,7 +65,7 @@ export const useVolunteerApplicationDetails = (
         queryKey: ["volunteerApplicationDetails", volunteeringId],
         queryFn: async (): Promise<VolunteerApplicationDetailsResponse> => {
             try {
-                const response = await axios.get<VolunteerApplicationDetailsResponse>(
+                const response = await api.get<VolunteerApplicationDetailsResponse>(
                     `${GET_VOLUNTEERING}/${volunteeringId}`,
                 );
                 return response.data;

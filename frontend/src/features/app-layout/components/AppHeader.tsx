@@ -91,13 +91,13 @@ export const AppHeader = () => {
                 ) : (
                     <Space align="center">
                         <Link to="/notifikacije">
-                            <Button shape="circle" className="app-icon-button">
+                            <Button disabled={korisnik.trebaDovrsitiProfil()} shape="circle" className="app-icon-button">
                                 <Badge count={unreadNotifications} overflowCount={99}>
                                     <BellRing size={17} />
                                 </Badge>
                             </Button>
                         </Link>
-                        <Dropdown menu={{ items: dropdownItems }} placement="bottomRight" trigger={["click"]}>
+                        <Dropdown disabled={korisnik.trebaDovrsitiProfil()} menu={{ items: dropdownItems }} placement="bottomRight" trigger={["click"]}>
                             <Button type="link" className={style.userButton}>
                                 <UserAvatar />
                                 <DownOutlined />

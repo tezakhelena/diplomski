@@ -18,8 +18,8 @@ export const maturity: SelectOption[] = [
 
 export const notifikacijeTypes: NotificationDescriptions[] = [
     { value: 1, label: "Notifikacije za nove komentare na Vašim oglasima", description: "Primajte obavijesti o svakom novom komentaru koji drugi korisnici ostave na vašim oglasima." },
-    { value: 2, label: "Notifikacije za oglase koji se podudaraju s Vašim oglasima", description: "Primajte obavijesti o oglasima drugih korisnika koji se podudaraju s vašim oglasima, kako biste lakše pronašli relevantne prilike ili povezali slične objave. Pretraživanje se odvija prema suprotnoj kategoriji životinje, spolu, zrelosti i vrsti životinje." },
-    { value: 3, label: "Notifikacije za izgubljene/pronađene ljubimce u Vašem području", description: "Primajte obavijesti o izgubljenim ili pronađenim ljubimcima u vašem području." }
+    { value: 11, label: "Notifikacije za oglase koji se podudaraju s Vašim oglasima", description: "Primajte obavijesti o oglasima drugih korisnika koji se podudaraju s vašim oglasima, kako biste lakše pronašli relevantne prilike ili povezali slične objave. Pretraživanje se odvija prema suprotnoj kategoriji životinje, spolu, zrelosti i vrsti životinje." },
+    { value: 12, label: "Notifikacije za izgubljene/pronađene ljubimce u Vašem području", description: "Primajte obavijesti o izgubljenim ili pronađenim ljubimcima u vašem području." }
 ]
 
 export type SortDirection = "ASC" | "DESC";

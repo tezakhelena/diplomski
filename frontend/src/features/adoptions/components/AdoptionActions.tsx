@@ -1,4 +1,4 @@
-import { Button, Space, Tag } from "antd";
+import { Button, Space, Tag, Tooltip } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { AdoptionProcessStatus } from "../../../enums/processEnums";
 import { RootState } from "../../../redux/store";
 import { getTagColorByStatusId } from "../../../utils/uiUtils/styling";
 import { AdoptionModal } from "./AdoptionModal";
+import { AccountStatus } from "../../../enums/userEnums";
 
 interface Props {
     adoptionId: number;
@@ -17,7 +18,7 @@ interface Props {
 
 export const AdoptionActions = ({ adoptionId, currentStatusId, podnositeljId, oglasivacId, refetch }: Props) => {
     const { t } = useTranslation('adoption');
-    const { userId } = useSelector((state: RootState) => state.auth);
+    const { userId, statusId } = useSelector((state: RootState) => state.auth);
     const [modal, setModal] = useState({ visible: false, statusId: 0 });
 
     const isOwner = userId === oglasivacId;
@@ -50,9 +51,11 @@ export const AdoptionActions = ({ adoptionId, currentStatusId, podnositeljId, og
     return (
         <Space wrap>
             {isOwner && ACTIONS[currentStatusId]?.map(a => (
-                <Button key={a.id} type={a.color === "primary" ? "primary" : "default"} danger={a.color === "danger"} onClick={() => setModal({ visible: true, statusId: a.id })}>
-                    {a.label}
-                </Button>
+                <Tooltip title={t('adoption.actions.userBlocked')}>
+                    <Button key={a.id} disabled={statusId == AccountStatus.Obustavljen} type={a.color === "primary" ? "primary" : "default"} danger={a.color === "danger"} onClick={() => setModal({ visible: true, statusId: a.id })}>
+                        {a.label}
+                    </Button>
+                </Tooltip>
             ))}
             {isApplicant && [
                 AdoptionProcessStatus.ZahtjevZaprimljen,

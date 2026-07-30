@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { CLEAR_NOTIFIKACIJS, READ_NOTIFICATIONS } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 
@@ -21,8 +21,8 @@ export const useNotificationMutations = (options?: MutationOptions) => {
 
     const notificationMutation = useMutation({
         mutationFn: ({ action, userId }: NotificationMutationRequest) => {
-            if (action === "markAllAsRead") return axios.put(`${READ_NOTIFICATIONS}/${userId}`);
-            return axios.put(`${CLEAR_NOTIFIKACIJS}/${userId}`);
+            if (action === "markAllAsRead") return api.put(`${READ_NOTIFICATIONS}/${userId}`);
+            return api.put(`${CLEAR_NOTIFIKACIJS}/${userId}`);
         },
         onSuccess: async (_, variables) => {
             await queryClient.invalidateQueries({ queryKey: ["notifications", variables.userId] });

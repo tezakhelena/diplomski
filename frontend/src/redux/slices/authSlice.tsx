@@ -14,6 +14,7 @@ interface AuthState {
     contactVisible: boolean;
     preferences: Record<number | string, boolean>;
     businessTypeId: number;
+    statusId: number;
 }
 
 const initialState: AuthState = {
@@ -32,13 +33,26 @@ const initialState: AuthState = {
         return acc;
     }, {} as Record<number | string, boolean>),
     businessTypeId: 0,
+    statusId: 0
 };
 
 const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state, action: PayloadAction<{ token: string; username: string, userId: number, roleId: number, firstName: string, lastName: string, profilePictureUrl: string, privateUser: boolean, contactVisible: boolean, businessTypeId: number }>) {
+        login(state, action: PayloadAction<{ 
+            token: string; 
+            username: string, 
+            userId: number, 
+            roleId: number, 
+            firstName: string, 
+            lastName: string, 
+            profilePictureUrl: string, 
+            privateUser: boolean, 
+            contactVisible: boolean, 
+            businessTypeId: number, 
+            statusId: number 
+        }>) {
             state.isAuthenticated = true;
             state.token = action.payload.token;
             state.username = action.payload.username;
@@ -49,7 +63,8 @@ const authSlice = createSlice({
             state.profilePictureUrl = action.payload.profilePictureUrl;
             state.privateUser = action.payload.privateUser,
             state.contactVisible = action.payload.contactVisible,
-            state.businessTypeId = action.payload.businessTypeId
+            state.businessTypeId = action.payload.businessTypeId,
+            state.statusId = action.payload.statusId
         },
         logout() {
             return initialState;
@@ -69,6 +84,13 @@ const authSlice = createSlice({
     },
 });
 
-export const { login, logout, setUloga, setProfilna, setContactVisible, setPreference } = authSlice.actions;
+export const { 
+    login, 
+    logout, 
+    setUloga, 
+    setProfilna, 
+    setContactVisible, 
+    setPreference 
+} = authSlice.actions;
 
 export default authSlice.reducer;

@@ -27,9 +27,6 @@ public class PetAd {
     @Column(name = "created_at")
     private LocalDate createdAt;
 
-    @Column(name = "expiration_date") // rok oglasa
-    private LocalDate expirationDate;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     @JoinColumn(name = "status_id", nullable = false, insertable = false, updatable = false)

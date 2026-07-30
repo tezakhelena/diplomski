@@ -45,12 +45,10 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void addComment(AddCommentRequest request) {
-        // 1. Validacija obaveznog polja
         if (request.getContent() == null || request.getContent().trim().isEmpty()) {
             throw new IllegalArgumentException("Comment content is required.");
         }
 
-        // 2. Kreiranje i spremanje komentara
         Comment comment = new Comment();
         comment.setPetAdId(request.getPetAdId());
         comment.setUserId(request.getUserId());
@@ -58,13 +56,12 @@ public class CommentServiceImpl implements CommentService {
         comment.setCreatedAt(LocalDateTime.now());
         commentRepository.saveAndFlush(comment);
 
-        // 3. Dohvaćanje popratnih entiteta za generiranje obavijesti
         PetAd petAd = petAdRepository.findById(request.getPetAdId())
                 .orElseThrow(() -> new EntityNotFoundException("Pet advertisement not found with ID: " + request.getPetAdId()));
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + request.getUserId()));
 
-        // 4. Logika slanja obavijesti (ovisno o tome komentira li autor oglas ili netko drugi)
+        //logika slanja obavijesti (ovisno o tome komentira li autor oglas ili netko drugi)
         if (!Objects.equals(request.getUserId(), petAd.getUserId())) {
             userHistoryService.addUserHistory(
                     NotificationType.KOMENTAR.getFormattedMessage(petAd.getGeneratedName(), user.getUsername()),

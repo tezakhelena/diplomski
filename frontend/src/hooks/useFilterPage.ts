@@ -9,10 +9,7 @@ interface Props<T extends object> {
     filterValues?: Partial<T>;
 }
 
-export const useFilterPage = <T extends object>({
-    filterName,
-    filterValues,
-}: Props<T>) => {
+export const useFilterPage = <T extends object>({filterName, filterValues}: Props<T>) => {
     const [form] = Form.useForm();
     const dispatch = useDispatch();
 

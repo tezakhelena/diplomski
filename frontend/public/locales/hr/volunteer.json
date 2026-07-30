@@ -41,7 +41,8 @@
             "confirmButton": "Potvrdi",
             "cancelButton": "Odustani",
             "confirmTitle": "Jeste li sigurni da želite nastaviti?"
-        }
+        },
+        "userBlocked": "Onemogućena Vam je ova akcija jer Vam je račun obustavljen."
     },
     "overview": {
         "page": {

@@ -1,15 +1,16 @@
-import { Button, Col, Flex, Image, Row, Space, Tag, Typography } from "antd";
+import { Alert, Button, Col, Flex, Image, Row, Space, Tag, Typography } from "antd";
 import { Heart, PawPrint, Plus, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import backgroundImage from "../../../assets/background1.jpg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
+import { AccountStatus } from "../../../enums/userEnums";
 
 export const HomeHero = () => {
     const navigate = useNavigate();
     const { t } = useTranslation('homePage');
-    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+    const { isAuthenticated, statusId } = useSelector((state: RootState) => state.auth);
 
     const navigateTo = () => {
         if (isAuthenticated) {
@@ -26,6 +27,10 @@ export const HomeHero = () => {
                     <Tag bordered={false} icon={<Heart size={20} />} color="purple">
                         {t("hero.tag")}
                     </Tag>
+
+                    {statusId == AccountStatus.Obustavljen &&
+                        <Alert type="error" description={t('racunObustavljen')} />
+                    }
 
                     <Typography.Title
                         level={1}

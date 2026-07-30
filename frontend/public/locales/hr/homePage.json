@@ -52,5 +52,6 @@
         "reviewsFetchTitle": "Neuspješan dohvat recenzija",
         "statsFetch": "Došlo je do pogreške prilikom dohvata statistike početne stranice.",
         "statsFetchTitle": "Neuspješan dohvat statistike"
-    }
+    },
+    "racunObustavljen": "Vaš račun je obustavljen te Vam je onemogućen pristup određenim akcijama. Razlog obustave možete vidjeti u odjeljku 'Obavijesti'."
 }

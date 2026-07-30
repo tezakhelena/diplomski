@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { GET_ADOPTION_REQUESTS, GET_ALL_ADOPTION_REQUESTS } from "../../../utils/constants";
+import { removeEmptyFilters } from "../../../utils/formatters";
 import { showErrorNotification } from "../../../utils/notificationUtils";
 import { AdoptionRequest } from "../types/request-types";
 import { AdoptionRequestDetailResponse, AdoptionRequestsResponse } from "../types/response-types";
-import { useMemo } from "react";
-import { removeEmptyFilters } from "../../../utils/formatters";
-import { useTranslation } from "react-i18next";
 
 interface UseAdoptionOptions {
     enabled?: boolean;
@@ -26,7 +26,7 @@ export const useAdoptionRequests = (
         ],
         queryFn: async (): Promise<AdoptionRequestsResponse[]> => {
             try {
-                const { data } = await axios.post<AdoptionRequestsResponse[]>(GET_ALL_ADOPTION_REQUESTS, params);
+                const { data } = await api.post<AdoptionRequestsResponse[]>(GET_ALL_ADOPTION_REQUESTS, params);
                 return data;
             } catch (error) {
                 showErrorNotification(
@@ -61,7 +61,7 @@ export const useAdoptionDetails = (
         queryKey: ["adoption-detail", adoptionId, userId],
         queryFn: async (): Promise<AdoptionRequestDetailResponse> => {
             try {
-                const { data } = await axios.get<AdoptionRequestDetailResponse>(
+                const { data } = await api.get<AdoptionRequestDetailResponse>(
                     `${GET_ADOPTION_REQUESTS}/${adoptionId}/${userId}`
                 );
                 return data;

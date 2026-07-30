@@ -7,6 +7,7 @@ import { removeEmptyFilters } from "../../../utils/formatters";
 import { showErrorNotification } from "../../../utils/notificationUtils";
 import { PetAdContactFilterRequest } from "../types/request-types";
 import { PetAdContactDetailResponse, PetAdContactResponse } from "../types/response-types";
+import { api } from "../../../utils/api";
 
 interface UseContactOptions { enabled?: boolean; }
 
@@ -17,7 +18,7 @@ export const usePetAdContacts = (params: Partial<PetAdContactFilterRequest>, opt
         queryKey: ["contacts", activeFilters],
         queryFn: async (): Promise<PetAdContactResponse[]> => {
             try {
-                const { data } = await axios.post<PetAdContactResponse[]>(PET_AD_CONTACTS, params);
+                const { data } = await api.post<PetAdContactResponse[]>(PET_AD_CONTACTS, params);
                 return data;
             } catch (error) {
                 showErrorNotification(t("notifications.error.fetchMessage"), error, t("notifications.error.fetchMessageDesc"));
@@ -36,7 +37,7 @@ export const usePetAdContactDetail = (contactId?: number, userId?: number, optio
         queryKey: ["contact-detail", contactId, userId],
         queryFn: async (): Promise<PetAdContactDetailResponse> => {
             try {
-                const { data } = await axios.get<PetAdContactDetailResponse>(`${PET_AD_CONTACTS}/${contactId}/${userId}`);
+                const { data } = await api.get<PetAdContactDetailResponse>(`${PET_AD_CONTACTS}/${contactId}/${userId}`);
                 return data;
             } catch (error) {
                 showErrorNotification(t("notifications.error.fetchDetail"), error, t("notifications.error.fetchDetailDesc"));

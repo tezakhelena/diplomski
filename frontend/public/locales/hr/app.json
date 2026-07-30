@@ -18,5 +18,6 @@
     "organizations": "Organizacije",
     "inquiries": "Pitanja i odgovori",
     "addAd": "Predaj oglas"
-  }
+  },
+  "racunObustavljen": "Ne možete pristupiti ovoj akciji jer Vam je račun obustavljen."
 }

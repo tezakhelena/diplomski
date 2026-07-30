@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { REPLY_TO_PET_AD_CONTACT, SEND_PET_AD_CONTACT } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 import { SendPetAdContactRequest } from "../types/request-types";
+import { api } from "../../../utils/api";
 
 type PetAdContactAction = "send" | "reply";
 
@@ -18,7 +19,7 @@ export const usePetAdContactMutations = (options?: MutationOptions) => {
     const mutation = useMutation({
         mutationFn: ({ action, request }: PetAdContactMutationRequest) => {
             const url = action === "send" ? SEND_PET_AD_CONTACT : REPLY_TO_PET_AD_CONTACT;
-            return axios.post(url, request);
+            return api.post(url, request);
         },
         onSuccess: (_, variables) => {
             const isSend = variables.action === "send";

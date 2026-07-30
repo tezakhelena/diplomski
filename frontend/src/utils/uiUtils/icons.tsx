@@ -1,4 +1,4 @@
-import { AlertTriangle, BellRing, Bird, Cat, CheckCircle, Dog, Eye, FileCheck, FileSignature, FileText, Flag, Handshake, HeartHandshake, Lock, MessageCircleMore, MessageCircleQuestion, MessageCircleWarning, MessageSquareText, PawPrint, Rabbit, ShieldAlert, UserCheck, UserCog, UserPlus, UserX } from "lucide-react";
+import { AlertTriangle, BellRing, Bird, Cat, CheckCircle, Dog, Eye, FileCheck, FileSignature, FileText, Flag, Handshake, HeartHandshake, Lock, Mail, MessageCircleMore, MessageCircleQuestion, MessageCircleWarning, MessageSquare, MessageSquareText, PawPrint, Rabbit, ShieldAlert, UserCheck, UserCog, UserPlus, UserX } from "lucide-react";
 import { PetType } from "../../enums/petEnums";
 import { NotificationType } from "../../enums/notificationEnums";
 import { AdoptionProcessStatus } from "../../enums/processEnums";
@@ -54,7 +54,19 @@ export const notificationIcon: Record<number, JSX.Element> = {
     [NotificationType.PotpisivanjeUzivo]: <FileSignature color={ICON_COLOR} />,
 
     [NotificationType.OdgovorNaUpit]: <MessageCircleQuestion color={ICON_COLOR} />,
-    [NotificationType.PoslanUpit]: <MessageSquareText color={ICON_COLOR} />
+    [NotificationType.PoslanUpit]: <MessageSquareText color={ICON_COLOR} />,
+
+    [NotificationType.PodnositeljPotpisao]: <FileSignature color={ICON_COLOR} />,
+    [NotificationType.NovaPoruka]: <Mail color={ICON_COLOR} />,
+    [NotificationType.OdgovorNaPoruku]: <MessageSquare color={ICON_COLOR} />,
+    [NotificationType.PrijavaZaVolontiranje]: <UserPlus color={ICON_COLOR} />,
+    [NotificationType.PrijavaOdobrena]: <CheckCircle color={ICON_COLOR} />,
+    [NotificationType.PrijavaOdbijena]: <UserX color={WARN_COLOR} />
+};
+
+export const getNotificationIconByTypeId = (typeId?: number) => {
+    if (typeId === undefined || typeId === null) return null;
+    return notificationIcon[typeId] ?? <BellRing color={ICON_COLOR} />;
 };
 
 export const adoptionProcessIcon: Record<number, JSX.Element> = {
@@ -63,11 +75,6 @@ export const adoptionProcessIcon: Record<number, JSX.Element> = {
     [AdoptionProcessStatus.UdomljavanjeOdobreno]: <Handshake color={PROCESS_ICON_COLOR} />,
     [AdoptionProcessStatus.PotpisivanjeUgovora]: <FileSignature color={PROCESS_ICON_COLOR} />,
     [AdoptionProcessStatus.ProcesZavrsen]: <UserCheck color={PROCESS_ICON_COLOR} />,
-};
-
-export const getNotificationIconByTypeId = (typeId?: number) => {
-    if (typeId === undefined || typeId === null) return null;
-    return notificationIcon[typeId] ?? <BellRing color={ICON_COLOR} />;
 };
 
 export const getAdoptionProcessIconByTypeId = (typeId?: number) => (typeId ? adoptionProcessIcon[typeId] : null);

@@ -211,8 +211,7 @@ public class AdoptionRequestServiceImpl implements AdoptionRequestService {
                 }
                 break;
 
-            case ADOPTION_FINISHED: // case 70
-                // Ako je proces završen, zatvaramo i oglas. Status oglasa postavljamo na RESOLVED (23) preko enuma
+            case ADOPTION_FINISHED:
                 if (adoptionRequest.getPetAd() != null) {
                     adoptionRequest.getPetAd().setStatusId(AttributeEnum.AD_RESOLVED.getCode());
                 }

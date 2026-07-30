@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-import { SEND_ADOPTION_REQUEST, CHANGE_ADOPTION_STATUS } from "../../../utils/constants";
-import { AdoptionSubmissionRequest, AdoptionChangeStatusRequest } from "../types/request-types";
-import { showSuccessNotification, showErrorNotification } from "../../../utils/notificationUtils";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
+import { CHANGE_ADOPTION_STATUS, SEND_ADOPTION_REQUEST } from "../../../utils/constants";
+import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
+import { AdoptionChangeStatusRequest, AdoptionSubmissionRequest } from "../types/request-types";
 
 interface MutationOptions {
     onSuccess?: () => void;
@@ -16,7 +16,7 @@ export const useAdoptionMutations = (options?: MutationOptions) => {
     const queryClient = useQueryClient();
 
     const sendRequestMutation = useMutation({
-        mutationFn: (request: AdoptionSubmissionRequest) => axios.post(SEND_ADOPTION_REQUEST, request),
+        mutationFn: (request: AdoptionSubmissionRequest) => api.post(SEND_ADOPTION_REQUEST, request),
         onSuccess: () => {
             showSuccessNotification(t('adoption.mutations.sendRequestMessage'), t('adoption.mutations.sendRequestSuccess'));
             queryClient.invalidateQueries({ queryKey: ["adoption-requests"] });
@@ -30,7 +30,7 @@ export const useAdoptionMutations = (options?: MutationOptions) => {
     });
 
     const changeStatusMutation = useMutation({
-        mutationFn: (request: Partial<AdoptionChangeStatusRequest>) => axios.post(CHANGE_ADOPTION_STATUS, request),
+        mutationFn: (request: Partial<AdoptionChangeStatusRequest>) => api.post(CHANGE_ADOPTION_STATUS, request),
         onSuccess: () => {
             showSuccessNotification(t('adoption.mutations.changeStatus'), t('adoption.mutations.changeStatusSuccess'));
             queryClient.invalidateQueries({ queryKey: ["adoption-requests"] });

@@ -1,5 +1,5 @@
 import { MenuOutlined } from "@ant-design/icons";
-import { Button, Drawer, Menu } from "antd";
+import { Button, Drawer, Menu, Tooltip } from "antd";
 import { Dog, House, PawPrint, Plus, ShieldAlert, UsersRound } from "lucide-react";
 import { memo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import useKorisnik from "../../../hooks/useKorisnik";
 import { resetForm } from "../../../redux/slices/oglasiSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 import style from "../style/AppLayout.module.css";
+import { AccountStatus } from "../../../enums/userEnums";
 
 export const AppSider = memo(() => {
     const { t } = useTranslation('app');
@@ -24,46 +25,46 @@ export const AppSider = memo(() => {
 
     const menuItems = (
         <>
-            <Menu.Item key="naslovnica" icon={<House size={18} />}>
+            <Menu.Item disabled={trebaDovrsitiProfil()} key="naslovnica" icon={<House size={18} />}>
                 <Link to="/" onClick={closeDrawer}>{t("sider.home")}</Link>
             </Menu.Item>
 
             {isAdmin() && (
-                <Menu.Item key="korisnici" icon={<UsersRound size={18} />}>
+                <Menu.Item disabled={trebaDovrsitiProfil()} key="korisnici" icon={<UsersRound size={18} />}>
                     <Link to="/korisnici" onClick={closeDrawer}>{t("sider.users")}</Link>
                 </Menu.Item>
             )}
 
-            {trebaDovrsitiProfil() && (
-                <Menu.Item key="oglasi" icon={<PawPrint size={18} />}>
-                    <Link to="/oglasi" onClick={closeDrawer}>{t("sider.ads")}</Link>
-                </Menu.Item>
-            )}
+            <Menu.Item key="oglasi" disabled={trebaDovrsitiProfil()} icon={<PawPrint size={18} />}>
+                <Link to="/oglasi" onClick={closeDrawer}>{t("sider.ads")}</Link>
+            </Menu.Item>
 
             {auth.isAuthenticated && isAdmin() && (
-                <Menu.Item key="nadzor" icon={<ShieldAlert size={18} />}>
+                <Menu.Item key="nadzor" disabled={trebaDovrsitiProfil()} icon={<ShieldAlert size={18} />}>
                     <Link to="/nadzor" onClick={closeDrawer}>{t("sider.admin")}</Link>
                 </Menu.Item>
             )}
 
             {auth.isAuthenticated && (
-                <Menu.Item key="poduzeca" icon={<Dog size={18} />}>
+                <Menu.Item key="poduzeca" disabled={trebaDovrsitiProfil()} icon={<Dog size={18} />}>
                     <Link to="/organizacije" onClick={closeDrawer}>{t("sider.organizations")}</Link>
                 </Menu.Item>
             )}
 
             {auth.isAuthenticated && (
-                <Menu.Item key="upiti" icon={<ShieldAlert size={18} />}>
+                <Menu.Item key="upiti" disabled={trebaDovrsitiProfil()} icon={<ShieldAlert size={18} />}>
                     <Link to="/upiti" onClick={closeDrawer}>{t("sider.inquiries")}</Link>
                 </Menu.Item>
             )}
 
-            {trebaDovrsitiProfil() && auth.isAuthenticated && !isAdmin() && (
-                <Menu.Item key="predajOglas" className={style.authMenuItem}>
+            {(auth.isAuthenticated && !isAdmin()) && (
+                <Menu.Item key="predajOglas" disabled={trebaDovrsitiProfil()} className={style.authMenuItem}>
                     <Link to="/oglasi/dodaj" onClick={() => { dispatch(resetForm()); closeDrawer(); }}>
-                        <Button className={style.loginButton} icon={<Plus size={17} />}>
-                            {t("sider.addAd")}
-                        </Button>
+                        <Tooltip title={auth.statusId == AccountStatus.Obustavljen ? t('racunObustavljen') : ""}>
+                            <Button className={style.loginButton} disabled={auth.statusId == AccountStatus.Obustavljen} icon={<Plus size={17} />}>
+                                {t("sider.addAd")}
+                            </Button>
+                        </Tooltip>
                     </Link>
                 </Menu.Item>
             )}
@@ -74,7 +75,7 @@ export const AppSider = memo(() => {
         <>
             {isMobile ? (
                 <div className={style.mobileNavigation}>
-                    <Button type="text" icon={<MenuOutlined />} onClick={() => setDrawerVisible(true)} className={style.mobileMenuButton} />
+                    <Button disabled={trebaDovrsitiProfil()} type="text" icon={<MenuOutlined />} onClick={() => setDrawerVisible(true)} className={style.mobileMenuButton} />
                 </div>
             ) : (
                 <Menu mode="horizontal" className={style.sider}>

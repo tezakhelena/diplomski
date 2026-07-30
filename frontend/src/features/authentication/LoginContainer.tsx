@@ -18,7 +18,8 @@ export const LoginContainer = () => {
                 roleId: data.roleId, firstName: data.firstName, lastName: data.lastName,
                 profilePictureUrl: data.profilePictureUrl, privateUser: data.privateUser,
                 contactVisible: data.contactVisible,
-                businessTypeId: data.businessTypeId
+                businessTypeId: data.businessTypeId,
+                statusId: data.statusId
             }));
 
             data.preferences.forEach((p: any) => dispatch(setPreference({ tip: p.tip, receive: p.receiveNotification })));

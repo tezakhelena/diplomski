@@ -204,7 +204,8 @@
                     "resolved": "Ovaj oglas se ne može blokirati jer je već riješen.",
                     "inProgress": "Ovaj oglas se ne može blokirati jer je u procesu udomljavanja.",
                     "blocked": "Ovaj oglas je već blokiran."
-                }
+                },
+                "userBlocked": "Onemogućena Vam je ova akcija jer Vam je račun obustavljen."
             },
             "modals": {
                 "report": {

@@ -35,7 +35,7 @@ export const UserForm = ({
     const korisnik = useKorisnik();
     const auth = useSelector((state: RootState) => state.auth);
 
-    const disabled = initialValues?.userId !== auth.userId;
+    const disabled = initialValues ? (initialValues?.userId !== auth.userId) : false;
     return (
         <AppForm
             form={form}

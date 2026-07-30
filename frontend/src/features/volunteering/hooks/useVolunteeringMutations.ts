@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { CHANGE_APPLICATION_STATUS, SEND_APPLICATION } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 import { VolunteerApplicationRequest } from "../types/request-types";
@@ -25,10 +25,10 @@ export const useVolunteeringMutations = () => {
     const volunteeringMutation = useMutation({
         mutationFn: (variables: VolunteeringMutationVariables) => {
             if (variables.action === "sendApplication") {
-                return axios.post(SEND_APPLICATION, variables.request);
+                return api.post(SEND_APPLICATION, variables.request);
             }
 
-            return axios.post(CHANGE_APPLICATION_STATUS, {
+            return api.post(CHANGE_APPLICATION_STATUS, {
                 volunteeringId: variables.volunteeringId,
                 statusId: variables.statusId,
             });

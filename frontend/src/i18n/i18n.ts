@@ -9,7 +9,7 @@ i18n
     lng: 'hr',
     fallbackLng: 'hr',
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json', // {{ns}} će biti ime fajla
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     interpolation: { escapeValue: false }
   });

@@ -12,24 +12,24 @@ export const UserAdsStatsCard = ({ userId }: { userId: number }) => {
 
     return (
         <QuickStatsCard
-            title={t("details.adsStats.title")}
+            title={t("ads.statistics.title")}
             items={[
                 {
                     icon: <FileText size={24} />,
-                    title: t("details.adsStats.totalAds.title"),
-                    description: t("details.adsStats.totalAds.description"),
+                    title: t("ads.statistics.totalAds.title"),
+                    description: t("ads.statistics.totalAds.description"),
                     value: data.length,
                 },
                 {
                     icon: <Search size={24} />,
-                    title: t("details.adsStats.activeAds.title"),
-                    description: t("details.adsStats.activeAds.description"),
+                    title: t("ads.statistics.activeAds.title"),
+                    description: t("ads.statistics.activeAds.description"),
                     value: activeAds,
                 },
                 {
                     icon: <Eye size={24} />,
-                    title: t("details.adsStats.totalViews.title"),
-                    description: t("details.adsStats.totalViews.description"),
+                    title: t("ads.statistics.totalViews.title"),
+                    description: t("ads.statistics.totalViews.description"),
                     value: totalViews,
                 },
             ]}

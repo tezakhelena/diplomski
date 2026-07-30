@@ -65,9 +65,7 @@ const AdoptionRequestContainer = lazy(() =>
     )
 );
 
-const PdfSigner = lazy(() =>
-    import("../features/contracts/components/PdfSign")
-);
+const PdfSigner = lazy(() => import("../features/contracts/components/PdfSign"));
 
 const VolunteerApplicationContainer = lazy(() =>
     import("../features/volunteering/VolunteerApplicationContainer").then(

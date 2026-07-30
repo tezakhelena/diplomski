@@ -46,7 +46,8 @@
       "signContract": "Potpisivanje ugovora",
       "finishProcess": "Završi proces",
       "cancelRequest": "Otkaži zahtjev",
-      "adopted": "Udomljeno"
+      "adopted": "Udomljeno",
+      "userBlocked": "Onemogućena Vam je ova akcija jer Vam je račun obustavljen."
     },
     "modal": {
       "title": "Promjena statusa",

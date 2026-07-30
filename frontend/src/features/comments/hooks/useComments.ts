@@ -1,10 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { COMMENTS } from "../../../utils/constants";
 import { showErrorNotification } from "../../../utils/notificationUtils";
 import { AddCommentRequest } from "../types/request-types";
 import { CommentResponse } from "../types/response-types";
+import { api } from "../../../utils/api";
 
 export const useComments = (petAdId?: number) => {
     const { t } = useTranslation('comments');
@@ -13,7 +13,7 @@ export const useComments = (petAdId?: number) => {
         queryKey: ["komentari", petAdId],
         queryFn: async (): Promise<CommentResponse[]> => {
             try {
-                const response = await axios.get<CommentResponse[]>(`${COMMENTS}/${petAdId}`);
+                const response = await api.get<CommentResponse[]>(`${COMMENTS}/${petAdId}`);
                 return response.data;
             } catch (error) {
                 showErrorNotification(t("notifications.fetchError.title"), error, t("notifications.fetchError.message"));
@@ -36,7 +36,7 @@ export const useCommentMutations = (petAdId?: number) => {
     const queryClient = useQueryClient();
 
     const addCommentMutation = useMutation({
-        mutationFn: (request: Partial<AddCommentRequest>) => axios.post(COMMENTS, request),
+        mutationFn: (request: Partial<AddCommentRequest>) => api.post(COMMENTS, request),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["komentari", petAdId] });
         },

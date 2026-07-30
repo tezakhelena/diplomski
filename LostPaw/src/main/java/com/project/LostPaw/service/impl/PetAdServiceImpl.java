@@ -91,8 +91,7 @@ public class PetAdServiceImpl implements PetAdService {
         petAd.setCategoryId(request.getCategoryId());
         petAd.setUserId(request.getUserId());
         petAd.setCreatedAt(LocalDate.now());
-        petAd.setExpirationDate(LocalDate.now().plusDays(30));
-        petAd.setStatusId(21L); // Active status
+        petAd.setStatusId(21L);
         petAd.setCountyId(request.getCountyId());
         petAd.setCity(request.getCity());
         petAd.setNotes(request.getNotes());

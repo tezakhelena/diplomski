@@ -5,8 +5,12 @@ import com.project.LostPaw.dto.request.VolunteerApplicationRequest;
 import com.project.LostPaw.dto.response.VolunteerApplicationDetailsResponse;
 import com.project.LostPaw.dto.response.VolunteerRequestsResponse;
 import com.project.LostPaw.entity.Volunteer;
+import com.project.LostPaw.enumeration.AttributeEnum;
+import com.project.LostPaw.enumeration.NotificationStatus;
+import com.project.LostPaw.enumeration.NotificationType;
 import com.project.LostPaw.projections.VolunteerApplicationProjection;
 import com.project.LostPaw.repository.VolunteeringRepository;
+import com.project.LostPaw.service.UserHistoryService;
 import com.project.LostPaw.service.VolunteeringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,9 @@ import java.util.stream.Collectors;
 public class VolunteeringServiceImpl implements VolunteeringService {
     @Autowired
     VolunteeringRepository volunteeringRepository;
+
+    @Autowired
+    UserHistoryService userHistoryService;
 
     @Override
     public List<VolunteerRequestsResponse> getVolunteerApplications(AdoptionFilterRequest request) {
@@ -44,9 +51,18 @@ public class VolunteeringServiceImpl implements VolunteeringService {
         volunteer.setOrganizationId(request.getOrganizationId());
         volunteer.setVolunteerType(request.getVolunteerType());
         volunteer.setExperience(request.getExperience());
-        volunteer.setStatusId(71L); // Početni status iz baze
+        volunteer.setStatusId(AttributeEnum.VOLUNTEER_SUBMITTED.getCode());
 
         volunteeringRepository.saveAndFlush(volunteer);
+
+        userHistoryService.addUserHistoryForOrganization(
+                NotificationType.PRIJAVA_ZA_VOLONTIRANJE.getSadrzaj(),
+                request.getOrganizationId(),
+                NotificationType.PRIJAVA_ZA_VOLONTIRANJE.getCode(),
+                NotificationType.PRIJAVA_ZA_VOLONTIRANJE.getNotification(),
+                NotificationStatus.NOTIFICATION_UNREAD.getCode()
+        );
+
         return true;
     }
 
@@ -58,6 +74,24 @@ public class VolunteeringServiceImpl implements VolunteeringService {
         volunteer.setStatusId(statusId);
 
         volunteeringRepository.saveAndFlush(volunteer);
+
+        if(statusId.equals(AttributeEnum.VOLUNTEER_ACCEPTED.getCode())) {
+            userHistoryService.addUserHistoryForOrganization(
+                    NotificationType.PRIJAVA_ODOBRENA.getSadrzaj(),
+                    volunteer.getApplicantId(),
+                    NotificationType.PRIJAVA_ODOBRENA.getCode(),
+                    NotificationType.PRIJAVA_ODOBRENA.getNotification(),
+                    NotificationStatus.NOTIFICATION_UNREAD.getCode()
+            );
+        } else {
+            userHistoryService.addUserHistoryForOrganization(
+                    NotificationType.PRIJAVA_ODBIJENA.getSadrzaj(),
+                    volunteer.getApplicantId(),
+                    NotificationType.PRIJAVA_ODBIJENA.getCode(),
+                    NotificationType.PRIJAVA_ODBIJENA.getNotification(),
+                    NotificationStatus.NOTIFICATION_UNREAD.getCode()
+            );
+        }
         return true;
     }
 
@@ -75,7 +109,7 @@ public class VolunteeringServiceImpl implements VolunteeringService {
         response.setVolunteerType(volunteer.getVolunteerType());
         response.setExperience(volunteer.getExperience());
         response.setStatusId(volunteer.getStatusId());
-        response.setStatus(volunteer.getStatus().getValue()); // Koristi 'getValue()' jer Attribute ima polje 'value'
+        response.setStatus(volunteer.getStatus().getValue());
 
         return response;
     }

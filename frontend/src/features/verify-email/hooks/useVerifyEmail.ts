@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { api } from "../../../utils/api";
 import { VERIFICIRAJ_MAIL } from "../../../utils/constants";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notificationUtils";
 
@@ -14,7 +14,7 @@ export const useVerifyEmail = (options?: VerifyEmailOptions) => {
 
     const verifyEmailMutation = useMutation({
         mutationFn: async (token: string) => {
-            const response = await axios.get(VERIFICIRAJ_MAIL, {
+            const response = await api.get(VERIFICIRAJ_MAIL, {
                 params: { token },
             });
 
