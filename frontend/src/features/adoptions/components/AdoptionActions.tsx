@@ -20,6 +20,7 @@ export const AdoptionActions = ({ adoptionId, currentStatusId, podnositeljId, og
     const { t } = useTranslation('adoption');
     const { userId, statusId } = useSelector((state: RootState) => state.auth);
     const [modal, setModal] = useState({ visible: false, statusId: 0 });
+    const userBlocked = statusId === AccountStatus.Obustavljen;
 
     const isOwner = userId === oglasivacId;
     const isApplicant = userId === podnositeljId;
@@ -51,7 +52,7 @@ export const AdoptionActions = ({ adoptionId, currentStatusId, podnositeljId, og
     return (
         <Space wrap>
             {isOwner && ACTIONS[currentStatusId]?.map(a => (
-                <Tooltip title={t('adoption.actions.userBlocked')}>
+                <Tooltip title={userBlocked ? t('adoption.actions.userBlocked') : undefined}>
                     <Button key={a.id} disabled={statusId == AccountStatus.Obustavljen} type={a.color === "primary" ? "primary" : "default"} danger={a.color === "danger"} onClick={() => setModal({ visible: true, statusId: a.id })}>
                         {a.label}
                     </Button>

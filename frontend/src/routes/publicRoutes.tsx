@@ -2,30 +2,18 @@ import { lazy } from "react";
 import { Loadable } from "./Loadable";
 import { RouteObjectWithBreadcrumb } from "./routeTypes";
 
-const HomePageContainer = lazy(() =>
-    import("../features/home-page/HomePageContainer").then((module) => ({
-        default: module.HomePageContainer,
-    }))
-);
+import { HomePageContainer } from "../features/home-page/HomePageContainer";
+import { ChooseSubjectUserContainer } from "../features/authentication/ChooseSubjectUserContainer";
+import { RegistrationContainer } from "../features/authentication/RegistrationContainer";
+import { VerifyEmailContainer } from "../features/verify-email/VerifyEmailContainer";
+import { LoginContainer } from "../features/authentication/LoginContainer";
+import { PetAdContainer } from "../features/pet-ads/PetAdContainer";
+import { BusinessUsersContainer } from "../features/business-users/BusinessUsersContainer";
+import { AdDetailsContainer } from "../features/pet-ads/AdDetailsContainer";
+import { PravilaPlatformeContainer } from "../features/pravila-platforme/PravilaPlatformeContainer";
 
 const Authentication = lazy(() =>
     import("../features/authentication/components/Authentication")
-);
-
-const ChooseSubjectUserContainer = lazy(() =>
-    import("../features/authentication/ChooseSubjectUserContainer").then(
-        (module) => ({
-            default: module.ChooseSubjectUserContainer,
-        })
-    )
-);
-
-const RegistrationContainer = lazy(() =>
-    import("../features/authentication/RegistrationContainer").then(
-        (module) => ({
-            default: module.RegistrationContainer,
-        })
-    )
 );
 
 const UserDetailsContainer = lazy(() =>
@@ -34,50 +22,10 @@ const UserDetailsContainer = lazy(() =>
     }))
 );
 
-const VerifyEmailContainer = lazy(() =>
-    import("../features/verify-email/VerifyEmailContainer").then((module) => ({
-        default: module.VerifyEmailContainer,
-    }))
-);
-
-const LoginContainer = lazy(() =>
-    import("../features/authentication/LoginContainer").then((module) => ({
-        default: module.LoginContainer,
-    }))
-);
-
-const PetAdContainer = lazy(() =>
-    import("../features/pet-ads/PetAdContainer").then((module) => ({
-        default: module.PetAdContainer,
-    }))
-);
-
-const BusinessUsersContainer = lazy(() =>
-    import("../features/business-users/BusinessUsersContainer").then(
-        (module) => ({
-            default: module.BusinessUsersContainer,
-        })
-    )
-);
-
-const AdDetailsContainer = lazy(() =>
-    import("../features/pet-ads/AdDetailsContainer").then((module) => ({
-        default: module.AdDetailsContainer,
-    }))
-);
-
-const PravilaPlatformeContainer = lazy(() =>
-    import("../features/pravila-platforme/PravilaPlatformeContainer").then(
-        (module) => ({
-            default: module.PravilaPlatformeContainer,
-        })
-    )
-);
-
 export const publicRoutes: RouteObjectWithBreadcrumb[] = [
     {
         index: true,
-        element: Loadable(HomePageContainer),
+        element: <HomePageContainer />,
         breadcrumb: "Naslovnica",
     },
     {
@@ -86,28 +34,28 @@ export const publicRoutes: RouteObjectWithBreadcrumb[] = [
     },
     {
         path: "registracija/odabir",
-        element: Loadable(ChooseSubjectUserContainer),
+        element: <ChooseSubjectUserContainer />,
     },
     {
         path: "registracija",
-        element: Loadable(RegistrationContainer),
+        element: <RegistrationContainer />,
     },
     {
         path: "verify-email",
-        element: Loadable(VerifyEmailContainer),
+        element: <VerifyEmailContainer />,
     },
     {
         path: "prijava",
-        element: Loadable(LoginContainer),
+        element: <LoginContainer />,
     },
     {
         path: "oglasi",
-        element: Loadable(PetAdContainer),
+        element: <PetAdContainer />,
         breadcrumb: "Oglasi",
     },
     {
         path: "oglasi/detalji",
-        element: Loadable(AdDetailsContainer),
+        element: <AdDetailsContainer />,
         breadcrumb: "Detalji oglasa",
     },
     {
@@ -117,12 +65,12 @@ export const publicRoutes: RouteObjectWithBreadcrumb[] = [
     },
     {
         path: "organizacije",
-        element: Loadable(BusinessUsersContainer),
+        element: <BusinessUsersContainer />,
         breadcrumb: "Organizacije",
     },
     {
         path: "uvjeti",
-        element: Loadable(PravilaPlatformeContainer),
+        element: <PravilaPlatformeContainer />,
         breadcrumb: "Uvjeti platforme",
     },
 ];

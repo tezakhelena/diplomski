@@ -1,10 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+
   define: {
     global: "globalThis",
   },
-})
+
+  optimizeDeps: {
+    entries: ["index.html"],
+  },
+
+  server: {
+    watch: {
+      ignored: [
+        "**/public/WebViewer/doc/**",
+        "**/public/WebViewer/samples/**",
+      ],
+    },
+  },
+});

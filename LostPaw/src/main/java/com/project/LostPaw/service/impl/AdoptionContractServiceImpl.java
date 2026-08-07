@@ -98,6 +98,12 @@ public class AdoptionContractServiceImpl implements AdoptionContractService {
             if (adoptionRequest.getPetAd() != null) {
                 adoptionRequest.getPetAd().setStatusId(AttributeEnum.AD_RESOLVED.getCode());
             }
+
+            userHistoryService.addUserHistoryForUser(
+                    NotificationType.ZAVRSEN_PROCES.getSadrzaj(), adoptionRequest.getUserId(),
+                    NotificationType.ZAVRSEN_PROCES.getCode(), NotificationType.ZAVRSEN_PROCES.getNotification(),
+                    NotificationStatus.NOTIFICATION_UNREAD.getCode(), adoptionRequest.getPetAdId()
+            );
         } else {
             throw new IllegalStateException("Ugovor je već u potpunosti potpisan.");
         }

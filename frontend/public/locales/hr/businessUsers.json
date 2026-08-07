@@ -1,4 +1,6 @@
 {
+  "volunteer": "Volontiraj",
+  "volunteerDisabled": "Prijava za volontiranje nije dostupna jer je račun organizacije obustavljen.",
   "title": "Organizacije",
   "description": "Pronađite udruge, azile, veterinarske stanice i druge pravne osobe.",
   "stats": {

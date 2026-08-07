@@ -132,9 +132,6 @@
     width: 100%;
 }
 
-.searchInput {
-    flex: 1;
-}
 .sortSelect {
     min-width: 190px;
 }
@@ -163,4 +160,17 @@
     .sortSelect {
         width: 100%;
     }
+}
+
+.searchInput :global(.ant-input-search-button) {
+    background-color: #6c5cff !important;
+    border-color: #6c5cff !important;
+    color: white !important;
+    flex: 1;
+}
+
+.searchInput :global(.ant-input-search-button:hover) {
+    background-color: #5b4be0 !important;
+    border-color: #5b4be0 !important;
+    flex: 1;
 }

@@ -60,7 +60,7 @@ public class PetAdContactServiceImpl implements PetAdContactService {
         petAdContact.setCreatedAt(LocalDateTime.now());
 
         PetAd petAd = petAdRepository.findById(request.getPetAdId()).orElseThrow();
-        User user = userRepository.findById(request.getReceiverId()).orElseThrow();
+        User user = userRepository.findById(request.getSenderId()).orElseThrow();
          
         petAdContactRepository.saveAndFlush(petAdContact);
 
@@ -83,7 +83,7 @@ public class PetAdContactServiceImpl implements PetAdContactService {
         petAdContact.setRepliedAt(LocalDateTime.now());
 
         PetAd petAd = petAdRepository.findById(petAdContact.getPetAdId()).orElseThrow();
-        User user = userRepository.findById(petAdContact.getSenderId()).orElseThrow();
+        User user = userRepository.findById(petAdContact.getReceiverId()).orElseThrow();
 
         petAdContactRepository.saveAndFlush(petAdContact);
 

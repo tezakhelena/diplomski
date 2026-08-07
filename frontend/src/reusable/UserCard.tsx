@@ -1,5 +1,5 @@
 import { UserOutlined } from "@ant-design/icons";
-import { Avatar, Button, Card, Empty, Flex, Space, Tag, Typography } from "antd";
+import { Avatar, Button, Card, Empty, Flex, Space, Tag, Tooltip, Typography } from "antd";
 import { Globe, Mail, Phone, User, UserCircle, UserRound } from "lucide-react";
 import type { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,7 +10,8 @@ import { SectionTitle } from "./two-column-page/SectionTitle";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { getImage } from "../utils/urlUtils";
-import { BusinessType } from "../enums/userEnums";
+import { AccountStatus, BusinessType } from "../enums/userEnums";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     userId?: number;
@@ -41,7 +42,8 @@ export const UserCard = ({
     const location = useLocation();
     const korisnik = useKorisnik();
     const { userDetails: user } = useUserDetails(userId);
-    const { userId: currentUserId } = useSelector((state: RootState) => state.auth)
+    const { userId: currentUserId } = useSelector((state: RootState) => state.auth);
+    const { t } = useTranslation('businessUsers');
 
     if (!userId) {
         return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Korisnik nije dostupan." />;
@@ -57,6 +59,8 @@ export const UserCard = ({
     const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ") || user.username;
     const displayedUserType = isBusinessUser ? user.businessUserType : user.role;
     const canViewContactInfo = isBusinessUser || user.contactVisible === true || korisnik.isAdmin();
+
+    const isSuspended = user.statusId === AccountStatus.Obustavljen;
 
     const canVolunteer = isShelter && isNotSelf && showVolunteerButton && !korisnik.isAdmin();
 
@@ -142,7 +146,25 @@ export const UserCard = ({
                 {navigateTo && !hideProfileButton && (
                     <Space direction="vertical" size={10} className="app-full">
                         <Button block icon={<User size={17} />} onClick={openProfile}>Pogledaj profil</Button>
-                        {canVolunteer && <Button block type="primary" onClick={openVolunteer}>Volontiraj</Button>}
+                        {canVolunteer && (
+                            <Tooltip
+                                title={
+                                    isSuspended
+                                        ? t('volunteerDisabled')
+                                        : undefined
+                                }
+                            >
+                                <Button
+                                    block
+                                    type="primary"
+                                    onClick={openVolunteer}
+                                    disabled={isSuspended}
+                                >
+                                    {t('volunteer')}
+                                </Button>
+                            </Tooltip>
+                        )}
+
                     </Space>
                 )}
             </Space>

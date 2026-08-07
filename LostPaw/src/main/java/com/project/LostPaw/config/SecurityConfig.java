@@ -51,7 +51,8 @@ public class SecurityConfig {
                                 "/api/application/**",
                                 "/api/attribute/**",
                                 "/api/users/*",
-                                "/api/comments/*"
+                                "/api/comments/*",
+                                "/api/application/*"
                         ).permitAll()
                         // Javno dostupne slike i dokumenti
                         .requestMatchers(
